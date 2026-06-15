@@ -6,8 +6,16 @@
 <title>Now/Here Studio</title>
 <link rel="icon" href="logo.png" type="image/png" />
 <link rel="apple-touch-icon" href="logo.png" />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('fonts/Satoshi-Black.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --white: #F5F2EC;
     --black: #0F0F0F;
@@ -25,6 +33,7 @@
     background: var(--white);
     color: var(--black);
     font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
     font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -40,15 +49,16 @@
   }
 
   .logo {
-    width: 200px;
+    width: 230px;
     height: auto;
     margin-bottom: 40px;
     display: block;
   }
 
   .hero-headline {
+    font-family: 'Satoshi', sans-serif;
     font-size: clamp(32px, 5vw, 56px);
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.1;
     max-width: 700px;
@@ -187,8 +197,9 @@
   }
 
   .contact-headline {
+    font-family: 'Satoshi', sans-serif;
     font-size: clamp(24px, 3vw, 36px);
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.2;
     margin-bottom: 12px;
@@ -282,7 +293,7 @@
 
   /* ── MOBILE ── */
   @media (max-width: 640px) {
-    .logo { width: 140px; }
+    .logo { width: 155px; }
     .products-grid { grid-template-columns: 1fr; }
     .divider { margin: 0 24px; }
     .hero { padding: 64px 24px 16px; }
@@ -319,12 +330,12 @@
   <div class="products-label" style="margin-top: 48px;">We don't just consult. We build.</div>
   <div class="products-grid">
     <a href="https://goalongside.co" class="product-card" target="_blank">
-      <div style="font-size: 22px; font-weight: 800; color: #1B4FD8; letter-spacing: -0.02em;">ALONGSIDE</div>
+      <div style="font-size: 22px; font-weight: 700; color: #1B4FD8; letter-spacing: -0.02em;">ALONGSIDE</div>
       <p class="product-desc">Where independent travelers find group trips worth joining. Built because group travel discovery was completely broken.</p>
       <div class="product-link">Visit Alongside →</div>
     </a>
     <a href="https://fable42.com" class="product-card" target="_blank">
-      <div style="font-size: 22px; font-weight: 800; color: #5D231D; letter-spacing: -0.02em;">FABLE+42</div>
+      <div style="font-size: 22px; font-weight: 700; color: #5D231D; letter-spacing: -0.02em;">FABLE+42</div>
       <p class="product-desc">The home for independent fine jewelry designers. Built because the existing options weren't good enough.</p>
       <div class="product-link">Visit Fable+42 →</div>
     </a>
