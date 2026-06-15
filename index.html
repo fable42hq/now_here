@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Now/Here Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #F5F2EC;
+    --black: #0F0F0F;
+    --teal: #2E6B6B;
+    --gold: #998731;
+    --muted: rgba(15,15,15,0.45);
+    --border: rgba(15,15,15,0.1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 32px 64px;
+    min-height: 100vh;
+  }
+
+  .logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 48px;
+    display: block;
+  }
+
+  .hero-headline {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    max-width: 700px;
+    margin-bottom: 20px;
+    color: var(--black);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--muted);
+    max-width: 480px;
+    line-height: 1.65;
+    margin-bottom: 40px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--gold);
+    padding: 14px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn:hover { opacity: 0.85; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 32px;
+  }
+
+  /* ── WHAT WE DO ── */
+  .what {
+    padding: 64px 32px;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+  }
+
+  .what-text {
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+    color: var(--black);
+  }
+
+  .what-text .dim {
+    color: var(--muted);
+  }
+
+  /* ── PRODUCTS ── */
+  .products {
+    padding: 0 32px 64px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .products-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .product-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.2s;
+    background: rgba(255,255,255,0.5);
+  }
+
+  .product-card:hover { border-color: var(--teal); }
+
+  .product-logo {
+    height: 40px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: 4px;
+  }
+
+  .product-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .product-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-top: 8px;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    padding: 64px 32px;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-headline {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .contact-sub {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .form input,
+  .form textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--black);
+    background: rgba(255,255,255,0.7);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .form input:focus,
+  .form textarea:focus {
+    border-color: var(--teal);
+  }
+
+  .form input::placeholder,
+  .form textarea::placeholder {
+    color: rgba(15,15,15,0.3);
+  }
+
+  .form textarea { min-height: 140px; }
+
+  .form-btn {
+    align-self: center;
+    margin-top: 8px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 28px 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-mark {
+    width: 48px;
+    height: auto;
+    opacity: 0.2;
+    display: block;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(15,15,15,0.2);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 640px) {
+    .logo { width: 96px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .divider { margin: 0 24px; }
+    .hero { padding: 60px 24px 48px; }
+    .what { padding: 48px 24px; }
+    .products { padding: 0 24px 48px; }
+    .contact { padding: 48px 24px; }
+    footer { padding: 24px; flex-direction: column; gap: 8px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="logo" src="logo.png" alt="Now/Here Studio" />
+  <h1 class="hero-headline">Now/Here is where broken systems get rebuilt.</h1>
+  <p class="hero-sub">We find what's broken, figure out why, and build what should have existed already.</p>
+  <a href="#contact" class="btn">Work with us →</a>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT WE DO -->
+<section class="what">
+  <div class="section-label">What we do</div>
+  <p class="what-text">Most broken systems aren't missing technology. <span class="dim">They're missing someone willing to look at them honestly and build the right thing. That's what Now/Here does.</span></p>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <div class="products-label" style="margin-top: 48px;">We don't just consult. We build.</div>
+  <div class="products-grid">
+    <a href="https://goalongside.co" class="product-card" target="_blank">
+      <div style="font-size: 22px; font-weight: 800; color: #1B4FD8; letter-spacing: -0.02em;">ALONGSIDE</div>
+      <p class="product-desc">Where independent travelers find group trips worth joining. Built because group travel discovery was completely broken.</p>
+      <div class="product-link">Visit Alongside →</div>
+    </a>
+    <a href="https://fable42.com" class="product-card" target="_blank">
+      <div style="font-size: 22px; font-weight: 800; color: #5D231D; letter-spacing: -0.02em;">FABLE+42</div>
+      <p class="product-desc">The home for independent fine jewelry designers. Built because the existing options weren't good enough.</p>
+      <div class="product-link">Visit Fable+42 →</div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2 class="contact-headline">You have a system that should work but doesn't.</h2>
+  <p class="contact-sub">We've built the fix before. Tell us what's broken.</p>
+  <form class="form" action="https://formsubmit.co/nowherestudio.co@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Now/Here Studio inquiry" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="text" name="name" placeholder="Name" required/>
+    <input type="email" name="email" placeholder="Email" required/>
+    <textarea name="message" placeholder="Tell me what's broken"></textarea>
+    <button type="submit" class="btn form-btn">Let's connect →</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img class="footer-mark" src="logo.png" alt="" aria-hidden="true" />
+  <div class="footer-copy">© 2026 Now/Here Studio</div>
+</footer>
+
+</body>
+</html>
