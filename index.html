@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Now/Here Studio</title>
+<link rel="icon" href="logo.png" type="image/png" />
+<link rel="apple-touch-icon" href="logo.png" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -261,6 +263,25 @@
     color: rgba(15,15,15,0.2);
   }
 
+  .footer-end {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .footer-email {
+    display: flex;
+    color: var(--teal);
+    transition: opacity 0.2s;
+  }
+
+  .footer-email:hover { opacity: 0.7; }
+
+  .footer-email svg {
+    width: 18px;
+    height: 18px;
+  }
+
   /* ── MOBILE ── */
   @media (max-width: 640px) {
     .logo { width: 96px; }
@@ -270,7 +291,8 @@
     .what { padding: 48px 24px; }
     .products { padding: 0 24px 48px; }
     .contact { padding: 48px 24px; }
-    footer { padding: 24px; flex-direction: column; gap: 8px; align-items: flex-start; }
+    footer { padding: 24px; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .footer-end { flex-direction: column; align-items: flex-start; gap: 10px; }
   }
 </style>
 </head>
@@ -330,7 +352,15 @@
 <!-- FOOTER -->
 <footer>
   <img class="footer-mark" src="logo.png" alt="" aria-hidden="true" />
-  <div class="footer-copy">© 2026 Now/Here Studio</div>
+  <div class="footer-end">
+    <a href="mailto:nowherestudio.co@gmail.com" class="footer-email" aria-label="Email Now/Here Studio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+    </a>
+    <div class="footer-copy">© 2026 Now/Here Studio</div>
+  </div>
 </footer>
 
 </body>
