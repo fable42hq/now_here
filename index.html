@@ -317,63 +317,610 @@
     footer { padding: 24px; flex-direction: column; gap: 12px; align-items: flex-start; }
     .footer-end { flex-direction: column; align-items: flex-start; gap: 10px; }
   }
+
+  body {
+    padding-bottom: 84px;
+  }
+
+  .page-shell {
+    width: min(1180px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .conversion-hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 48px 0 80px;
+  }
+
+  .conversion-hero .logo {
+    width: 148px;
+    margin-bottom: clamp(64px, 10vh, 112px);
+  }
+
+  .eyebrow {
+    color: var(--teal);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .conversion-hero h1 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: clamp(48px, 7.5vw, 96px);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+    max-width: 980px;
+    margin-bottom: 28px;
+  }
+
+  .hero-copy {
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.5;
+    max-width: 790px;
+    margin-bottom: 18px;
+  }
+
+  .hero-support {
+    color: var(--muted);
+    max-width: 720px;
+    margin-bottom: 32px;
+  }
+
+  .btn {
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:focus-visible,
+  summary:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 3px solid rgba(46, 107, 107, 0.28);
+    outline-offset: 3px;
+  }
+
+  .work-section,
+  .faq-section {
+    padding: 104px 0;
+  }
+
+  .section-heading {
+    font-family: 'Satoshi', sans-serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 40px;
+  }
+
+  .free-entry {
+    margin-bottom: 32px;
+    padding: 28px;
+    border: 1px dashed rgba(46, 107, 107, 0.35);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.24);
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: start;
+    scroll-margin-top: 24px;
+  }
+
+  .free-entry h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 28px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .free-entry-copy p {
+    color: var(--muted);
+    max-width: 430px;
+  }
+
+  .free-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .free-form input,
+  .free-form textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.62);
+    color: var(--black);
+    font: inherit;
+  }
+
+  .free-form textarea {
+    min-height: 94px;
+    resize: vertical;
+  }
+
+  .free-form .full-width {
+    grid-column: 1 / -1;
+  }
+
+  .free-form .btn {
+    justify-content: center;
+    background: transparent;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+  }
+
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .tier-card {
+    min-height: 430px;
+    padding: 34px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.46);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tier-number {
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+
+  .tier-card h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 30px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .tier-card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .tier-detail {
+    margin-top: 22px;
+    color: var(--black) !important;
+    font-weight: 500;
+  }
+
+  .tier-action {
+    margin-top: auto;
+    padding-top: 28px;
+  }
+
+  .tier-price {
+    min-height: 28px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .tier-price.conversation {
+    font-size: 14px;
+    color: var(--teal);
+  }
+
+  .tier-card .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .start-note {
+    margin-top: 22px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .faq-section {
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: clamp(48px, 8vw, 120px);
+    align-items: start;
+  }
+
+  .faq-section .section-heading {
+    position: sticky;
+    top: 40px;
+  }
+
+  .faq-list {
+    border-top: 1px solid var(--border);
+  }
+
+  details {
+    border-bottom: 1px solid var(--border);
+  }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 26px 48px 26px 0;
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: '+';
+    position: absolute;
+    right: 4px;
+    top: 24px;
+    color: var(--teal);
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  details[open] summary::after {
+    content: '−';
+  }
+
+  .faq-answer {
+    color: var(--muted);
+    padding: 0 48px 28px 0;
+    max-width: 680px;
+  }
+
+  .book-section {
+    margin: 32px auto 96px;
+    padding: clamp(40px, 7vw, 80px);
+    border-radius: 24px;
+    background: var(--teal);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(48px, 8vw, 112px);
+    align-items: start;
+    scroll-margin-top: 24px;
+  }
+
+  .book-section .eyebrow {
+    color: rgba(245, 242, 236, 0.66);
+  }
+
+  .book-section .section-heading {
+    margin-bottom: 18px;
+  }
+
+  .book-intro p {
+    color: rgba(245, 242, 236, 0.72);
+  }
+
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .booking-form input,
+  .booking-form textarea,
+  .booking-form select {
+    width: 100%;
+    border: 1px solid rgba(245, 242, 236, 0.28);
+    border-radius: 9px;
+    padding: 14px 16px;
+    background: rgba(245, 242, 236, 0.1);
+    color: var(--white);
+    font: inherit;
+  }
+
+  .booking-form input::placeholder,
+  .booking-form textarea::placeholder {
+    color: rgba(245, 242, 236, 0.55);
+  }
+
+  .booking-form select {
+    appearance: none;
+  }
+
+  .booking-form select option {
+    color: var(--black);
+  }
+
+  .booking-form textarea {
+    min-height: 124px;
+    resize: vertical;
+  }
+
+  .booking-form .btn {
+    justify-content: center;
+    background: var(--gold);
+    margin-top: 6px;
+  }
+
+  .free-link {
+    color: var(--white);
+    text-align: center;
+    font-size: 14px;
+    text-underline-offset: 3px;
+  }
+
+  .free-link:hover {
+    opacity: 0.75;
+  }
+
+  .sticky-actions {
+    position: fixed;
+    z-index: 20;
+    right: 24px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 18px;
+    background: rgba(245, 242, 236, 0.96);
+    box-shadow: 0 8px 30px rgba(15, 15, 15, 0.16);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .sticky-actions .free-link {
+    color: var(--teal);
+    font-size: 12px;
+  }
+
+  .sticky-actions.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+  }
+
+  .conversion-footer {
+    width: min(1180px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  @media (max-width: 900px) {
+    .tiers {
+      grid-template-columns: 1fr;
+    }
+
+    .tier-card {
+      min-height: 0;
+    }
+
+    .free-entry,
+    .faq-section,
+    .book-section {
+      grid-template-columns: 1fr;
+    }
+
+    .faq-section .section-heading {
+      position: static;
+      margin-bottom: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    body {
+      padding-bottom: 76px;
+    }
+
+    .page-shell,
+    .conversion-footer {
+      width: min(100% - 40px, 1180px);
+    }
+
+    .conversion-hero {
+      min-height: auto;
+      padding: 32px 0 72px;
+    }
+
+    .conversion-hero .logo {
+      width: 112px;
+      margin-bottom: 72px;
+    }
+
+    .conversion-hero h1 {
+      font-size: clamp(44px, 14vw, 64px);
+    }
+
+    .work-section,
+    .faq-section {
+      padding: 72px 0;
+    }
+
+    .tier-card {
+      padding: 28px;
+    }
+
+    .free-form {
+      grid-template-columns: 1fr;
+    }
+
+    .free-form .full-width {
+      grid-column: auto;
+    }
+
+    .book-section {
+      width: calc(100% - 24px);
+      padding: 36px 24px;
+      margin-bottom: 64px;
+    }
+
+    .sticky-actions {
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+    }
+
+    .sticky-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .conversion-footer {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <img class="logo" src="logo.png" alt="Now/Here Studio" />
-  <h1 class="hero-headline">Now/Here is where broken systems get rebuilt.</h1>
-  <p class="hero-sub">We find what's broken, figure out why, and build what should have existed already.</p>
-  <a href="#contact" class="btn">Work with us →</a>
-</section>
+<main>
+  <section class="conversion-hero page-shell">
+    <img class="logo" src="logo.png" alt="Now/Here" />
+    <div class="eyebrow">Strategy, tech, and automation</div>
+    <h1>Bring me a problem. We'll solve it together.</h1>
+    <p class="hero-copy">Not an agency. Not a consultant with a deck. A thought partner who works across strategy, tech, and automation, whatever the problem actually needs.</p>
+    <p class="hero-support">I've built and run two ventures from scratch. When something's broken, I've probably already broken it myself and figured out the fix. That's the whole pitch.</p>
+    <a href="#book" class="btn" data-engagement="The Call">Book a call</a>
+  </section>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<!-- WHAT WE DO -->
-<section class="what">
-  <div class="section-label">What we do</div>
-  <p class="what-text">Most broken systems aren't missing technology. <span class="dim">They're missing someone willing to look at them honestly and build the right thing. That's what Now/Here does.</span></p>
-</section>
+  <section class="work-section page-shell" id="work">
+    <div class="eyebrow">How we work</div>
+    <h2 class="section-heading">Three ways to work together</h2>
+    <aside class="free-entry" id="free">
+      <div class="free-entry-copy">
+        <div class="tier-number">Free entry point</div>
+        <h3>Not sure yet?</h3>
+        <p>Tell me the problem in a few sentences. I'll send back three things to consider, free, no call needed.</p>
+      </div>
+      <form class="free-form" action="https://formsubmit.co/nowherestudio.co@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Now/Here free problem submission" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="name" placeholder="Name" aria-label="Name" required />
+        <input type="email" name="email" placeholder="Email" aria-label="Email" required />
+        <textarea class="full-width" name="problem" placeholder="What's the problem?" aria-label="What's the problem?" required></textarea>
+        <textarea class="full-width" name="tried" placeholder="What have you tried already?" aria-label="What have you tried already?"></textarea>
+        <button type="submit" class="btn full-width">Send me the problem</button>
+      </form>
+    </aside>
+    <div class="tiers">
+      <article class="tier-card">
+        <div class="tier-number">01</div>
+        <h3>The Call</h3>
+        <p>One hour. You bring the problem, I bring context and a plan. No deck, no follow-up sequence, just two people thinking clearly about your problem.</p>
+        <div class="tier-action">
+          <div class="tier-price">$40/hour</div>
+          <a href="#book" class="btn" data-engagement="The Call">Book a call</a>
+        </div>
+      </article>
 
-<div class="divider"></div>
+      <article class="tier-card">
+        <div class="tier-number">02</div>
+        <h3>Scoped Help</h3>
+        <p>You already know what's broken. You just need someone to think it through with you, build the fix, or both. Short term, defined problem, defined end point.</p>
+        <p class="tier-detail">Let's figure out the scope together. Most engagements land somewhere between a single deep-dive and a few weeks of focused work.</p>
+        <div class="tier-action">
+          <div class="tier-price conversation">Scoped around the problem</div>
+          <a href="#book" class="btn" data-engagement="Scoped Help">Tell me the problem</a>
+        </div>
+      </article>
 
-<!-- PRODUCTS -->
-<section class="products">
-  <div class="products-label">We don't just consult. We build.</div>
-  <div class="products-grid">
-    <a href="https://goalongside.co" class="product-card" target="_blank">
-      <div style="font-size: 22px; font-weight: 700; color: #1B4FD8; letter-spacing: -0.02em;">ALONGSIDE</div>
-      <p class="product-desc">Where independent travelers find group trips worth joining. Built because group travel discovery was completely broken.</p>
-      <div class="product-link">Visit Alongside →</div>
-    </a>
-    <a href="https://fable42.com" class="product-card" target="_blank">
-      <div style="font-size: 22px; font-weight: 700; color: #5D231D; letter-spacing: -0.02em;">FABLE+42</div>
-      <p class="product-desc">The home for independent fine jewelry designers. Built because the existing options weren't good enough.</p>
-      <div class="product-link">Visit FABLE+42 →</div>
-    </a>
-  </div>
-</section>
+      <article class="tier-card">
+        <div class="tier-number">03</div>
+        <h3>Embedded</h3>
+        <p>I get to know your business the way I know my own. Ongoing means I'm actually in it with you, not checking in once a month.</p>
+        <p class="tier-detail">This one's a conversation first. If it's the right fit, we'll figure out what makes sense for both of us.</p>
+        <div class="tier-action">
+          <div class="tier-price conversation">Built around the right fit</div>
+          <a href="#book" class="btn" data-engagement="Embedded">Let's talk</a>
+        </div>
+      </article>
+    </div>
+    <p class="start-note">Start with a call. No commitment. See if it's useful.</p>
+  </section>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2 class="contact-headline">You have a system that should work but doesn't.</h2>
-  <p class="contact-sub">We've built the fix before. Tell us what's broken.</p>
-  <form class="form" action="https://formsubmit.co/nowherestudio.co@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="New Now/Here Studio inquiry" />
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="text" name="name" placeholder="Name" required/>
-    <input type="email" name="email" placeholder="Email" required/>
-    <textarea name="message" placeholder="Tell me what's broken"></textarea>
-    <button type="submit" class="btn form-btn">Let's connect →</button>
-  </form>
-</section>
+  <section class="faq-section page-shell">
+    <div>
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-heading">Before we talk</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Do I have to book a call to get anything out of this?</summary>
+        <p class="faq-answer">No. If you're not ready to pay for a call, send me your problem in a few sentences and I'll send back three things to consider, free. No scheduling, no call, just a real answer.</p>
+      </details>
+      <details>
+        <summary>What does working with you actually look like?</summary>
+        <p class="faq-answer">It starts with a call. You tell me what's broken, I ask questions until we find the real problem underneath it, and we leave with next steps. Sometimes that's the whole thing. Sometimes it turns into scoped work or something ongoing. Depends on what the problem needs.</p>
+      </details>
+      <details>
+        <summary>Do you just tell me what's wrong, or do you actually fix it?</summary>
+        <p class="faq-answer">Both. Some problems just need a second brain to think them through. Some need someone to actually build the fix, an automation, a flow, a piece of tech. I do whichever the problem calls for.</p>
+      </details>
+      <details>
+        <summary>What's off the table?</summary>
+        <p class="faq-answer">Anything that needs a big team or a long build cycle. I work in small, focused pieces. If your problem needs six months and five people, I'm not your best fit, but I can probably tell you that in the first call.</p>
+      </details>
+      <details>
+        <summary>What kind of problems do you actually work on?</summary>
+        <p class="faq-answer">Strategy, tech, and automation, and usually all three tangled together. Retention problems, manual processes that shouldn't be manual anymore, decisions you're making alone that you shouldn't have to.</p>
+      </details>
+      <details>
+        <summary>How much does it cost?</summary>
+        <p class="faq-answer">The Call is $40/hour, no commitment. Scoped and Embedded work depend on what you need. We'll figure out the number together once we know the shape of the problem.</p>
+      </details>
+      <details>
+        <summary>Why should I trust you with this?</summary>
+        <p class="faq-answer">I've built two real businesses from the ground up, FABLE+42 and Alongside, both still running. I'm not consulting from theory. Whatever's broken in your business, I've probably broken it myself first.</p>
+      </details>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer>
+  <section class="book-section page-shell" id="book">
+    <div class="book-intro">
+      <div class="eyebrow">Start here</div>
+      <h2 class="section-heading">Got a problem? Let's start there.</h2>
+      <p>Send me the problem. I'll follow up to book the hour.</p>
+    </div>
+    <form class="booking-form" action="https://formsubmit.co/nowherestudio.co@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Now/Here booking request" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="name" placeholder="Name" aria-label="Name" required />
+      <input type="email" name="email" placeholder="Email" aria-label="Email" required />
+      <select name="engagement" aria-label="How you want to work together">
+        <option value="The Call">The Call, $40/hour</option>
+        <option value="Scoped Help">Scoped Help</option>
+        <option value="Embedded">Embedded</option>
+      </select>
+      <textarea name="message" placeholder="Tell me what's broken" aria-label="Tell me what's broken" required></textarea>
+      <button type="submit" class="btn" data-booking-submit>Book a call, $40</button>
+      <a href="#free" class="free-link">Not ready? Send me the problem instead, free.</a>
+    </form>
+  </section>
+</main>
+
+<div class="sticky-actions is-hidden">
+  <a href="#book" class="btn" data-engagement="The Call">Book a call, $40</a>
+  <a href="#free" class="free-link">Or send the problem, free</a>
+</div>
+
+<footer class="conversion-footer">
   <img class="footer-mark" src="logo.png" alt="" aria-hidden="true" />
   <div class="footer-end">
     <a href="mailto:nowherestudio.co@gmail.com" class="footer-email" aria-label="Email Now/Here Studio">
@@ -385,6 +932,54 @@
     <div class="footer-copy">© 2026 Now/Here Studio</div>
   </div>
 </footer>
+<script>
+  const hero = document.querySelector('.conversion-hero');
+  const freeEntry = document.querySelector('.free-entry');
+  const booking = document.querySelector('.book-section');
+  const stickyActions = document.querySelector('.sticky-actions');
+  const engagementSelect = booking.querySelector('select[name="engagement"]');
+  const bookingSubmit = booking.querySelector('[data-booking-submit]');
+  const visibleSections = new Set();
+  const submitLabels = {
+    'The Call': 'Book a call, $40',
+    'Scoped Help': 'Tell me the problem',
+    'Embedded': "Let's talk"
+  };
 
+  const setEngagement = (engagement) => {
+    engagementSelect.value = engagement;
+    bookingSubmit.textContent = submitLabels[engagement];
+  };
+
+  document.querySelectorAll('[data-engagement]').forEach((link) => {
+    link.addEventListener('click', () => setEngagement(link.dataset.engagement));
+  });
+
+  engagementSelect.addEventListener('change', () => {
+    bookingSubmit.textContent = submitLabels[engagementSelect.value];
+  });
+
+  const updateStickyActions = () => {
+    stickyActions.classList.toggle(
+      'is-hidden',
+      visibleSections.has(hero) || visibleSections.has(freeEntry) || visibleSections.has(booking)
+    );
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        visibleSections.add(entry.target);
+      } else {
+        visibleSections.delete(entry.target);
+      }
+    });
+    updateStickyActions();
+  }, { threshold: 0.08 });
+
+  observer.observe(hero);
+  observer.observe(freeEntry);
+  observer.observe(booking);
+</script>
 </body>
 </html>
