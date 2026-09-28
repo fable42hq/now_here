@@ -20,7 +20,7 @@
 <title>Now/Here Studio | Product, Strategy &amp; Ops Consulting</title>
 <link rel="icon" href="logo.png" type="image/png" />
 <link rel="apple-touch-icon" href="logo.png" />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   @font-face {
     font-family: 'Satoshi';
@@ -35,8 +35,9 @@
     --black: #0F0F0F;
     --teal: #2E6B6B;
     --gold: #998731;
-    --muted: rgba(15,15,15,0.45);
-    --border: rgba(15,15,15,0.1);
+    --muted: rgba(15,15,15,0.55);
+    --border: rgba(15,15,15,0.12);
+    --nav: 76px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,22 +58,33 @@
 
   img { max-width: 100%; }
 
+  h1, h2, h3, .founder-name, .stat-value, .form-success {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 800;
+    font-synthesis: none;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+
+  h1 { font-size: clamp(42px, 5.4vw, 68px); }
+
+  h2 { font-size: clamp(32px, 3.6vw, 44px); }
+
+  h3 { font-size: 28px; }
+
+  a { color: var(--teal); }
+
   .page-shell {
-    width: min(1180px, calc(100% - 64px));
+    width: min(1120px, calc(100% - 64px));
     margin: 0 auto;
   }
 
-  .logo {
-    width: 230px;
-    height: auto;
-    display: block;
+  .section {
+    padding: 96px 0;
+    scroll-margin-top: 96px;
   }
 
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 0 32px;
-  }
+  .section-heading { margin-bottom: 36px; }
 
   .eyebrow {
     color: var(--teal);
@@ -80,20 +92,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  h1, h2, h3 {
-    font-family: 'Satoshi', sans-serif;
-    font-weight: 800;
-    font-synthesis: none;
-  }
-
-  .section-heading {
-    font-size: clamp(32px, 4vw, 46px);
-    letter-spacing: -0.025em;
-    line-height: 1.12;
-    margin-bottom: 28px;
+    margin-bottom: 18px;
   }
 
   .btn {
@@ -102,27 +101,26 @@
     justify-content: center;
     gap: 8px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--white);
     background: var(--gold);
-    padding: 14px 28px;
+    padding: 16px 28px;
     border-radius: 100px;
     text-decoration: none;
     border: none;
     cursor: pointer;
+    line-height: 1;
     transition: transform 0.2s, opacity 0.2s;
   }
 
-  .btn:hover {
-    opacity: 0.85;
-    transform: translateY(-2px);
-  }
+  .btn:hover { opacity: 0.88; transform: translateY(-2px); }
 
-  .btn:disabled {
-    opacity: 0.7;
-    cursor: wait;
-    transform: none;
+  .btn:disabled { opacity: 0.7; cursor: wait; transform: none; }
+
+  .btn-nav {
+    font-size: 14px;
+    padding: 12px 18px;
   }
 
   .btn-secondary {
@@ -131,9 +129,11 @@
     box-shadow: inset 0 0 0 1.5px var(--teal);
   }
 
-  .btn-secondary:hover {
-    opacity: 1;
-    background: rgba(46, 107, 107, 0.06);
+  .site-nav .btn-secondary {
+    background: transparent;
+    color: var(--black);
+    box-shadow: none;
+    padding: 12px 8px;
   }
 
   .btn:focus-visible,
@@ -146,222 +146,330 @@
     outline-offset: 3px;
   }
 
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .site-nav.is-solid {
+    background: rgba(245, 242, 236, 0.96);
+    border-bottom-color: var(--border);
+    box-shadow: 0 8px 24px rgba(15, 15, 15, 0.04);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-inner {
+    width: min(1120px, calc(100% - 64px));
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .nav-logo {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-left: auto;
+  }
+
+  .nav-links a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .conversion-hero {
-    min-height: 92vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding: 48px 0 80px;
-  }
-
-  .conversion-hero .logo {
-    width: 148px;
-    margin-bottom: 56px;
-  }
-
-  .conversion-hero h1 {
-    font-size: clamp(38px, 5vw, 64px);
-    letter-spacing: -0.03em;
-    line-height: 1.08;
-    max-width: 820px;
-    margin-bottom: 28px;
+    padding: calc(var(--nav) + 72px) 0 96px;
   }
 
   .hero-copy {
-    font-size: clamp(17px, 1.8vw, 20px);
-    line-height: 1.6;
-    max-width: 720px;
+    font-size: 18px;
+    line-height: 1.65;
+    max-width: 680px;
     margin-bottom: 16px;
   }
 
-  .hero-copy + .hero-copy {
-    margin-bottom: 32px;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center;
-  }
-
   .hero-note {
-    margin-top: 14px;
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 640px;
+    margin: 8px 0 32px;
+  }
+
+  .hero-proof {
+    margin-top: 16px;
     color: var(--muted);
     font-size: 14px;
-    line-height: 1.5;
-    max-width: 720px;
-  }
-
-  .work-section,
-  .prose-section,
-  .split-section {
-    padding: 80px 0;
-    scroll-margin-top: 24px;
-  }
-
-  .prose-section .section-heading,
-  .prose-section .steps,
-  .prose-section .origin-list,
-  .prose-section .about-copy {
-    max-width: 680px;
-  }
-
-  .origin-section {
-    padding-top: 8px;
-  }
-
-  #how {
-    padding-bottom: 40px;
-  }
-
-  .split-section {
-    display: grid;
-    grid-template-columns: 0.7fr 1.3fr;
-    gap: clamp(40px, 6vw, 96px);
-    align-items: start;
-  }
-
-  .split-section .section-heading {
-    position: sticky;
-    top: 40px;
-    margin-bottom: 0;
+    max-width: 520px;
   }
 
   .tiers {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
+    align-items: stretch;
   }
 
   .tier-card {
-    padding: 34px;
+    padding: 28px 26px 24px;
     border: 1px solid var(--border);
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.46);
+    background: rgba(255, 255, 255, 0.55);
     display: flex;
     flex-direction: column;
-    transition: border-color 0.2s;
+    min-height: 100%;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
 
-  .tier-card:hover { border-color: var(--teal); }
+  .tier-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--teal);
+    box-shadow: 0 14px 32px rgba(15, 15, 15, 0.06);
+  }
 
   .tier-number {
     color: var(--teal);
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 22px;
-  }
-
-  .tier-card h3 {
-    font-size: 30px;
-    line-height: 1.1;
+    letter-spacing: 0.14em;
     margin-bottom: 16px;
   }
 
-  .tier-card p {
+  .tier-card h3 { margin-bottom: 12px; }
+
+  .tier-problem {
     color: var(--muted);
     font-size: 15px;
-    line-height: 1.65;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 12px;
   }
 
-  .tier-body p + p { margin-top: 12px; }
-
-  .tier-detail { margin-top: 16px; }
-
-  .tier-detail + .tier-detail { margin-top: 8px; }
-
-  .tier-action {
-    margin-top: auto;
-    padding-top: 28px;
+  .tier-card .tier-body {
+    color: var(--black);
+    font-size: 15px;
+    line-height: 1.6;
   }
 
-  .tier-timing {
-    color: var(--teal);
-    font-size: 14px;
+  .tier-lists {
+    display: grid;
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .mini-label {
+    font-size: 11px;
     font-weight: 700;
-    margin-bottom: 16px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
   }
 
-  .tier-card .btn {
-    width: 100%;
-  }
-
-  .steps,
-  .origin-list {
+  .tier-lists ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 6px;
   }
 
-  .steps li,
-  .origin-list li {
-    font-size: 16px;
-    line-height: 1.65;
-  }
-
-  .steps li {
-    display: grid;
-    grid-template-columns: 28px 1fr;
-    gap: 12px;
-    align-items: baseline;
-  }
-
-  .steps li span {
-    color: var(--teal);
-    font-weight: 700;
-  }
-
-  .origin-list li {
+  .tier-lists li {
     position: relative;
-    padding-left: 18px;
+    padding-left: 14px;
+    font-size: 14px;
+    line-height: 1.45;
   }
 
-  .origin-list li::before {
+  .tier-lists li::before {
     content: "";
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: var(--teal);
     position: absolute;
     left: 0;
-    top: 0.62em;
+    top: 0.55em;
   }
 
-  .about-copy p {
-    font-size: 16px;
-    line-height: 1.65;
+  .tier-action {
+    margin-top: auto;
+    padding-top: 24px;
   }
 
-  .about-copy p + p { margin-top: 16px; }
-
-  .about-copy a,
-  .booking-note a {
+  .tier-timing {
     color: var(--teal);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .card-link {
+    color: var(--teal);
+    font-size: 14px;
     font-weight: 700;
     text-decoration: none;
   }
 
-  .about-copy a:hover,
-  .booking-note a:hover { text-decoration: underline; }
+  .card-link:hover { text-decoration: underline; }
 
-  .about-layout.has-photo {
+  .stat-bar {
     display: grid;
-    grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
-    gap: clamp(24px, 4vw, 40px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    padding: 8px 0 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat-value {
+    font-size: clamp(28px, 3.2vw, 42px);
+    white-space: nowrap;
+  }
+
+  .stat-label {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 180px;
+  }
+
+  .proof-context {
+    max-width: 720px;
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 16px;
+  }
+
+  .steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--teal);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+
+  .step-num::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .steps li:last-child .step-num::after { display: none; }
+
+  .steps p {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-right: 12px;
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+    gap: 56px;
     align-items: center;
   }
 
-  .about-photo {
+  .founder-visual {
+    width: min(100%, 260px);
+  }
+
+  .about-photo,
+  .avatar-fallback {
     width: 100%;
     aspect-ratio: 4 / 5;
-    object-fit: cover;
-    border-radius: 16px;
+    border-radius: 18px;
     display: block;
+  }
+
+  .about-photo { object-fit: cover; }
+
+  .avatar-fallback {
+    background: var(--teal);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+
+  .founder-name {
+    font-size: 28px;
+    margin-top: 18px;
+  }
+
+  .founder-role {
+    margin-top: 6px;
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .about-copy p + p { margin-top: 16px; }
+
+  .about-copy a {
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .about-copy a:hover { text-decoration: underline; }
+
+  .faq-section {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .faq-section .section-heading {
+    position: sticky;
+    top: 108px;
+    margin-bottom: 0;
   }
 
   .faq-list { border-top: 1px solid var(--border); }
@@ -371,8 +479,8 @@
   summary {
     list-style: none;
     cursor: pointer;
-    padding: 26px 48px 26px 0;
-    font-size: 18px;
+    padding: 22px 40px 22px 0;
+    font-size: 17px;
     font-weight: 700;
     position: relative;
   }
@@ -382,8 +490,8 @@
   summary::after {
     content: "+";
     position: absolute;
-    right: 4px;
-    top: 24px;
+    right: 0;
+    top: 18px;
     color: var(--teal);
     font-size: 24px;
     font-weight: 400;
@@ -393,24 +501,25 @@
 
   .faq-answer {
     color: var(--muted);
-    padding: 0 48px 28px 0;
-    max-width: 680px;
+    padding: 0 40px 22px 0;
+    max-width: 640px;
   }
 
   .contact-section {
-    margin: 32px auto 96px;
-    padding: clamp(40px, 7vw, 80px);
-    border-radius: 24px;
     background: var(--teal);
     color: var(--white);
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: clamp(48px, 8vw, 112px);
-    align-items: start;
-    scroll-margin-top: 24px;
+    padding: 96px 0;
+    scroll-margin-top: 76px;
   }
 
-  .contact-section .section-heading { margin-bottom: 0; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .contact-section h2 { margin-bottom: 0; }
 
   .booking-form {
     display: flex;
@@ -427,7 +536,7 @@
   .field span {
     font-size: 14px;
     font-weight: 500;
-    color: rgba(245, 242, 236, 0.78);
+    color: rgba(245, 242, 236, 0.82);
   }
 
   .booking-form input,
@@ -435,7 +544,7 @@
   .booking-form select {
     width: 100%;
     border: 1px solid rgba(245, 242, 236, 0.28);
-    border-radius: 9px;
+    border-radius: 10px;
     padding: 14px 16px;
     background: rgba(245, 242, 236, 0.1);
     color: var(--white);
@@ -460,51 +569,60 @@
     background: var(--white);
   }
 
-  .booking-form .btn { margin-top: 6px; }
+  .booking-form .btn { margin-top: 6px; width: 100%; }
 
   .form-success {
-    font-family: 'Satoshi', sans-serif;
-    font-weight: 800;
-    font-size: clamp(26px, 3vw, 36px);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.15;
   }
 
   .booking-note {
     margin-top: 16px;
     text-align: center;
     font-size: 14px;
-    color: rgba(245, 242, 236, 0.82);
+    color: rgba(245, 242, 236, 0.86);
   }
 
   .booking-note a {
     color: var(--white);
+    font-weight: 700;
     text-underline-offset: 3px;
   }
 
   footer {
-    width: min(1180px, calc(100% - 64px));
+    width: min(1120px, calc(100% - 64px));
     margin: 0 auto;
-    padding: 28px 0;
+    padding: 28px 0 36px;
     border-top: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px 28px;
+    gap: 14px 28px;
     flex-wrap: wrap;
   }
 
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
   .footer-mark {
-    width: 48px;
+    width: 36px;
     height: auto;
-    opacity: 0.2;
+    opacity: 0.45;
     display: block;
+  }
+
+  .footer-tag {
+    font-size: 13px;
+    color: var(--muted);
   }
 
   .footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 20px;
+    gap: 8px 18px;
     align-items: center;
   }
 
@@ -512,188 +630,255 @@
   .footer-also a {
     font-size: 13px;
     font-weight: 700;
-    color: rgba(15, 15, 15, 0.4);
+    color: rgba(15, 15, 15, 0.55);
     text-decoration: none;
-    transition: color 0.2s;
   }
 
   .footer-links a:hover,
   .footer-also a:hover { color: var(--teal); }
 
   .footer-also {
-    font-size: 12px;
-    color: rgba(15, 15, 15, 0.4);
+    font-size: 13px;
+    color: rgba(15, 15, 15, 0.55);
   }
-
-  .footer-also a { font-size: 12px; }
 
   .footer-copy {
     font-size: 12px;
-    color: rgba(15, 15, 15, 0.2);
+    color: rgba(15, 15, 15, 0.35);
   }
 
   @media (max-width: 900px) {
     .tiers,
-    .split-section,
-    .contact-section { grid-template-columns: 1fr; }
+    .steps,
+    .about-layout,
+    .faq-section,
+    .contact-grid,
+    .stat-bar { grid-template-columns: 1fr 1fr; }
 
-    .split-section .section-heading {
-      position: static;
-      margin-bottom: 28px;
-    }
+    .steps { grid-template-columns: 1fr 1fr; }
 
-    .contact-section .section-heading { margin-bottom: 8px; }
+    .faq-section,
+    .contact-grid,
+    .about-layout { grid-template-columns: 1fr; }
+
+    .faq-section .section-heading { position: static; margin-bottom: 28px; }
+
+    .tiers { grid-template-columns: 1fr; }
   }
 
-  @media (max-width: 768px) {
-    .about-layout.has-photo { grid-template-columns: 1fr; }
+  @media (max-width: 720px) {
+    :root { --nav: 128px; }
 
-    .about-photo {
-      width: min(240px, 100%);
+    .nav-inner { flex-wrap: wrap; gap: 10px 16px; }
+
+    .nav-links {
+      order: 3;
+      width: 100%;
+      margin-left: 0;
+      gap: 18px;
     }
 
-    footer {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-    }
-  }
+    .stat-bar,
+    .steps { grid-template-columns: 1fr; }
 
-  @media (max-width: 640px) {
-    .divider { margin: 0 24px; }
+    .step-num::after { display: none; }
 
-    .page-shell {
-      width: min(100% - 40px, 1180px);
-    }
+    .page-shell,
+    .nav-inner,
+    footer { width: min(100% - 40px, 1120px); }
 
-    footer { width: min(100% - 40px, 1180px); }
+    .section,
+    .contact-section { padding: 64px 0; }
 
     .conversion-hero {
       min-height: auto;
-      padding: 32px 0 72px;
+      padding: calc(var(--nav) + 36px) 0 64px;
     }
 
-    .conversion-hero .logo {
-      width: 112px;
-      margin-bottom: 40px;
-    }
-
-    .conversion-hero h1 {
-      font-size: clamp(38px, 11vw, 52px);
-    }
-
-    .work-section,
-    .prose-section,
-    .split-section { padding: 64px 0; }
-
-    #how { padding-bottom: 28px; }
-
-    .tier-card { padding: 28px; }
-
-    .contact-section {
-      width: calc(100% - 24px);
-      padding: 36px 24px;
-      margin-bottom: 64px;
-    }
+    .founder-visual { width: min(100%, 220px); }
   }
 </style>
 </head>
 <body>
 
-<main>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" aria-label="Now/Here Studio">
+      <img class="nav-logo" src="logo.png" alt="Now/Here" />
+    </a>
+    <nav class="nav-links" aria-label="Page">
+      <a href="#offers">Offers</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-nav" data-primary-cta href="#contact">Send me the problem</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
   <section class="conversion-hero page-shell">
-    <img class="logo" src="logo.png" alt="Now/Here" />
-    <div class="eyebrow">Product, strategy, and ops</div>
+    <p class="eyebrow">Product, strategy, and ops</p>
     <h1>Bring me a problem. I'll help you solve it.</h1>
     <p class="hero-copy">Not an agency. Not a consultant with a deck. I'm Sandra, and I've spent seven years turning messy, cross-team problems into shipped work at a leading marketplace company, a health insurance company, and a data software company.</p>
     <p class="hero-copy">I own projects, figure out what to test, and build the fix.</p>
+    <p class="hero-note">For founders, small business owners, and teams inside bigger companies.</p>
     <div class="hero-actions">
       <a class="btn" data-primary-cta href="#contact">Send me the problem</a>
     </div>
-    <p class="hero-note">For founders, small business owners, and teams inside bigger companies.</p>
+    <p class="hero-proof">Seven years turning messy, cross-team problems into shipped work. 20 minutes for a fit check.</p>
   </section>
 
-  <div class="divider"></div>
-
-  <section class="work-section page-shell" id="offers">
-    <div class="eyebrow">How we work</div>
+  <section class="section page-shell" id="offers">
+    <p class="eyebrow">How we work</p>
     <h2 class="section-heading">Three ways to work together</h2>
     <div class="tiers">
       <article class="tier-card">
-        <div class="tier-number">01</div>
+        <p class="tier-number">01</p>
         <h3>Ship it</h3>
-        <div class="tier-body">
-          <p>There's a project that needs to happen and nobody has time to own it.</p>
-          <p>I take it from messy to done. I scope it, line up the people, keep it moving, and launch it.</p>
+        <p class="tier-problem">There's a project that needs to happen and nobody has time to own it.</p>
+        <p class="tier-body">I take it from messy to done. I scope it, line up the people, keep it moving, and launch it.</p>
+        <div class="tier-lists">
+          <div>
+            <p class="mini-label">Good for</p>
+            <ul>
+              <li>launches that keep slipping</li>
+              <li>cross-team work with no owner</li>
+              <li>process rollouts</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mini-label">You get</p>
+            <ul>
+              <li>one owner</li>
+              <li>a clear plan</li>
+              <li>weekly updates</li>
+              <li>a finished project</li>
+            </ul>
+          </div>
         </div>
-        <p class="tier-detail">Good for: launches that keep slipping, cross-team work with no owner, process rollouts.</p>
-        <p class="tier-detail">You get: one owner, a clear plan, weekly updates, a finished project.</p>
         <div class="tier-action">
           <p class="tier-timing">Usually 4 to 6 weeks.</p>
-          <a href="#contact" class="btn" data-offer="Ship it">Talk about this one</a>
+          <a class="card-link" href="#contact" data-offer="Ship it">Talk about this one →</a>
         </div>
       </article>
 
       <article class="tier-card">
-        <div class="tier-number">02</div>
+        <p class="tier-number">02</p>
         <h3>Figure it out</h3>
-        <div class="tier-body">
-          <p>There's a problem and you don't know the right fix yet.</p>
-          <p>I dig into your data and workflows, find what's actually going on, and design small tests to see what works.</p>
+        <p class="tier-problem">There's a problem and you don't know the right fix yet.</p>
+        <p class="tier-body">I dig into your data and workflows, find what's actually going on, and design small tests to see what works.</p>
+        <div class="tier-lists">
+          <div>
+            <p class="mini-label">Good for</p>
+            <ul>
+              <li>retention or conversion drops</li>
+              <li>unclear priorities</li>
+              <li>decisions you keep making on gut</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mini-label">You get</p>
+            <ul>
+              <li>a diagnosis</li>
+              <li>ranked options</li>
+              <li>a test plan with the numbers to watch</li>
+            </ul>
+          </div>
         </div>
-        <p class="tier-detail">Good for: retention or conversion drops, unclear priorities, decisions you keep making on gut.</p>
-        <p class="tier-detail">You get: a diagnosis, ranked options, and a test plan with the numbers to watch.</p>
         <div class="tier-action">
           <p class="tier-timing">Usually 2 to 4 weeks.</p>
-          <a href="#contact" class="btn" data-offer="Figure it out">Talk about this one</a>
+          <a class="card-link" href="#contact" data-offer="Figure it out">Talk about this one →</a>
         </div>
       </article>
 
       <article class="tier-card">
-        <div class="tier-number">03</div>
+        <p class="tier-number">03</p>
         <h3>Build it</h3>
-        <div class="tier-body">
-          <p>There's a problem and you want it solved, not just planned.</p>
-          <p>I take it end to end: ideation, scoping, build, and launch. Small on purpose. Think a tool, an automation, a workflow, or an MVP.</p>
+        <p class="tier-problem">There's a problem and you want it solved, not just planned.</p>
+        <p class="tier-body">I take it end to end: ideation, scoping, build, and launch. Small on purpose. Think a tool, an automation, a workflow, or an MVP.</p>
+        <div class="tier-lists">
+          <div>
+            <p class="mini-label">Good for</p>
+            <ul>
+              <li>manual work that should be automated</li>
+              <li>an internal tool</li>
+              <li>testing an idea fast</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mini-label">You get</p>
+            <ul>
+              <li>a working thing in your hands</li>
+              <li>a plan for what's next</li>
+            </ul>
+          </div>
         </div>
-        <p class="tier-detail">Good for: manual work that should be automated, an internal tool, testing an idea fast.</p>
-        <p class="tier-detail">You get: a working thing in your hands and a plan for what's next.</p>
         <div class="tier-action">
           <p class="tier-timing">Scoped per project.</p>
-          <a href="#contact" class="btn" data-offer="Build it">Talk about this one</a>
+          <a class="card-link" href="#contact" data-offer="Build it">Talk about this one →</a>
         </div>
       </article>
     </div>
   </section>
 
-  <div class="divider"></div>
+  <section class="section page-shell" id="proof">
+    <h2 class="section-heading">Where this comes from</h2>
+    <div class="stat-bar">
+      <div>
+        <p class="stat-value">5 weeks</p>
+        <p class="stat-label">faster time-to-market</p>
+      </div>
+      <div>
+        <p class="stat-value">$300K</p>
+        <p class="stat-label">incremental volume</p>
+      </div>
+      <div>
+        <p class="stat-value">300K+</p>
+        <p class="stat-label">members reached</p>
+      </div>
+      <div>
+        <p class="stat-value">88% to 94%</p>
+        <p class="stat-label">forecasting accuracy</p>
+      </div>
+    </div>
+    <p class="proof-context">At a leading marketplace company: cut time-to-market by 5 weeks by aligning Product, Engineering, Design, and Account Management. Drove $300K in incremental volume and improved quality metrics by 30%. At a health insurance company: led workflow automation that reached 300K+ members. At a data software company: built the pipeline that took forecasting accuracy from 88% to 94%.</p>
+  </section>
 
-  <section class="prose-section page-shell" id="how">
+  <section class="section page-shell" id="how">
     <h2 class="section-heading">How it works</h2>
     <ol class="steps">
-      <li><span>1</span>Tell me the problem in a few sentences.</li>
-      <li><span>2</span>We talk for 20 minutes. Free.</li>
-      <li><span>3</span>I send a one-page scope with timeline and price.</li>
-      <li><span>4</span>We start.</li>
+      <li>
+        <div class="step-num">1</div>
+        <p>Tell me the problem in a few sentences.</p>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <p>We talk for 20 minutes. Free.</p>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <p>I send a one-page scope with timeline and price.</p>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <p>We start.</p>
+      </li>
     </ol>
   </section>
 
-  <section class="prose-section page-shell origin-section">
-    <h2 class="section-heading">Where this comes from</h2>
-    <ul class="origin-list">
-      <li>At a leading marketplace company: cut time-to-market by 5 weeks by aligning Product, Engineering, Design, and Account Management.</li>
-      <li>Drove $300K in incremental volume and improved quality metrics by 30%.</li>
-      <li>At a health insurance company: led workflow automation that reached 300K+ members.</li>
-      <li>At a data software company: built the pipeline that took forecasting accuracy from 88% to 94%.</li>
-    </ul>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="prose-section page-shell" id="about">
+  <section class="section page-shell" id="about">
     <h2 class="section-heading">About</h2>
     <div class="about-layout" data-about>
-      <img class="about-photo" data-headshot alt="Sandra, founder of Now/Here Studio" hidden />
+      <div class="founder-card">
+        <div class="founder-visual">
+          <div class="avatar-fallback" data-avatar-fallback aria-hidden="true">S</div>
+          <img class="about-photo" data-headshot alt="Sandra, founder of Now/Here Studio" hidden />
+        </div>
+        <p class="founder-name">Sandra</p>
+        <p class="founder-role">Founder, Now/Here Studio</p>
+      </div>
       <div class="about-copy">
         <p>I like the part of a project where nobody knows the answer yet. I've worked the product side, the ops side, and the data side, and most problems need all three.</p>
         <p>Outside client work, I build my own products: <a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a> and <a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a>.</p>
@@ -701,9 +886,7 @@
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <section class="split-section page-shell">
+  <section class="section page-shell faq-section">
     <h2 class="section-heading">Before we talk</h2>
     <div class="faq-list">
       <details>
@@ -733,53 +916,58 @@
     </div>
   </section>
 
-  <section class="contact-section page-shell" id="contact">
-    <h2 class="section-heading">Got a problem? Start there.</h2>
-    <div>
-      <form id="contact-form" class="booking-form" method="POST">
-        <input type="hidden" name="_subject" value="Problem for Now/Here" />
-        <input type="hidden" name="_captcha" value="false" />
-        <label class="field">
-          <span>Name</span>
-          <input type="text" name="Name" autocomplete="name" required />
-        </label>
-        <label class="field">
-          <span>Email</span>
-          <input type="email" name="Email" autocomplete="email" required />
-        </label>
-        <label class="field">
-          <span>Company or team</span>
-          <input type="text" name="Company or team" autocomplete="organization" />
-        </label>
-        <label class="field">
-          <span>What's the problem?</span>
-          <textarea name="What's the problem?" required></textarea>
-        </label>
-        <label class="field">
-          <span>What kind of help?</span>
-          <select id="help-kind" name="What kind of help?">
-            <option value="Ship it">Ship it</option>
-            <option value="Figure it out">Figure it out</option>
-            <option value="Build it">Build it</option>
-            <option value="Not sure yet" selected>Not sure yet</option>
-          </select>
-        </label>
-        <button type="submit" class="btn">Send it over</button>
-      </form>
-      <p class="form-success" data-success role="status" tabindex="-1" hidden>Got it. I'll reply within 2 business days.</p>
-      <div data-booking-slot></div>
+  <section class="contact-section" id="contact">
+    <div class="page-shell contact-grid">
+      <h2>Got a problem? Start there.</h2>
+      <div>
+        <form id="contact-form" class="booking-form" method="POST">
+          <input type="hidden" name="_subject" value="Problem for Now/Here" />
+          <input type="hidden" name="_captcha" value="false" />
+          <label class="field">
+            <span>Name</span>
+            <input type="text" name="Name" autocomplete="name" required />
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="Email" autocomplete="email" required />
+          </label>
+          <label class="field">
+            <span>Company or team</span>
+            <input type="text" name="Company or team" autocomplete="organization" />
+          </label>
+          <label class="field">
+            <span>What's the problem?</span>
+            <textarea name="What's the problem?" required></textarea>
+          </label>
+          <label class="field">
+            <span>What kind of help?</span>
+            <select id="help-kind" name="What kind of help?">
+              <option value="Ship it">Ship it</option>
+              <option value="Figure it out">Figure it out</option>
+              <option value="Build it">Build it</option>
+              <option value="Not sure yet" selected>Not sure yet</option>
+            </select>
+          </label>
+          <button type="submit" class="btn">Send it over</button>
+        </form>
+        <p class="form-success" data-success role="status" tabindex="-1" hidden>Got it. I'll reply within 2 business days.</p>
+        <div data-booking-slot></div>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <img class="footer-mark" src="logo.png" alt="" aria-hidden="true" />
+  <div class="footer-brand">
+    <img class="footer-mark" src="logo.png" alt="" aria-hidden="true" />
+    <p class="footer-tag">Product, strategy, and ops</p>
+  </div>
   <nav class="footer-links" aria-label="Contact">
     <a data-linkedin-link target="_blank" rel="noopener">LinkedIn</a>
     <a data-email-link></a>
   </nav>
   <p class="footer-also">Also building: <a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a> · <a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a></p>
-  <div class="footer-copy">© 2026 Now/Here Studio</div>
+  <p class="footer-copy">© 2026 Now/Here Studio</p>
 </footer>
 
 <script src="site-config.js"></script>
@@ -820,10 +1008,11 @@
   });
 
   const headshot = document.querySelector("[data-headshot]");
+  const avatarFallback = document.querySelector("[data-avatar-fallback]");
   if (config.HEADSHOT_SRC) {
     headshot.src = config.HEADSHOT_SRC;
     headshot.hidden = false;
-    headshot.closest("[data-about]").classList.add("has-photo");
+    avatarFallback.hidden = true;
   } else {
     headshot.remove();
   }
@@ -841,6 +1030,20 @@
     note.append(bookingLink);
     slot.replaceWith(note);
   }
+
+  const nav = document.querySelector(".site-nav");
+  const hero = document.querySelector(".conversion-hero");
+  const syncNavSpace = () => {
+    document.documentElement.style.setProperty("--nav", nav.offsetHeight + "px");
+  };
+  const updateNav = () => {
+    const pastHero = hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().bottom;
+    nav.classList.toggle("is-solid", pastHero);
+  };
+  syncNavSpace();
+  updateNav();
+  window.addEventListener("resize", syncNavSpace);
+  window.addEventListener("scroll", updateNav, { passive: true });
 
   const helpSelect = document.querySelector("#help-kind");
   document.querySelectorAll("[data-offer]").forEach((link) => {
