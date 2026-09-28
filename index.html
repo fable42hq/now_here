@@ -25,7 +25,7 @@
   @font-face {
     font-family: 'Satoshi';
     src: url('fonts/Satoshi-Black.otf') format('opentype');
-    font-weight: 800;
+    font-weight: 700 900;
     font-style: normal;
     font-display: swap;
   }
@@ -83,14 +83,17 @@
     margin-bottom: 20px;
   }
 
-  .section-heading {
+  h1, h2, h3 {
     font-family: 'Satoshi', sans-serif;
-    font-size: clamp(32px, 4vw, 46px);
     font-weight: 800;
+    font-synthesis: none;
+  }
+
+  .section-heading {
+    font-size: clamp(32px, 4vw, 46px);
     letter-spacing: -0.025em;
     line-height: 1.12;
-    margin-bottom: 40px;
-    text-wrap: balance;
+    margin-bottom: 28px;
   }
 
   .btn {
@@ -154,18 +157,15 @@
 
   .conversion-hero .logo {
     width: 148px;
-    margin-bottom: clamp(64px, 10vh, 112px);
+    margin-bottom: 56px;
   }
 
   .conversion-hero h1 {
-    font-family: 'Satoshi', sans-serif;
     font-size: clamp(38px, 5vw, 64px);
-    font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.08;
     max-width: 820px;
     margin-bottom: 28px;
-    text-wrap: balance;
   }
 
   .hero-copy {
@@ -195,21 +195,38 @@
   }
 
   .work-section,
+  .prose-section,
   .split-section {
-    padding: 104px 0;
+    padding: 80px 0;
     scroll-margin-top: 24px;
+  }
+
+  .prose-section .section-heading,
+  .prose-section .steps,
+  .prose-section .origin-list,
+  .prose-section .about-copy {
+    max-width: 680px;
+  }
+
+  .origin-section {
+    padding-top: 8px;
+  }
+
+  #how {
+    padding-bottom: 40px;
   }
 
   .split-section {
     display: grid;
-    grid-template-columns: 0.75fr 1.25fr;
-    gap: clamp(48px, 8vw, 120px);
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: clamp(40px, 6vw, 96px);
     align-items: start;
   }
 
   .split-section .section-heading {
     position: sticky;
     top: 40px;
+    margin-bottom: 0;
   }
 
   .tiers {
@@ -240,7 +257,6 @@
   }
 
   .tier-card h3 {
-    font-family: 'Satoshi', sans-serif;
     font-size: 30px;
     line-height: 1.1;
     margin-bottom: 16px;
@@ -254,11 +270,7 @@
 
   .tier-body p + p { margin-top: 12px; }
 
-  .tier-detail {
-    margin-top: 14px;
-    color: var(--black) !important;
-    font-weight: 500;
-  }
+  .tier-detail { margin-top: 16px; }
 
   .tier-detail + .tier-detail { margin-top: 8px; }
 
@@ -288,8 +300,8 @@
 
   .steps li,
   .origin-list li {
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: 16px;
+    line-height: 1.65;
   }
 
   .steps li {
@@ -301,9 +313,7 @@
 
   .steps li span {
     color: var(--teal);
-    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.08em;
   }
 
   .origin-list li {
@@ -323,7 +333,7 @@
   }
 
   .about-copy p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.65;
   }
 
@@ -454,8 +464,8 @@
 
   .form-success {
     font-family: 'Satoshi', sans-serif;
-    font-size: clamp(26px, 3vw, 36px);
     font-weight: 800;
+    font-size: clamp(26px, 3vw, 36px);
     letter-spacing: -0.02em;
     line-height: 1.2;
   }
@@ -527,7 +537,10 @@
     .split-section,
     .contact-section { grid-template-columns: 1fr; }
 
-    .split-section .section-heading { position: static; }
+    .split-section .section-heading {
+      position: static;
+      margin-bottom: 28px;
+    }
 
     .contact-section .section-heading { margin-bottom: 8px; }
   }
@@ -562,15 +575,18 @@
 
     .conversion-hero .logo {
       width: 112px;
-      margin-bottom: 72px;
+      margin-bottom: 40px;
     }
 
     .conversion-hero h1 {
-      font-size: clamp(34px, 10vw, 48px);
+      font-size: clamp(38px, 11vw, 52px);
     }
 
     .work-section,
-    .split-section { padding: 72px 0; }
+    .prose-section,
+    .split-section { padding: 64px 0; }
+
+    #how { padding-bottom: 28px; }
 
     .tier-card { padding: 28px; }
 
@@ -652,7 +668,7 @@
 
   <div class="divider"></div>
 
-  <section class="split-section page-shell" id="how">
+  <section class="prose-section page-shell" id="how">
     <h2 class="section-heading">How it works</h2>
     <ol class="steps">
       <li><span>1</span>Tell me the problem in a few sentences.</li>
@@ -662,20 +678,19 @@
     </ol>
   </section>
 
-  <section class="split-section page-shell origin-section">
+  <section class="prose-section page-shell origin-section">
     <h2 class="section-heading">Where this comes from</h2>
     <ul class="origin-list">
       <li>At a leading marketplace company: cut time-to-market by 5 weeks by aligning Product, Engineering, Design, and Account Management.</li>
       <li>Drove $300K in incremental volume and improved quality metrics by 30%.</li>
       <li>At a health insurance company: led workflow automation that reached 300K+ members.</li>
       <li>At a data software company: built the pipeline that took forecasting accuracy from 88% to 94%.</li>
-      <li>Master's in Information Systems, Cornell Tech.</li>
     </ul>
   </section>
 
   <div class="divider"></div>
 
-  <section class="split-section page-shell" id="about">
+  <section class="prose-section page-shell" id="about">
     <h2 class="section-heading">About</h2>
     <div class="about-layout" data-about>
       <img class="about-photo" data-headshot alt="Sandra, founder of Now/Here Studio" hidden />
