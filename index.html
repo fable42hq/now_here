@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="Bring me a problem. I own projects, figure out what to test, and build the fix. Product, strategy, and ops help for founders, small businesses, and growing teams.">
 <meta property="og:title" content="Now/Here Studio | Product, Strategy &amp; Ops Consulting">
 <meta property="og:description" content="Bring me a problem. I own projects, figure out what to test, and build the fix. Product, strategy, and ops help for founders, small businesses, and growing teams.">
@@ -40,7 +40,10 @@
 
   [hidden] { display: none !important; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
 
   body {
     background: var(--white);
@@ -160,7 +163,7 @@
     z-index: 30;
     display: flex;
     align-items: center;
-    padding: 12px 0;
+    padding: max(12px, env(safe-area-inset-top)) 0 12px;
     background: transparent;
     border-bottom: 1px solid transparent;
     transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
@@ -769,6 +772,8 @@
   .calendly-inline-widget {
     margin-top: 36px;
     width: 100%;
+    min-width: 0 !important;
+    max-width: 100%;
     border-radius: 18px;
     overflow: hidden;
   }
@@ -921,7 +926,32 @@
       padding: 48px 22px;
     }
 
-    .founder-visual { width: min(100%, 220px); }
+    .founder-card { text-align: center; }
+
+    .founder-visual {
+      width: min(100%, 220px);
+      margin-inline: auto;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    .btn-nav { min-height: 44px; }
+
+    .card-link {
+      display: inline-block;
+      padding: 8px 0;
+    }
+
+    footer { padding-bottom: max(36px, env(safe-area-inset-bottom)); }
+  }
+
+  @media (max-width: 380px) {
+    .stat-value { font-size: 18px; }
+    .stat-box { padding: 18px 8px 14px; }
   }
 </style>
 </head>
@@ -1212,7 +1242,7 @@
     </div>
     <div class="page-shell">
       <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/sandra-nowherestudio/30min?hide_event_type_details=1&background_color=f5f2ec&text_color=0f0f0f&primary_color=2e6b6b" style="min-width:320px;height:700px;"></div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/sandra-nowherestudio/20min?hide_event_type_details=1&background_color=f5f2ec&text_color=0f0f0f&primary_color=2e6b6b" style="height:700px;"></div>
       <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       <!-- Calendly inline widget end -->
     </div>
