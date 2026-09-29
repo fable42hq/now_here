@@ -243,10 +243,7 @@
     margin-bottom: 16px;
   }
 
-  .hero-panel .hero-copy {
-    color: rgba(245, 242, 236, 0.9);
-    text-align: left;
-  }
+  .hero-panel .hero-copy { color: rgba(245, 242, 236, 0.9); }
 
   .hero-note {
     color: var(--muted);
@@ -284,21 +281,25 @@
   }
 
   .tier-card:nth-child(3) {
-    background: #161616;
-    border-color: #161616;
-    color: var(--white);
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
   }
 
-  .tier-card:nth-child(2) .tier-problem,
-  .tier-card:nth-child(3) .tier-problem {
+  .tier-card:nth-child(2) .tier-problem {
     color: rgba(245, 242, 236, 0.72);
   }
 
   .tier-card:nth-child(2) .tier-body,
-  .tier-card:nth-child(3) .tier-body,
-  .tier-card:nth-child(2) .tier-lists li,
-  .tier-card:nth-child(3) .tier-lists li {
+  .tier-card:nth-child(2) .tier-lists li {
     color: var(--white);
+  }
+
+  .tier-card:nth-child(3) .tier-problem,
+  .tier-card:nth-child(3) .tier-body,
+  .tier-card:nth-child(3) .tier-lists li,
+  .tier-card:nth-child(3) h3 {
+    color: var(--black);
   }
 
   .tier-card:nth-child(2) .tier-number,
@@ -312,12 +313,12 @@
   .tier-card:nth-child(3) .mini-label,
   .tier-card:nth-child(3) .tier-timing,
   .tier-card:nth-child(3) .card-link {
-    color: #E4D7A2;
+    color: var(--black);
   }
 
   .tier-card:nth-child(2) .tier-lists li::before { background: var(--white); }
 
-  .tier-card:nth-child(3) .tier-lists li::before { background: #E4D7A2; }
+  .tier-card:nth-child(3) .tier-lists li::before { background: var(--black); }
 
   .tier-card:hover {
     transform: translateY(-6px);
@@ -325,9 +326,68 @@
     box-shadow: 0 18px 36px rgba(15, 15, 15, 0.08);
   }
 
-  .tier-card:nth-child(2):hover,
-  .tier-card:nth-child(3):hover {
-    border-color: transparent;
+  .tier-card:nth-child(2):hover { border-color: transparent; }
+
+  .tier-card:nth-child(3):hover { border-color: var(--black); }
+
+  .own-work .section-heading {
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .own-sub {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .own-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .own-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px 22px 18px;
+  }
+
+  .own-card h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .own-card h3 a {
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .own-card h3 a:hover { color: var(--teal); }
+
+  .own-kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+
+  .own-card .own-body {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .own-status {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--teal);
+    margin: 4px 0 0;
   }
 
   .tier-number {
@@ -811,7 +871,8 @@
 
     .faq-section .section-heading { position: static; margin-bottom: 28px; }
 
-    .tiers { grid-template-columns: 1fr; }
+    .tiers,
+    .own-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 720px) {
@@ -998,6 +1059,29 @@
       </div>
     </div>
     <p class="proof-context">At a leading marketplace company: cut time-to-market by 5 weeks by aligning Product, Engineering, Design, and Account Management. Drove $300K in incremental GMV and improved quality metrics by 30%. At a health insurance company: led workflow automation that reached 300K+ members. At a data software company: built the pipeline that took forecasting accuracy from 88% to 94%.</p>
+  </section>
+
+  <section class="section page-shell own-work">
+    <h2 class="section-heading">Idea to launch, on my own</h2>
+    <p class="own-sub">No team, no funding round. Just me shipping.</p>
+    <div class="own-grid">
+      <article class="own-card">
+        <h3><a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a></h3>
+        <p class="own-kicker">The problem</p>
+        <p class="own-body">Independent jewelry designers get buried on Etsy and ignored by Google.</p>
+        <p class="own-kicker">What I built</p>
+        <p class="own-body">A discovery marketplace with a Shopify app as the designer's sales channel, subscription billing, commission tracking, and the full designer onboarding flow. Grew it to 16K organic TikTok followers, no ad spend.</p>
+        <p class="own-status">Status: onboarding designers now.</p>
+      </article>
+      <article class="own-card">
+        <h3><a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a></h3>
+        <p class="own-kicker">The problem</p>
+        <p class="own-body">Group trips and retreats, especially from independent operators, have nowhere to be discovered.</p>
+        <p class="own-kicker">What I built</p>
+        <p class="own-body">Affiliate tracking from scratch, click and booking-confirmation snippets, no honor system, no promo codes. Grew it to 20K organic followers in two months, no ad spend.</p>
+        <p class="own-status">Status: building the operator base now.</p>
+      </article>
+    </div>
   </section>
 
   <section class="section page-shell" id="how">
