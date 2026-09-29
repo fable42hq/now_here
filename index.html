@@ -85,9 +85,10 @@
   .tier-number,
   .mini-label,
   .stat-label,
-  .step-num,
+  .step-marker,
   .founder-role,
-  .tier-timing {
+  .tier-timing,
+  .diagram-label {
     font-family: var(--font-mono);
   }
 
@@ -212,31 +213,55 @@
 
   .conversion-hero {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: calc(var(--nav) + 72px) 0 96px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+    gap: 40px 56px;
+    align-items: center;
+    padding: calc(var(--nav) + 56px) 0 72px;
   }
 
   .hero-copy {
     font-size: 18px;
     line-height: 1.65;
-    max-width: 680px;
     margin-bottom: 16px;
   }
 
   .hero-note {
     color: var(--muted);
     font-size: 15px;
-    max-width: 640px;
-    margin: 8px 0 32px;
+    margin: 8px 0 28px;
   }
 
   .hero-proof {
-    margin-top: 16px;
+    margin-top: 22px;
+    padding: 14px 0;
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
     color: var(--muted);
     font-size: 14px;
-    max-width: 520px;
+    max-width: 100%;
+  }
+
+  .hero-figure {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.45);
+    padding: 32px 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+  }
+
+  .hero-figure svg {
+    display: block;
+    width: min(100%, 300px);
+    height: auto;
+  }
+
+  .hero-figure text {
+    font-family: var(--font-mono);
+    fill: var(--black);
   }
 
   .tiers {
@@ -382,33 +407,56 @@
     list-style: none;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
   }
 
-  .step-num {
+  .steps li {
+    position: relative;
+    min-width: 0;
+  }
+
+  .steps li::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 48px;
+    width: calc(100% - 48px + 28px);
+    height: 3px;
+    background: var(--teal);
+    z-index: 0;
+  }
+
+  .steps li:last-child::before { display: none; }
+
+  .step-marker {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: var(--white);
     display: flex;
     align-items: center;
-    gap: 12px;
-    color: var(--teal);
-    font-size: 13px;
+    justify-content: center;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.04em;
-    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 6px var(--white);
   }
 
-  .step-num::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--border);
+  .step-title {
+    font-size: 22px;
+    margin: 18px 0 8px;
   }
-
-  .steps li:last-child .step-num::after { display: none; }
 
   .steps p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
-    padding-right: 12px;
+    color: var(--muted);
+    padding-right: 8px;
   }
 
   .about-layout {
@@ -657,13 +705,41 @@
 
   @media (max-width: 900px) {
     .tiers,
-    .steps,
     .about-layout,
     .faq-section,
     .contact-grid,
     .stat-bar { grid-template-columns: 1fr 1fr; }
 
-    .steps { grid-template-columns: 1fr 1fr; }
+    .conversion-hero,
+    .steps { grid-template-columns: 1fr; }
+
+    .steps { gap: 0; }
+
+    .steps li {
+      padding: 0 0 32px 72px;
+    }
+
+    .steps li::before { display: none; }
+
+    .steps li::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 48px;
+      bottom: 0;
+      width: 3px;
+      background: var(--teal);
+    }
+
+    .steps li:last-child::after { display: none; }
+
+    .step-marker {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .step-title { margin-top: 4px; }
 
     .faq-section,
     .contact-grid,
@@ -688,8 +764,6 @@
 
     .stat-bar,
     .steps { grid-template-columns: 1fr; }
-
-    .step-num::after { display: none; }
 
     .page-shell,
     .nav-inner,
@@ -727,15 +801,49 @@
 
 <main id="top">
   <section class="conversion-hero page-shell">
-    <p class="eyebrow">Product, strategy, and ops</p>
-    <h1>Bring me a problem. I'll help you solve it.</h1>
-    <p class="hero-copy">Not an agency. Not a consultant with a deck. I'm Sandra, and I've spent seven years turning messy, cross-team problems into shipped work at a leading marketplace company, a health insurance company, and a data software company.</p>
-    <p class="hero-copy">I own projects, figure out what to test, and build the fix.</p>
-    <p class="hero-note">For founders, small business owners, and teams inside bigger companies.</p>
-    <div class="hero-actions">
-      <a class="btn" data-primary-cta href="#contact">Send me the problem</a>
+    <div class="hero-lead">
+      <p class="eyebrow">Product, strategy, and ops</p>
+      <h1>Bring me a problem. I'll help you solve it.</h1>
+      <p class="hero-copy">Not an agency. Not a consultant with a deck. I'm Sandra, and I've spent seven years turning messy, cross-team problems into shipped work at a leading marketplace company, a health insurance company, and a data software company.</p>
+      <p class="hero-copy">I own projects, figure out what to test, and build the fix.</p>
+      <p class="hero-note">For founders, small business owners, and teams inside bigger companies.</p>
+      <div class="hero-actions">
+        <a class="btn" data-primary-cta href="#contact">Send me the problem</a>
+      </div>
+      <p class="hero-proof">Seven years turning messy, cross-team problems into shipped work. 20 minutes for a fit check.</p>
     </div>
-    <p class="hero-proof">Seven years turning messy, cross-team problems into shipped work. 20 minutes for a fit check.</p>
+    <figure class="hero-figure">
+      <svg viewBox="0 0 320 560" role="img" aria-label="Today, product, ops, and data all meet at the problem. After, they meet at shipped work.">
+        <text x="160" y="16" text-anchor="middle" font-size="12" letter-spacing="1.8">TODAY</text>
+        <line x1="160" y1="62" x2="160" y2="210" stroke="#0F0F0F" stroke-width="1.5"/>
+        <line x1="64" y1="128" x2="140" y2="214" stroke="#0F0F0F" stroke-width="1.5"/>
+        <line x1="256" y1="128" x2="180" y2="214" stroke="#0F0F0F" stroke-width="1.5"/>
+        <path d="M112 230 A48 48 0 0 1 208 230 Z" fill="#998731"/>
+        <circle cx="160" cy="56" r="5.5" fill="#0F0F0F"/>
+        <circle cx="64" cy="128" r="5.5" fill="#0F0F0F"/>
+        <circle cx="256" cy="128" r="5.5" fill="#0F0F0F"/>
+        <text x="160" y="42" text-anchor="middle" font-size="11" letter-spacing="0.8">PRODUCT</text>
+        <text x="64" y="112" text-anchor="middle" font-size="11" letter-spacing="0.8">OPS</text>
+        <text x="256" y="112" text-anchor="middle" font-size="11" letter-spacing="0.8">DATA</text>
+        <text x="160" y="258" text-anchor="middle" font-size="11" letter-spacing="0.8">THE PROBLEM</text>
+
+        <line x1="160" y1="278" x2="160" y2="308" stroke="#0F0F0F" stroke-width="1.5"/>
+        <polyline points="154,300 160,310 166,300" fill="none" stroke="#0F0F0F" stroke-width="1.5"/>
+
+        <text x="160" y="344" text-anchor="middle" font-size="12" letter-spacing="1.8">AFTER</text>
+        <line x1="160" y1="390" x2="160" y2="500" stroke="#0F0F0F" stroke-width="1.5"/>
+        <line x1="64" y1="456" x2="120" y2="500" stroke="#0F0F0F" stroke-width="1.5"/>
+        <line x1="256" y1="456" x2="200" y2="500" stroke="#0F0F0F" stroke-width="1.5"/>
+        <rect x="96" y="500" width="128" height="14" rx="2" fill="#2E6B6B"/>
+        <circle cx="160" cy="384" r="5.5" fill="#0F0F0F"/>
+        <circle cx="64" cy="456" r="5.5" fill="#0F0F0F"/>
+        <circle cx="256" cy="456" r="5.5" fill="#0F0F0F"/>
+        <text x="160" y="370" text-anchor="middle" font-size="11" letter-spacing="0.8">PRODUCT</text>
+        <text x="64" y="440" text-anchor="middle" font-size="11" letter-spacing="0.8">OPS</text>
+        <text x="256" y="440" text-anchor="middle" font-size="11" letter-spacing="0.8">DATA</text>
+        <text x="160" y="540" text-anchor="middle" font-size="11" letter-spacing="0.8">SHIPPED WORK</text>
+      </svg>
+    </figure>
   </section>
 
   <section class="section page-shell" id="offers">
@@ -858,20 +966,23 @@
     <h2 class="section-heading">How it works</h2>
     <ol class="steps">
       <li>
-        <div class="step-num">1</div>
+        <div class="step-marker">01</div>
+        <h3 class="step-title">The problem</h3>
         <p>Tell me the problem in a few sentences.</p>
       </li>
       <li>
-        <div class="step-num">2</div>
+        <div class="step-marker">02</div>
+        <h3 class="step-title">The call</h3>
         <p>We talk for 20 minutes. Free.</p>
       </li>
       <li>
-        <div class="step-num">3</div>
+        <div class="step-marker">03</div>
+        <h3 class="step-title">The scope</h3>
         <p>I send a one-page scope with timeline and price.</p>
       </li>
       <li>
-        <div class="step-num">4</div>
-        <p>We start.</p>
+        <div class="step-marker">04</div>
+        <h3 class="step-title">We start.</h3>
       </li>
     </ol>
   </section>
