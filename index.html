@@ -243,7 +243,10 @@
     margin-bottom: 16px;
   }
 
-  .hero-panel .hero-copy { color: rgba(245, 242, 236, 0.9); }
+  .hero-panel .hero-copy {
+    color: rgba(245, 242, 236, 0.9);
+    text-align: left;
+  }
 
   .hero-note {
     color: var(--muted);
@@ -251,7 +254,10 @@
     margin: 20px 0 0;
   }
 
-  .hero-panel .hero-note { color: rgba(245, 242, 236, 0.72); }
+  .hero-panel .hero-note {
+    color: rgba(245, 242, 236, 0.72);
+    text-align: left;
+  }
 
   .tiers {
     display: grid;
@@ -298,7 +304,10 @@
   .tier-card:nth-child(2) .tier-number,
   .tier-card:nth-child(2) .mini-label,
   .tier-card:nth-child(2) .tier-timing,
-  .tier-card:nth-child(2) .card-link,
+  .tier-card:nth-child(2) .card-link {
+    color: var(--white);
+  }
+
   .tier-card:nth-child(3) .tier-number,
   .tier-card:nth-child(3) .mini-label,
   .tier-card:nth-child(3) .tier-timing,
@@ -306,10 +315,9 @@
     color: #E4D7A2;
   }
 
-  .tier-card:nth-child(2) .tier-lists li::before,
-  .tier-card:nth-child(3) .tier-lists li::before {
-    background: #E4D7A2;
-  }
+  .tier-card:nth-child(2) .tier-lists li::before { background: var(--white); }
+
+  .tier-card:nth-child(3) .tier-lists li::before { background: #E4D7A2; }
 
   .tier-card:hover {
     transform: translateY(-6px);
