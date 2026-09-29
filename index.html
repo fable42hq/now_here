@@ -87,8 +87,7 @@
   .stat-label,
   .step-marker,
   .founder-role,
-  .tier-timing,
-  .diagram-label {
+  .tier-timing {
     font-family: var(--font-mono);
   }
 
@@ -213,12 +212,30 @@
 
   .conversion-hero {
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
-    gap: 40px 56px;
-    align-items: center;
-    padding: calc(var(--nav) + 56px) 0 72px;
+    display: flex;
+    padding: calc(var(--nav) + 12px) 20px 20px;
   }
+
+  .hero-panel {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 72px 40px;
+    flex: 1;
+  }
+
+  .hero-lead { max-width: 780px; }
+
+  .hero-panel .eyebrow { color: #E4D7A2; }
+
+  .hero-panel h1,
+  .hero-panel .hero-copy { color: var(--white); }
 
   .hero-copy {
     font-size: 18px;
@@ -226,33 +243,15 @@
     margin-bottom: 16px;
   }
 
+  .hero-panel .hero-copy { color: rgba(245, 242, 236, 0.9); }
+
   .hero-note {
     color: var(--muted);
     font-size: 15px;
     margin: 20px 0 0;
   }
 
-  .hero-figure {
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.45);
-    padding: 32px 20px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100%;
-  }
-
-  .hero-figure svg {
-    display: block;
-    width: min(100%, 300px);
-    height: auto;
-  }
-
-  .hero-figure text {
-    font-family: var(--font-mono);
-    fill: var(--black);
-  }
+  .hero-panel .hero-note { color: rgba(245, 242, 236, 0.72); }
 
   .tiers {
     display: grid;
@@ -272,10 +271,55 @@
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
 
-  .tier-card:hover {
-    transform: translateY(-4px);
+  .tier-card:nth-child(2) {
+    background: var(--teal);
     border-color: var(--teal);
-    box-shadow: 0 14px 32px rgba(15, 15, 15, 0.06);
+    color: var(--white);
+  }
+
+  .tier-card:nth-child(3) {
+    background: #161616;
+    border-color: #161616;
+    color: var(--white);
+  }
+
+  .tier-card:nth-child(2) .tier-problem,
+  .tier-card:nth-child(3) .tier-problem {
+    color: rgba(245, 242, 236, 0.72);
+  }
+
+  .tier-card:nth-child(2) .tier-body,
+  .tier-card:nth-child(3) .tier-body,
+  .tier-card:nth-child(2) .tier-lists li,
+  .tier-card:nth-child(3) .tier-lists li {
+    color: var(--white);
+  }
+
+  .tier-card:nth-child(2) .tier-number,
+  .tier-card:nth-child(2) .mini-label,
+  .tier-card:nth-child(2) .tier-timing,
+  .tier-card:nth-child(2) .card-link,
+  .tier-card:nth-child(3) .tier-number,
+  .tier-card:nth-child(3) .mini-label,
+  .tier-card:nth-child(3) .tier-timing,
+  .tier-card:nth-child(3) .card-link {
+    color: #E4D7A2;
+  }
+
+  .tier-card:nth-child(2) .tier-lists li::before,
+  .tier-card:nth-child(3) .tier-lists li::before {
+    background: #E4D7A2;
+  }
+
+  .tier-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--teal);
+    box-shadow: 0 18px 36px rgba(15, 15, 15, 0.08);
+  }
+
+  .tier-card:nth-child(2):hover,
+  .tier-card:nth-child(3):hover {
+    border-color: transparent;
   }
 
   .tier-number {
@@ -364,12 +408,21 @@
 
   .card-link:hover { text-decoration: underline; }
 
+  #offers .eyebrow,
+  #offers .section-heading,
+  #proof .section-heading,
+  #about .section-heading,
+  .faq-section .section-heading {
+    text-align: center;
+  }
+
   .stat-bar {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
     padding: 8px 0 32px;
     border-bottom: 1px solid var(--border);
+    text-align: center;
   }
 
   .stat-value {
@@ -383,14 +436,21 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 1.4;
-    max-width: 180px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .proof-context {
     max-width: 720px;
-    margin-top: 28px;
+    margin: 28px auto 0;
     color: var(--muted);
     font-size: 16px;
+    text-align: center;
+  }
+
+  #how {
+    text-align: center;
   }
 
   .steps {
@@ -411,8 +471,8 @@
     content: "";
     position: absolute;
     top: 22px;
-    left: 48px;
-    width: calc(100% - 48px + 28px);
+    left: 50%;
+    width: calc(100% + 28px);
     height: 3px;
     background: var(--teal);
     z-index: 0;
@@ -434,6 +494,7 @@
     letter-spacing: 0.04em;
     position: relative;
     z-index: 1;
+    margin: 0 auto;
     box-shadow: 0 0 0 6px var(--white);
   }
 
@@ -445,7 +506,6 @@
     letter-spacing: -0.02em;
     color: var(--black);
     margin-top: 18px;
-    padding-right: 8px;
   }
 
   .about-layout {
@@ -702,6 +762,12 @@
     .conversion-hero,
     .steps { grid-template-columns: 1fr; }
 
+    #how,
+    .steps,
+    .steps li { text-align: left; }
+
+    #how .section-heading { text-align: center; }
+
     .steps { gap: 0; }
 
     .steps li {
@@ -726,6 +792,7 @@
       position: absolute;
       left: 0;
       top: 0;
+      margin: 0;
     }
 
     .steps p { margin-top: 4px; }
@@ -763,7 +830,12 @@
 
     .conversion-hero {
       min-height: auto;
-      padding: calc(var(--nav) + 36px) 0 64px;
+      padding: calc(var(--nav) + 16px) 16px 16px;
+    }
+
+    .hero-panel {
+      border-radius: 22px;
+      padding: 48px 22px;
     }
 
     .founder-visual { width: min(100%, 220px); }
@@ -789,7 +861,8 @@
 </header>
 
 <main id="top">
-  <section class="conversion-hero page-shell">
+  <section class="conversion-hero">
+    <div class="hero-panel">
     <div class="hero-lead">
       <p class="eyebrow">Product, strategy, and ops</p>
       <h1>Bring me a problem. I'll help you solve it.</h1>
@@ -800,38 +873,7 @@
       </div>
       <p class="hero-note">For founders, small business owners, and teams inside bigger companies.</p>
     </div>
-    <figure class="hero-figure">
-      <svg viewBox="0 0 320 560" role="img" aria-label="Today, product, ops, and data all meet at the problem. After, they meet at shipped work.">
-        <text x="160" y="16" text-anchor="middle" font-size="12" letter-spacing="1.8">TODAY</text>
-        <line x1="160" y1="62" x2="160" y2="210" stroke="#0F0F0F" stroke-width="1.5"/>
-        <line x1="64" y1="128" x2="140" y2="214" stroke="#0F0F0F" stroke-width="1.5"/>
-        <line x1="256" y1="128" x2="180" y2="214" stroke="#0F0F0F" stroke-width="1.5"/>
-        <path d="M112 230 A48 48 0 0 1 208 230 Z" fill="#998731"/>
-        <circle cx="160" cy="56" r="5.5" fill="#0F0F0F"/>
-        <circle cx="64" cy="128" r="5.5" fill="#0F0F0F"/>
-        <circle cx="256" cy="128" r="5.5" fill="#0F0F0F"/>
-        <text x="160" y="42" text-anchor="middle" font-size="11" letter-spacing="0.8">PRODUCT</text>
-        <text x="64" y="112" text-anchor="middle" font-size="11" letter-spacing="0.8">OPS</text>
-        <text x="256" y="112" text-anchor="middle" font-size="11" letter-spacing="0.8">DATA</text>
-        <text x="160" y="258" text-anchor="middle" font-size="11" letter-spacing="0.8">THE PROBLEM</text>
-
-        <line x1="160" y1="278" x2="160" y2="308" stroke="#0F0F0F" stroke-width="1.5"/>
-        <polyline points="154,300 160,310 166,300" fill="none" stroke="#0F0F0F" stroke-width="1.5"/>
-
-        <text x="160" y="344" text-anchor="middle" font-size="12" letter-spacing="1.8">AFTER</text>
-        <line x1="160" y1="390" x2="160" y2="500" stroke="#0F0F0F" stroke-width="1.5"/>
-        <line x1="64" y1="456" x2="120" y2="500" stroke="#0F0F0F" stroke-width="1.5"/>
-        <line x1="256" y1="456" x2="200" y2="500" stroke="#0F0F0F" stroke-width="1.5"/>
-        <rect x="96" y="500" width="128" height="14" rx="2" fill="#2E6B6B"/>
-        <circle cx="160" cy="384" r="5.5" fill="#0F0F0F"/>
-        <circle cx="64" cy="456" r="5.5" fill="#0F0F0F"/>
-        <circle cx="256" cy="456" r="5.5" fill="#0F0F0F"/>
-        <text x="160" y="370" text-anchor="middle" font-size="11" letter-spacing="0.8">PRODUCT</text>
-        <text x="64" y="440" text-anchor="middle" font-size="11" letter-spacing="0.8">OPS</text>
-        <text x="256" y="440" text-anchor="middle" font-size="11" letter-spacing="0.8">DATA</text>
-        <text x="160" y="540" text-anchor="middle" font-size="11" letter-spacing="0.8">SHIPPED WORK</text>
-      </svg>
-    </figure>
+    </div>
   </section>
 
   <section class="section page-shell" id="offers">
@@ -932,22 +974,22 @@
     <div class="stat-bar">
       <div>
         <p class="stat-value">5 weeks</p>
-        <p class="stat-label">faster time-to-market</p>
+        <p class="stat-label">faster time to market</p>
       </div>
       <div>
         <p class="stat-value">$300K</p>
-        <p class="stat-label">incremental volume</p>
+        <p class="stat-label">in incremental GMV</p>
       </div>
       <div>
         <p class="stat-value">300K+</p>
-        <p class="stat-label">members reached</p>
+        <p class="stat-label">members reached via automation</p>
       </div>
       <div>
         <p class="stat-value">88% to 94%</p>
-        <p class="stat-label">forecasting accuracy</p>
+        <p class="stat-label">improvement in forecasting accuracy</p>
       </div>
     </div>
-    <p class="proof-context">At a leading marketplace company: cut time-to-market by 5 weeks by aligning Product, Engineering, Design, and Account Management. Drove $300K in incremental volume and improved quality metrics by 30%. At a health insurance company: led workflow automation that reached 300K+ members. At a data software company: built the pipeline that took forecasting accuracy from 88% to 94%. Master's in Information Systems, Cornell Tech.</p>
+    <p class="proof-context">At a leading marketplace company: cut time-to-market by 5 weeks by aligning Product, Engineering, Design, and Account Management. Drove $300K in incremental GMV and improved quality metrics by 30%. At a health insurance company: led workflow automation that reached 300K+ members. At a data software company: built the pipeline that took forecasting accuracy from 88% to 94%.</p>
   </section>
 
   <section class="section page-shell" id="how">
