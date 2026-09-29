@@ -484,34 +484,35 @@
   .stat-bar {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
-    padding: 8px 0 32px;
-    border-bottom: 1px solid var(--border);
+    gap: 16px;
     text-align: center;
   }
 
+  .stat-box {
+    border: 1px solid var(--teal);
+    background: transparent;
+    border-radius: 18px;
+    padding: 22px 14px 18px;
+  }
+
   .stat-value {
-    font-size: clamp(28px, 3.2vw, 42px);
+    font-size: clamp(26px, 2.6vw, 40px);
     white-space: nowrap;
   }
 
   .stat-label {
     margin-top: 10px;
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 400;
+    color: var(--black);
+    font-size: 13px;
+    font-weight: 500;
     line-height: 1.4;
-    max-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  .proof-context {
-    max-width: 720px;
-    margin: 28px auto 0;
+  .stat-note {
+    margin-top: 8px;
     color: var(--muted);
-    font-size: 16px;
-    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
   }
 
   #how {
@@ -868,6 +869,10 @@
 
     .faq-section .section-heading { position: static; margin-bottom: 28px; }
 
+    .stat-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .stat-value { font-size: 22px; }
+
     .tiers,
     .own-grid { grid-template-columns: 1fr; }
   }
@@ -884,7 +889,6 @@
       gap: 18px;
     }
 
-    .stat-bar,
     .steps { grid-template-columns: 1fr; }
 
     .page-shell,
@@ -944,7 +948,7 @@
   </section>
 
   <section class="section page-shell" id="offers">
-    <p class="eyebrow">How we work</p>
+    <p class="eyebrow">Offers</p>
     <h2 class="section-heading">Three ways to work together</h2>
     <div class="tiers">
       <article class="tier-card">
@@ -1039,24 +1043,27 @@
   <section class="section page-shell" id="proof">
     <h2 class="section-heading">Where this comes from</h2>
     <div class="stat-bar">
-      <div>
+      <div class="stat-box">
         <p class="stat-value">5 weeks</p>
         <p class="stat-label">faster time to market</p>
+        <p class="stat-note">at a leading marketplace company</p>
       </div>
-      <div>
+      <div class="stat-box">
         <p class="stat-value">$300K</p>
         <p class="stat-label">in incremental GMV</p>
+        <p class="stat-note">at a leading marketplace company</p>
       </div>
-      <div>
+      <div class="stat-box">
         <p class="stat-value">300K+</p>
-        <p class="stat-label">members reached via automation</p>
+        <p class="stat-label">members reached through automation</p>
+        <p class="stat-note">at a health insurance company</p>
       </div>
-      <div>
+      <div class="stat-box">
         <p class="stat-value">88% to 94%</p>
-        <p class="stat-label">improvement in forecasting accuracy</p>
+        <p class="stat-label">forecasting accuracy</p>
+        <p class="stat-note">at a data software company</p>
       </div>
     </div>
-    <p class="proof-context">At a leading marketplace company: cut time-to-market by 5 weeks by aligning Product, Engineering, Design, and Account Management. Drove $300K in incremental GMV and improved quality metrics by 30%. At a health insurance company: led workflow automation that reached 300K+ members. At a data software company: built the pipeline that took forecasting accuracy from 88% to 94%.</p>
   </section>
 
   <section class="section page-shell own-work">
@@ -1066,10 +1073,10 @@
       <article class="own-card">
         <h3><a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a></h3>
         <p class="own-kicker">The problem</p>
-        <p class="own-body">Independent jewelry designers get buried on Etsy and ignored by Google.</p>
+        <p class="own-body">Independent fine jewelry designers get buried on Etsy and ignored by Google.</p>
         <p class="own-kicker">What I built</p>
-        <p class="own-body">A discovery marketplace with a Shopify app as the designer's sales channel, subscription billing, commission tracking, and the full designer onboarding flow.</p>
-        <p class="own-status">Stage: onboarding jewelers, expanding into search.</p>
+        <p class="own-body">A curated discovery platform that sends shoppers straight to designers' own sites. A Shopify app handles affiliate opt-in, product sync, and commission tracking. When designers wouldn't sync full catalogs to a new platform, I rebuilt the model around editorial and affiliate.</p>
+        <p class="own-status">Stage: Live, with a 248+ designer directory. Building cross-designer search.</p>
       </article>
       <article class="own-card">
         <h3><a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a></h3>
@@ -1077,7 +1084,7 @@
         <p class="own-body">Group trips and retreats, especially from independent operators, have nowhere to be discovered.</p>
         <p class="own-kicker">What I built</p>
         <p class="own-body">Affiliate tracking from scratch, click and booking-confirmation snippets, no honor system, no promo codes.</p>
-        <p class="own-status">Stage: iterating on how to drive top-of-funnel traffic.</p>
+        <p class="own-status">Stage: Live, with 50+ trips from 80+ operators.</p>
       </article>
     </div>
   </section>
@@ -1143,11 +1150,11 @@
       </details>
       <details>
         <summary>How much does it cost?</summary>
-        <p class="faq-answer">It depends on the scope. You'll get a fixed price in writing before we start.</p>
+        <p class="faq-answer">Projects start at $2,500. You'll get a fixed price in writing before we start.</p>
       </details>
       <details>
-        <summary>I'm not ready to book a call.</summary>
-        <p class="faq-answer">Send me the problem in a few sentences. I'll reply within 2 business days with a next step.</p>
+        <summary>Do I have to get on a call?</summary>
+        <p class="faq-answer">No. Send me the problem and I'll reply with a next step. The call is there if talking it through is faster.</p>
       </details>
     </div>
   </section>
