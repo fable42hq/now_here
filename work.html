@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Work | Now/Here Studio</title>
+<meta name="description" content="Products and systems I've shipped. Real links, working things.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="apple-touch-icon" href="logo.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2BEX0MJR0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X2BEX0MJR0');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #F5F2EC;
+    --black: #0F0F0F;
+    --teal: #2E6B6B;
+    --gold: #998731;
+    --muted: rgba(15,15,15,0.55);
+    --border: rgba(15,15,15,0.12);
+    --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 90px; scroll-behavior: smooth; }
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--teal); }
+  h1, h2, h3, .stat-value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+  h1 { font-size: clamp(40px, 6vw, 72px); }
+  h2 { font-size: clamp(28px, 3.2vw, 40px); }
+  h3 { font-size: 24px; }
+
+  .shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+
+  a:focus-visible, .btn:focus-visible {
+    outline: 3px solid rgba(46,107,107,0.28);
+    outline-offset: 3px;
+  }
+
+  .site-nav {
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(245,242,236,0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    padding: max(12px, env(safe-area-inset-top)) 0 12px;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .nav-logo { height: 34px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: var(--black); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-links a:hover, .nav-links a[aria-current] { color: var(--teal); }
+  .nav-links a.btn, .nav-links a.btn:hover { color: var(--white); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-body); font-size: 16px; font-weight: 600;
+    color: var(--white); background: var(--gold);
+    padding: 16px 28px; border-radius: 100px; text-decoration: none; line-height: 1;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .btn:hover { opacity: 0.88; transform: translateY(-2px); }
+  .btn-sm { font-size: 14px; padding: 12px 18px; }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .page-head { padding: 88px 0 56px; }
+  .page-head h1 { max-width: 12ch; margin-top: 16px; }
+  .page-head p {
+    font-size: 19px; max-width: 560px; margin-top: 22px; color: rgba(15,15,15,0.78);
+  }
+  .jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+  .jump a {
+    font-size: 14px; font-weight: 500; text-decoration: none; color: var(--black);
+    border: 1px solid var(--border); border-radius: 100px; padding: 8px 16px;
+  }
+  .jump a:hover { border-color: var(--teal); color: var(--teal); }
+
+  .case { padding: 56px 0; border-top: 1px solid var(--border); }
+  .case-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 48px;
+    align-items: start;
+  }
+  .case h2, .featured h2 { margin: 12px 0 28px; }
+  .case h2 a { color: inherit; text-decoration: none; }
+  .case h2 a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+  .field + .field { margin-top: 22px; }
+  .field .mono { display: block; margin-bottom: 6px; }
+  .field p { font-size: 16px; max-width: 62ch; }
+  .tools { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tools span {
+    font-family: var(--font-mono); font-size: 13px;
+    border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px;
+    background: rgba(255,255,255,0.6);
+  }
+  .status {
+    margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--border);
+    font-size: 15px; font-weight: 500;
+  }
+  .case-link { display: inline-block; margin-top: 16px; font-weight: 600; text-decoration: none; }
+  .case-link:hover { text-decoration: underline; }
+
+  .featured {
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 32px;
+    padding: 56px 48px;
+    margin-bottom: 40px;
+  }
+  .featured .mono { color: #E4D7A2; }
+  .featured .field p { color: rgba(245,242,236,0.9); }
+  .featured .tools span {
+    border-color: rgba(245,242,236,0.3); background: rgba(245,242,236,0.08); color: var(--white);
+  }
+  .featured .status { border-top-color: rgba(245,242,236,0.25); color: var(--white); }
+
+  .agents { border-top: 1px solid rgba(245,242,236,0.25); margin-top: 10px; }
+  .agent {
+    display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 16px;
+    padding: 14px 0; border-bottom: 1px solid rgba(245,242,236,0.25);
+    font-size: 15px;
+  }
+  .agent b { font-weight: 600; color: var(--white); }
+  .agent span { color: rgba(245,242,236,0.82); }
+
+  .facts { border-top: 1px solid var(--border); }
+  .fact { padding: 22px 0; border-bottom: 1px solid var(--border); }
+  .fact .stat-value { font-size: clamp(36px, 4vw, 52px); }
+  .featured .case-grid { align-items: center; }
+
+  .flight { position: relative; }
+  .plane {
+    position: absolute;
+    z-index: 2;
+    width: 72px;
+    height: 48px;
+    left: -14%;
+    top: 48%;
+    pointer-events: none;
+    filter: drop-shadow(0 10px 8px rgba(15,15,15,0.14));
+    animation: flyover 8.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  }
+  @keyframes flyover {
+    0% { left: -16%; top: 58%; transform: rotate(-14deg); }
+    28% { left: 22%; top: 4%; transform: rotate(16deg); }
+    58% { left: 62%; top: 46%; transform: rotate(-6deg); }
+    100% { left: 108%; top: 8%; transform: rotate(8deg); }
+  }
+
+  .career { padding: 72px 0 88px; border-top: 1px solid var(--border); }
+  .career-intro { max-width: 620px; margin: 12px 0 36px; }
+  .career-intro p { margin-top: 14px; color: rgba(15,15,15,0.78); }
+  .roles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+  .role {
+    border: 1px solid var(--border); border-radius: 18px; padding: 24px 22px;
+    background: rgba(255,255,255,0.55);
+  }
+  .role h3 { font-size: 19px; margin-bottom: 4px; }
+  .role .where { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .stat-value { font-size: 34px; color: var(--teal); }
+  .stat-label { font-size: 14px; margin-top: 4px; }
+  .stat + .stat { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+
+  .cta { background: var(--teal); color: var(--white); padding: 88px 0; }
+  .cta-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cta p { color: rgba(245,242,236,0.85); margin-top: 14px; max-width: 480px; }
+  .cta h2 { color: var(--white); }
+
+  footer { padding: 32px 0 max(32px, env(safe-area-inset-bottom)); font-size: 14px; color: var(--muted); }
+  footer .shell { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 860px) {
+    .case-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .featured { padding: 36px 22px; border-radius: 24px; }
+    .roles { grid-template-columns: 1fr; }
+    .agent { grid-template-columns: 1fr; gap: 2px; }
+    .nav-links .hide-sm { display: none; }
+    .page-head { padding: 56px 0 40px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .plane { animation: none; left: 78%; top: 8%; transform: rotate(-8deg); }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="shell nav-inner">
+    <a href="index.html" aria-label="Now/Here home"><img class="nav-logo" src="logo.png" alt="Now/Here"></a>
+    <div class="nav-links">
+      <a class="hide-sm" href="index.html#offers">Offers</a>
+      <a href="work.html" aria-current="page">Work</a>
+      <a class="hide-sm" href="index.html#about">About</a>
+      <a class="btn btn-sm" href="index.html#contact">Send me the problem</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <header class="page-head shell">
+    <span class="mono">Work</span>
+    <h1>Things I've shipped.</h1>
+    <p>Products, the systems that run them, and the work before the studio. Real links and working things. No decks.</p>
+    <div class="jump">
+      <a href="#ai-ops">AI operating system</a>
+      <a href="#fable">FABLE+42</a>
+      <a href="#alongside">Alongside</a>
+      <a href="#career">Before the studio</a>
+    </div>
+  </header>
+
+  <section class="shell" id="ai-ops">
+    <div class="featured">
+      <div class="case-grid">
+        <div>
+          <span class="mono">Systems</span>
+          <h2>An AI operating system for a one-person studio</h2>
+          <div class="field">
+            <span class="mono">The problem</span>
+            <p>I run three ventures on about <span data-count="15">15</span> hours a week. There's no room for manual work.</p>
+          </div>
+          <div class="field">
+            <span class="mono">What I built</span>
+            <p>A set of AI agents and automations that do the repeatable work, so my hours go to decisions. Each one has a clear job, clear inputs, and a check before anything goes live.</p>
+          </div>
+          <div class="field">
+            <span class="mono">Tools</span>
+            <div class="tools"><span>Claude</span><span>Notion</span><span>Google Apps Script</span><span>Gmail</span><span>Beehiiv</span><span>Supabase</span></div>
+          </div>
+          <p class="status">Running every week across all three ventures. Saves me about <span data-count="8">8</span> hours a week.</p>
+        </div>
+        <div>
+          <span class="mono">What it runs</span>
+          <div class="agents">
+            <div class="agent"><b>Research intake</b><span>Turns open browser tabs into structured records in Notion, sorted by type.</span></div>
+            <div class="agent"><b>Newsletter builds</b><span>Pulls candidates from the content pipeline and drafts each issue in the brand voice.</span></div>
+            <div class="agent"><b>Pinterest pipeline</b><span>Writes, checks, and queues pins from a product list.</span></div>
+            <div class="agent"><b>Outreach</b><span>Sends email sequences on a schedule and writes replies back to Notion.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case shell" id="fable">
+    <div class="case-grid">
+      <div>
+        <span class="mono">Product</span>
+        <h2><a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a></h2>
+        <div class="field">
+          <span class="mono">The problem</span>
+          <p>Independent fine jewelry designers get buried on Etsy and ignored by Google.</p>
+        </div>
+        <div class="field">
+          <span class="mono">What I built</span>
+          <p>A curated discovery platform that sends shoppers straight to designers' own sites. A Shopify app handles affiliate opt-in, product sync, and commission tracking. When designers wouldn't sync full catalogs to a new platform, I rebuilt the model around editorial and affiliate.</p>
+        </div>
+        <div class="field">
+          <span class="mono">Tools</span>
+          <div class="tools"><span>Shopify app</span><span>Webflow</span><span>Supabase</span><span>Beehiiv</span></div>
+        </div>
+        <p class="status">Live. Building cross-designer search next.</p>
+        <a class="case-link" href="https://fable42.com" target="_blank" rel="noopener">Visit fable42.com</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="stat-value" data-count="248" data-suffix="+">248+</div><div class="stat-label">independent designers in the directory</div></div>
+        <div class="fact"><div class="stat-value" data-count="19" data-suffix="K">19K</div><div class="stat-label">social followers, all organic</div></div>
+        <div class="fact"><div class="stat-value" data-count="1" data-suffix=" pivot">1 pivot</div><div class="stat-label">from marketplace to editorial and affiliate, when the data called for it</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case shell" id="alongside">
+    <div class="case-grid">
+      <div>
+        <span class="mono">Product</span>
+        <h2><a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a></h2>
+        <div class="field">
+          <span class="mono">The problem</span>
+          <p>Group trips and retreats, especially from independent operators, have nowhere to be discovered. And small operators have no way to track where bookings come from.</p>
+        </div>
+        <div class="field">
+          <span class="mono">What I built</span>
+          <p>A discovery platform for group trips and retreats. I built the affiliate tracking from scratch, with click and booking-confirmation snippets, so commissions don't depend on promo codes or the honor system.</p>
+        </div>
+        <div class="field">
+          <span class="mono">Tools</span>
+          <div class="tools"><span>JavaScript</span><span>Supabase</span><span>Webflow</span><span>Beehiiv</span></div>
+        </div>
+        <p class="status">Live, with <span data-count="25" data-suffix="K">25K</span> social followers driving traffic.</p>
+        <a class="case-link" href="https://goalongside.co" target="_blank" rel="noopener">Visit goalongside.co</a>
+      </div>
+      <div class="facts flight">
+        <svg class="plane" viewBox="0 0 72 48" aria-hidden="true">
+          <path fill="#998731" d="M8 25c9-1 18-2 28-2 7 0 12 1 16 2l14 2-14 3c-4 1-9 2-16 2-10 0-19-1-28-2l-5-2 5-3z"/>
+          <path fill="#2E6B6B" d="M30 23 L24 4 L38 21 Z"/>
+          <path fill="#2E6B6B" d="M32 27 L16 46 L40 30 Z"/>
+          <path fill="#0F0F0F" d="M12 23 L2 12 L16 22 Z"/>
+          <circle cx="50" cy="25" r="1.6" fill="#F5F2EC"/>
+        </svg>
+        <div class="fact"><div class="stat-value" data-count="50" data-suffix="+">50+</div><div class="stat-label">live group trips and retreats</div></div>
+        <div class="fact"><div class="stat-value" data-count="80" data-suffix="+">80+</div><div class="stat-label">operators on the platform</div></div>
+        <div class="fact"><div class="stat-value" data-count="0" data-from="12">0</div><div class="stat-label">promo codes needed. Every booking tracks back to its click.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="career shell" id="career">
+    <span class="mono">Before the studio</span>
+    <div class="career-intro">
+      <h2>Seven years shipping inside bigger teams</h2>
+      <p>Product, ops, and data work at companies where the problems were messy and cross-team.</p>
+    </div>
+    <div class="roles">
+      <div class="role">
+        <h3>Product strategy and operations</h3>
+        <p class="where">A leading marketplace company</p>
+        <div class="stat"><div class="stat-value" data-count="5" data-suffix=" weeks">5 weeks</div><div class="stat-label">faster time to market</div></div>
+        <div class="stat"><div class="stat-value" data-prefix="$" data-count="300" data-suffix="K">$300K</div><div class="stat-label">in incremental GMV</div></div>
+      </div>
+      <div class="role">
+        <h3>Technical project management</h3>
+        <p class="where">A health insurance company</p>
+        <div class="stat"><div class="stat-value" data-count="300" data-suffix="K+">300K+</div><div class="stat-label">members reached through automation</div></div>
+      </div>
+      <div class="role">
+        <h3>Automation and data</h3>
+        <p class="where">A data software company</p>
+        <div class="stat"><div class="stat-value" data-count="94" data-from="88" data-format="range">88% to 94%</div><div class="stat-label">forecasting accuracy</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="cta">
+  <div class="shell cta-inner">
+    <div>
+      <h2>Got a problem? Start there.</h2>
+      <p>Tell me what's stuck in a few sentences. I'll reply with a next step.</p>
+    </div>
+    <a class="btn" href="index.html#contact">Send me the problem</a>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <span>© 2026 Now/Here Studio</span>
+    <span>Also building: <a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a> and <a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a></span>
+  </div>
+</footer>
+
+<script>
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const paint = (el, value) => {
+    if (el.dataset.format === "range") {
+      el.textContent = el.dataset.from + "% to " + Math.round(value) + "%";
+      return;
+    }
+    const rounded = Math.round(value);
+    el.textContent = (el.dataset.prefix || "") + rounded + (el.dataset.suffix || "");
+  };
+
+  const runCount = (el) => {
+    const end = Number(el.dataset.count);
+    const start = Number(el.dataset.from || 0);
+    if (reduceMotion || Number.isNaN(end)) return;
+    const duration = 1200;
+    const begin = performance.now();
+    const tick = (now) => {
+      const progress = Math.min(1, (now - begin) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      paint(el, start + (end - start) * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+
+  const counters = document.querySelectorAll("[data-count]");
+  if ("IntersectionObserver" in window) {
+    const seen = new WeakSet();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || seen.has(entry.target)) return;
+        seen.add(entry.target);
+        runCount(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach((el) => observer.observe(el));
+  } else {
+    counters.forEach(runCount);
+  }
+</script>
+</body>
+</html>
