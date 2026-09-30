@@ -1218,8 +1218,6 @@
       <h2>Got a problem? Start there.</h2>
       <div>
         <form id="contact-form" class="booking-form" method="POST">
-          <input type="hidden" name="_subject" value="Problem for Now/Here" />
-          <input type="hidden" name="_captcha" value="false" />
           <label class="field">
             <span>Name</span>
             <input type="text" name="Name" autocomplete="name" required />
@@ -1369,17 +1367,19 @@
     failure.hidden = true;
 
     const payload = {
-      _subject: "Problem for Now/Here",
-      _captcha: "false",
-      Name: form.elements.Name.value,
-      Email: form.elements.Email.value,
-      "Company or team": form.elements["Company or team"].value,
-      "What's the problem?": form.elements["What's the problem?"].value,
-      "What kind of help?": form.elements["What kind of help?"].value
+      access_key: config.FORM_ACCESS_KEY,
+      subject: "Problem for Now/Here",
+      from_name: "Now/Here Studio",
+      name: form.elements.Name.value,
+      email: form.elements.Email.value,
+      company: form.elements["Company or team"].value,
+      help: form.elements["What kind of help?"].value,
+      message: form.elements["What's the problem?"].value,
+      botcheck: ""
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/" + config.CONTACT_EMAIL, {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -1387,7 +1387,8 @@
         },
         body: JSON.stringify(payload)
       });
-      if (!response.ok) throw new Error("Form submit failed");
+      const result = await response.json();
+      if (!response.ok || result.success !== true) throw new Error("Form submit failed");
       form.hidden = true;
       success.hidden = false;
       success.focus();
