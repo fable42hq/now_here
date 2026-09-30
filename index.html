@@ -756,6 +756,16 @@
     line-height: 1.15;
   }
 
+  .form-error {
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .form-error a {
+    color: inherit;
+  }
+
   .booking-note {
     margin-top: 16px;
     text-align: center;
@@ -1238,6 +1248,7 @@
           <button type="submit" class="btn">Send it over</button>
         </form>
         <p class="form-success" data-success role="status" tabindex="-1" hidden>Got it. I'll reply within 2 business days.</p>
+        <p class="form-error" data-failure role="alert" hidden>That didn't send. Try again, or email <a data-email-link></a>.</p>
       </div>
     </div>
     <div class="page-shell">
@@ -1348,27 +1359,14 @@
 
   const form = document.querySelector("#contact-form");
   const success = document.querySelector("[data-success]");
-  form.action = "https://formsubmit.co/" + config.CONTACT_EMAIL;
-
-  const openMailto = (payload) => {
-    const body = [
-      "Name: " + payload.Name,
-      "Email: " + payload.Email,
-      "Company or team: " + payload["Company or team"],
-      "What kind of help?: " + payload["What kind of help?"],
-      "",
-      payload["What's the problem?"]
-    ].join("\n");
-    window.location.href = "mailto:" + config.CONTACT_EMAIL
-      + "?subject=" + encodeURIComponent("Problem for Now/Here")
-      + "&body=" + encodeURIComponent(body);
-  };
+  const failure = document.querySelector("[data-failure]");
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const submitButton = form.querySelector("[type='submit']");
     if (submitButton.disabled) return;
     submitButton.disabled = true;
+    failure.hidden = true;
 
     const payload = {
       _subject: "Problem for Now/Here",
@@ -1394,7 +1392,7 @@
       success.hidden = false;
       success.focus();
     } catch (error) {
-      openMailto(payload);
+      failure.hidden = false;
       submitButton.disabled = false;
     }
   });
