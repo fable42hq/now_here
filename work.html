@@ -16,6 +16,20 @@
   gtag('js', new Date());
   gtag('config', 'G-X2BEX0MJR0');
 </script>
+<script src="site-config.js"></script>
+<script>
+  (function () {
+    var id = window.SITE_CONFIG && String(window.SITE_CONFIG.META_PIXEL_ID || "").trim();
+    if (!id) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', id);
+    fbq('track', 'PageView');
+  })();
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -243,7 +257,7 @@
     <a href="index.html" aria-label="Now/Here home"><img class="nav-logo" src="logo.png" alt="Now/Here"></a>
     <div class="nav-links">
       <a class="hide-sm" href="index.html#offers">Offers</a>
-      <a href="work.html" aria-current="page">Work</a>
+      <a class="hide-sm" href="work.html" aria-current="page">Work</a>
       <a class="hide-sm" href="index.html#about">About</a>
       <a class="btn btn-sm" href="index.html#contact">Send me your stuck list</a>
     </div>

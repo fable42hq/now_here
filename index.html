@@ -6,9 +6,16 @@
 <meta name="description" content="Your stuck list, shipped. I take what everyone agrees matters and nobody owns, and I get it done. For founders and small teams.">
 <meta property="og:title" content="Now/Here Studio | Your stuck list, shipped">
 <meta property="og:description" content="Your stuck list, shipped. I take what everyone agrees matters and nobody owns, and I get it done. For founders and small teams.">
-<meta property="og:image" content="https://nowherestudio.co/logo.png">
+<meta property="og:image" content="https://nowherestudio.co/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Your stuck list, shipped.">
 <meta property="og:url" content="https://nowherestudio.co/">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Now/Here Studio | Your stuck list, shipped">
+<meta name="twitter:description" content="Your stuck list, shipped. I take what everyone agrees matters and nobody owns, and I get it done. For founders and small teams.">
+<meta name="twitter:image" content="https://nowherestudio.co/og.png">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2BEX0MJR0"></script>
 <script>
@@ -16,6 +23,20 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-X2BEX0MJR0');
+</script>
+<script src="site-config.js"></script>
+<script>
+  (function () {
+    var id = window.SITE_CONFIG && String(window.SITE_CONFIG.META_PIXEL_ID || "").trim();
+    if (!id) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', id);
+    fbq('track', 'PageView');
+  })();
 </script>
 <title>Now/Here Studio | Your stuck list, shipped</title>
 <link rel="icon" href="logo.png" type="image/png" />
@@ -1072,8 +1093,6 @@
 
     .teardown { grid-template-columns: 1fr; padding: 32px; }
 
-    .help-chips { grid-template-columns: 1fr; }
-
     .conversion-hero,
     .steps { grid-template-columns: 1fr; }
 
@@ -1128,16 +1147,9 @@
   }
 
   @media (max-width: 720px) {
-    :root { --nav: 128px; }
+    .nav-links { display: none; }
 
-    .nav-inner { flex-wrap: wrap; gap: 10px 16px; }
-
-    .nav-links {
-      order: 3;
-      width: 100%;
-      margin-left: 0;
-      gap: 18px;
-    }
+    .hero-bio { display: none; }
 
     .steps { grid-template-columns: 1fr; }
 
@@ -1213,7 +1225,7 @@
       <p class="eyebrow">For founders and small teams</p>
       <h1>Your stuck list, shipped.</h1>
       <p class="hero-copy">Every business has one. The launch that keeps slipping. The tool you keep meaning to build. The work that stalls the second you look away. I take what everyone agrees matters and nobody owns, and I get it done.</p>
-      <p class="hero-copy">I'm Sandra. I've spent seven years turning messy, cross-team problems into shipped work at leading companies. Not an agency. Just me, doing the work.</p>
+      <p class="hero-copy hero-bio">I'm Sandra. I've spent seven years turning messy, cross-team problems into shipped work at leading companies. Not an agency. Just me, doing the work.</p>
       <div class="hero-actions">
         <a class="btn" data-primary-cta href="#contact">Send me your stuck list</a>
         <a class="hero-secondary" href="#teardown">Not ready to hire? Start with a Stuck List Teardown →</a>
@@ -1273,7 +1285,7 @@
       </div>
       <div class="teardown-right">
         <div class="teardown-price">$300</div>
-        <div style="margin:22px 0 0"><a class="btn" href="#contact">Book a teardown</a></div>
+        <div style="margin:22px 0 0"><a class="btn" href="#contact" data-offer="Stuck List Teardown">Book a teardown</a></div>
         <p class="teardown-fine">If we work together after, it comes off your first project.</p>
       </div>
     </div>
@@ -1309,7 +1321,7 @@
           </div>
         </div>
         <div class="tier-action">
-          <p class="tier-timing">Usually 4 to 6 weeks.</p>
+          <p class="tier-timing">From $2,500. Usually 4 to 6 weeks.</p>
           <a class="card-link" href="#contact" data-offer="Ship it">Talk about this one →</a>
         </div>
       </article>
@@ -1339,7 +1351,7 @@
           </div>
         </div>
         <div class="tier-action">
-          <p class="tier-timing">Usually 2 to 4 weeks.</p>
+          <p class="tier-timing">From $2,500. Usually 2 to 4 weeks.</p>
           <a class="card-link" href="#contact" data-offer="Figure it out">Talk about this one →</a>
         </div>
       </article>
@@ -1368,7 +1380,7 @@
           </div>
         </div>
         <div class="tier-action">
-          <p class="tier-timing">Scoped per project.</p>
+          <p class="tier-timing">From $2,500. Scoped per project.</p>
           <a class="card-link" href="#contact" data-offer="Build it">Talk about this one →</a>
         </div>
       </article>
@@ -1526,6 +1538,7 @@
           <fieldset class="field">
             <legend>What kind of help?</legend>
             <div class="help-chips">
+              <label class="chip"><input type="radio" name="What kind of help?" value="Stuck List Teardown"><span>Stuck List Teardown<small>$300, 60 minutes</small></span></label>
               <label class="chip"><input type="radio" name="What kind of help?" value="Ship it"><span>Ship it<small>nobody owns it</small></span></label>
               <label class="chip"><input type="radio" name="What kind of help?" value="Figure it out"><span>Figure it out<small>nobody knows the fix</small></span></label>
               <label class="chip"><input type="radio" name="What kind of help?" value="Build it"><span>Build it<small>it all runs through me</small></span></label>
@@ -1656,14 +1669,15 @@
     submitButton.disabled = true;
     failure.hidden = true;
 
+    const helpChoice = form.elements["What kind of help?"].value;
     const payload = {
       access_key: config.FORM_ACCESS_KEY,
-      subject: "Stuck list for Now/Here",
+      subject: helpChoice === "Stuck List Teardown" ? "Stuck List Teardown for Now/Here" : "Stuck list for Now/Here",
       from_name: "Now/Here Studio",
       name: form.elements.Name.value,
       email: form.elements.Email.value,
       company: form.elements["Company or team"].value,
-      help: form.elements["What kind of help?"].value,
+      help: helpChoice,
       message: form.elements["What's stuck?"].value,
       botcheck: ""
     };
@@ -1679,6 +1693,13 @@
       });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error("Form submit failed");
+      const help = payload.help;
+      if (typeof gtag === "function") {
+        gtag("event", "generate_lead", { lead_type: help });
+      }
+      if (typeof fbq === "function") {
+        fbq("track", "Lead", { content_name: help });
+      }
       form.hidden = true;
       success.hidden = false;
       success.focus();
