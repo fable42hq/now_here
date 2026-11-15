@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Bring me a problem. I own projects, figure out what to test, and build the fix. Product, strategy, and ops help for founders, small businesses, and growing teams.">
-<meta property="og:title" content="Now/Here Studio | Product, Strategy &amp; Ops Consulting">
-<meta property="og:description" content="Bring me a problem. I own projects, figure out what to test, and build the fix. Product, strategy, and ops help for founders, small businesses, and growing teams.">
+<meta name="description" content="Your stuck list, shipped. I take what everyone agrees matters and nobody owns, and I get it done. For founders and small teams.">
+<meta property="og:title" content="Now/Here Studio | Your stuck list, shipped">
+<meta property="og:description" content="Your stuck list, shipped. I take what everyone agrees matters and nobody owns, and I get it done. For founders and small teams.">
 <meta property="og:image" content="https://nowherestudio.co/logo.png">
 <meta property="og:url" content="https://nowherestudio.co/">
 <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
   gtag('js', new Date());
   gtag('config', 'G-X2BEX0MJR0');
 </script>
-<title>Now/Here Studio | Product, Strategy &amp; Ops Consulting</title>
+<title>Now/Here Studio | Your stuck list, shipped</title>
 <link rel="icon" href="logo.png" type="image/png" />
 <link rel="apple-touch-icon" href="logo.png" />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -164,8 +164,9 @@
     display: flex;
     align-items: center;
     padding: max(12px, env(safe-area-inset-top)) 0 12px;
-    background: transparent;
-    border-bottom: 1px solid transparent;
+    background: rgba(245, 242, 236, 0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
     transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
 
@@ -215,7 +216,6 @@
   }
 
   .conversion-hero {
-    min-height: 100vh;
     display: flex;
     padding: calc(var(--nav) + 12px) 20px 20px;
   }
@@ -256,6 +256,146 @@
   }
 
   .hero-panel .hero-note { color: rgba(245, 242, 236, 0.72); }
+
+  .hero-actions {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-secondary {
+    color: #E4D7A2;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(228, 215, 162, 0.5);
+  }
+
+  .hero-secondary:hover { color: var(--white); }
+
+  .section-center .eyebrow,
+  .section-center .section-heading { text-align: center; }
+
+  .section-follow { padding-top: 24px; }
+
+  .causes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .cause {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 26px;
+  }
+
+  .cause-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+  }
+
+  .cause h3 { margin: 12px 0 10px; font-size: 24px; }
+
+  .cause p { color: var(--muted); }
+
+  .cause-maps {
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+  }
+
+  .method {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 24px;
+    margin: 0 16px 16px;
+    padding: 88px 0;
+  }
+
+  .method .eyebrow { color: #E4D7A2; }
+
+  .method-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 48px;
+    border-top: 1px solid #2c2c2c;
+  }
+
+  .method-step {
+    padding: 28px 24px 8px 0;
+    margin-right: 24px;
+    border-right: 1px solid #2c2c2c;
+  }
+
+  .method-step:last-child { border-right: none; margin-right: 0; }
+
+  .method-step .cause-num { display: block; }
+
+  .method-step h3 { margin: 10px 0 8px; font-size: 26px; }
+
+  .method-step p { color: #BDB9B1; font-size: 15px; }
+
+  .teardown {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 32px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1.5px solid var(--gold);
+    border-radius: 22px;
+    padding: 44px;
+  }
+
+  .teardown-price {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .teardown ul { list-style: none; margin-top: 18px; }
+
+  .teardown li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+  }
+
+  .teardown li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+  }
+
+  .teardown-right { text-align: center; }
+
+  .teardown-fine {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .offer-tag {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(46, 107, 107, 0.1);
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
 
   .tiers {
     display: grid;
@@ -314,6 +454,16 @@
   .tier-card:nth-child(3) .mini-label,
   .tier-card:nth-child(3) .tier-timing,
   .tier-card:nth-child(3) .card-link {
+    color: var(--black);
+  }
+
+  .tier-card:nth-child(2) .offer-tag {
+    background: rgba(245, 242, 236, 0.14);
+    color: #E4D7A2;
+  }
+
+  .tier-card:nth-child(3) .offer-tag {
+    background: rgba(15, 15, 15, 0.1);
     color: var(--black);
   }
 
@@ -693,13 +843,54 @@
   }
 
   .contact-grid {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 64px;
-    align-items: start;
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .contact-section h2 { margin-bottom: 0; }
+
+  .contact-sub {
+    margin-top: 12px;
+    color: #D6E3E0;
+  }
+
+  .booking-form { margin-top: 40px; text-align: left; }
+
+  .help-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .chip {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    border: 1px solid rgba(245, 242, 236, 0.25);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--white);
+  }
+
+  .chip input {
+    width: auto;
+    margin-top: 5px;
+    accent-color: var(--gold);
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+
+  .chip small {
+    display: block;
+    color: #C7D8D4;
+    font-size: 13px;
+    font-weight: 400;
+  }
 
   .booking-form {
     display: flex;
@@ -713,10 +904,33 @@
     gap: 6px;
   }
 
-  .field span {
+  .field span,
+  .booking-form legend {
     font-size: 14px;
     font-weight: 500;
     color: rgba(245, 242, 236, 0.82);
+  }
+
+  .booking-form fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .booking-form legend { margin-bottom: 6px; }
+
+  .booking-form .chip input {
+    width: auto;
+    margin-top: 5px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    accent-color: var(--gold);
+  }
+
+  .booking-form input::placeholder,
+  .booking-form textarea::placeholder {
+    color: rgba(245, 242, 236, 0.5);
   }
 
   .booking-form input,
@@ -749,7 +963,7 @@
     background: var(--white);
   }
 
-  .booking-form .btn { margin-top: 6px; width: 100%; }
+  .booking-form .btn { margin-top: 6px; align-self: center; width: auto; }
 
   .form-success {
     font-size: clamp(28px, 3vw, 40px);
@@ -848,10 +1062,17 @@
 
   @media (max-width: 900px) {
     .tiers,
+    .causes,
+    .method-steps,
     .about-layout,
     .faq-section,
-    .contact-grid,
     .stat-bar { grid-template-columns: 1fr 1fr; }
+
+    .method-step { border-right: none; margin-right: 0; }
+
+    .teardown { grid-template-columns: 1fr; padding: 32px; }
+
+    .help-chips { grid-template-columns: 1fr; }
 
     .conversion-hero,
     .steps { grid-template-columns: 1fr; }
@@ -860,6 +1081,7 @@
     .steps,
     .steps li { text-align: left; }
 
+    #how .eyebrow,
     #how .section-heading { text-align: center; }
 
     .steps { gap: 0; }
@@ -973,13 +1195,13 @@
       <img class="nav-logo" src="logo.png" alt="Now/Here" />
     </a>
     <nav class="nav-links" aria-label="Page">
+      <a href="#why">Why it's stuck</a>
       <a href="#offers">Offers</a>
       <a href="work.html">Work</a>
-      <a href="#how">How it works</a>
       <a href="#about">About</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-nav" data-primary-cta href="#contact">Send me the problem</a>
+      <a class="btn btn-nav" data-primary-cta href="#contact">Send me your stuck list</a>
     </div>
   </div>
 </header>
@@ -988,24 +1210,81 @@
   <section class="conversion-hero">
     <div class="hero-panel">
     <div class="hero-lead">
-      <p class="eyebrow">Product, strategy, and ops</p>
-      <h1>Bring me a problem. I'll help you solve it.</h1>
-      <p class="hero-copy">Launches that keep slipping. Decisions you keep making on gut. Manual work eating your week. That's what I fix.</p>
-      <p class="hero-copy">Not an agency. Not a consultant with a deck. I'm Sandra, and I've spent seven years turning messy, cross-team problems into shipped work at leading companies.</p>
-      <p class="hero-copy">I own projects, figure out what to test, and build the fix.</p>
+      <p class="eyebrow">For founders and small teams</p>
+      <h1>Your stuck list, shipped.</h1>
+      <p class="hero-copy">Every business has one. The launch that keeps slipping. The tool you keep meaning to build. The work that stalls the second you look away. I take what everyone agrees matters and nobody owns, and I get it done.</p>
+      <p class="hero-copy">I'm Sandra. I've spent seven years turning messy, cross-team problems into shipped work at leading companies. Not an agency. Just me, doing the work.</p>
       <div class="hero-actions">
-        <a class="btn" data-primary-cta href="#contact">Send me the problem</a>
+        <a class="btn" data-primary-cta href="#contact">Send me your stuck list</a>
+        <a class="hero-secondary" href="#teardown">Not ready to hire? Start with a Stuck List Teardown →</a>
       </div>
-      <p class="hero-note">For founders, small business owners, and teams inside bigger companies.</p>
     </div>
     </div>
   </section>
 
-  <section class="section page-shell" id="offers">
+  <section class="section page-shell section-center" id="why">
+    <p class="eyebrow">Why things get stuck</p>
+    <h2 class="section-heading">It's usually one of three things.</h2>
+    <div class="causes">
+      <article class="cause">
+        <div class="cause-num">01</div>
+        <h3>Nobody owns it.</h3>
+        <p>Everyone agrees it matters. It's on every list. It just isn't anyone's job, so it keeps sliding to next month.</p>
+        <div class="cause-maps">→ Ship it</div>
+      </article>
+      <article class="cause">
+        <div class="cause-num">02</div>
+        <h3>Nobody knows the right fix.</h3>
+        <p>Numbers are dropping or priorities keep shifting, and every decision gets made on gut. You don't need more opinions. You need to know what's actually going on.</p>
+        <div class="cause-maps">→ Figure it out</div>
+      </article>
+      <article class="cause">
+        <div class="cause-num">03</div>
+        <h3>It all runs through you.</h3>
+        <p>The business works, but only when you're watching. Every question, approval and "quick fix" lands on your desk, and nothing moves while you're out.</p>
+        <div class="cause-maps">→ Build it</div>
+      </article>
+    </div>
+  </section>
+
+  <div class="method">
+    <div class="page-shell">
+      <p class="eyebrow">The method</p>
+      <h2>How I get things unstuck</h2>
+      <div class="method-steps">
+        <div class="method-step"><span class="cause-num">01</span><h3>Name it.</h3><p>We list everything that's stalled and why. Not the version on the roadmap. The real one.</p></div>
+        <div class="method-step"><span class="cause-num">02</span><h3>Rank it.</h3><p>What's costing you the most, and what's fastest to fix. Most things can wait. A few can't.</p></div>
+        <div class="method-step"><span class="cause-num">03</span><h3>Test it.</h3><p>Small bets before big builds, with the numbers to watch.</p></div>
+        <div class="method-step"><span class="cause-num">04</span><h3>Ship it.</h3><p>One owner, a clear plan, and a finished thing.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section page-shell" id="teardown">
+    <div class="teardown">
+      <div>
+        <p class="eyebrow">Start here</p>
+        <h2>Stuck List Teardown</h2>
+        <ul>
+          <li>Send me your list, messy is fine.</li>
+          <li>We talk for 60 minutes.</li>
+          <li>You get a ranked plan you can run with or without me.</li>
+        </ul>
+      </div>
+      <div class="teardown-right">
+        <div class="teardown-price">$300</div>
+        <div style="margin:22px 0 0"><a class="btn" href="#contact">Book a teardown</a></div>
+        <p class="teardown-fine">If we work together after, it comes off your first project.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section page-shell section-center section-follow" id="offers">
     <p class="eyebrow">Offers</p>
     <h2 class="section-heading">Three ways to work together</h2>
     <div class="tiers">
       <article class="tier-card">
+        <span class="offer-tag">When nobody owns it</span>
         <p class="tier-number">01</p>
         <h3>Ship it</h3>
         <p class="tier-problem">There's a project that needs to happen and nobody has time to own it.</p>
@@ -1036,9 +1315,10 @@
       </article>
 
       <article class="tier-card">
+        <span class="offer-tag">When nobody knows the fix</span>
         <p class="tier-number">02</p>
         <h3>Figure it out</h3>
-        <p class="tier-problem">There's a problem and you don't know the right fix yet.</p>
+        <p class="tier-problem">There's a problem and you don't know the answer yet.</p>
         <p class="tier-body">I dig into your data and workflows, find what's actually going on, and design small tests to see what works.</p>
         <div class="tier-lists">
           <div>
@@ -1054,7 +1334,7 @@
             <ul>
               <li>a diagnosis</li>
               <li>ranked options</li>
-              <li>and a test plan with the numbers to watch</li>
+              <li>a test plan with the numbers to watch</li>
             </ul>
           </div>
         </div>
@@ -1065,16 +1345,17 @@
       </article>
 
       <article class="tier-card">
+        <span class="offer-tag">When it all runs through you</span>
         <p class="tier-number">03</p>
         <h3>Build it</h3>
-        <p class="tier-problem">There's a problem and you want it solved, not just planned.</p>
-        <p class="tier-body">I take it end to end: ideation, scoping, build, and launch. Small on purpose. Think a tool, an automation, a workflow, or an MVP.</p>
+        <p class="tier-problem">You want the problem solved, not just planned.</p>
+        <p class="tier-body">I build the tool, workflow or handoff that takes you out of the middle. Small on purpose. Think an internal tool, an automation, a clear process, or an MVP.</p>
         <div class="tier-lists">
           <div>
             <p class="mini-label">Good for</p>
             <ul>
-              <li>manual work that should be automated</li>
-              <li>an internal tool</li>
+              <li>work that stalls without you</li>
+              <li>manual work that should run on its own</li>
               <li>testing an idea fast</li>
             </ul>
           </div>
@@ -1082,7 +1363,7 @@
             <p class="mini-label">You get</p>
             <ul>
               <li>a working thing in your hands</li>
-              <li>and a plan for what's next</li>
+              <li>a plan for what's next</li>
             </ul>
           </div>
         </div>
@@ -1094,7 +1375,8 @@
     </div>
   </section>
 
-  <section class="section page-shell" id="proof">
+  <section class="section page-shell section-center section-follow" id="proof">
+    <p class="eyebrow">Proof</p>
     <h2 class="section-heading">Where this comes from</h2>
     <div class="stat-bar">
       <div class="stat-box">
@@ -1120,7 +1402,7 @@
     </div>
   </section>
 
-  <section class="section page-shell own-work">
+  <section class="section page-shell own-work section-follow">
     <h2 class="section-heading">Idea to launch, on my own</h2>
     <p class="own-sub">No team, no funding round. Just me shipping.</p>
     <div class="own-grid">
@@ -1130,7 +1412,7 @@
         <p class="own-body">Independent fine jewelry designers get buried on Etsy and ignored by Google.</p>
         <p class="own-kicker">What I built</p>
         <p class="own-body">A curated discovery platform that sends shoppers straight to designers' own sites. A Shopify app handles affiliate opt-in, product sync, and commission tracking. When designers wouldn't sync full catalogs to a new platform, I rebuilt the model around editorial and affiliate.</p>
-        <p class="own-status">Stage: Live, with a 248+ designer directory. Building cross-designer search.</p>
+        <p class="own-status">Stage: Live, with a 248+ designer directory and cross-designer search.</p>
       </article>
       <article class="own-card">
         <h3><a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a></h3>
@@ -1143,12 +1425,13 @@
     </div>
   </section>
 
-  <section class="section page-shell" id="how">
-    <h2 class="section-heading">How it works</h2>
+  <section class="section page-shell section-follow" id="how">
+    <p class="eyebrow">How it works</p>
+    <h2 class="section-heading">From stuck to shipped</h2>
     <ol class="steps">
       <li>
         <div class="step-marker">01</div>
-        <p>Tell me the problem in a few sentences.</p>
+        <p>Send me your stuck list. A few sentences is plenty.</p>
       </li>
       <li>
         <div class="step-marker">02</div>
@@ -1166,7 +1449,7 @@
     </ol>
   </section>
 
-  <section class="section page-shell" id="about">
+  <section class="section page-shell section-follow" id="about">
     <h2 class="section-heading">About</h2>
     <div class="about-layout" data-about>
       <div class="founder-card">
@@ -1178,72 +1461,77 @@
         <p class="founder-role">Founder, Now/Here Studio</p>
       </div>
       <div class="about-copy">
-        <p>I like the part of a project where nobody knows the answer yet. I've worked the product side, the ops side, and the data side, and most problems need all three.</p>
-        <p>Outside client work, I build my own products: <a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a> and <a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a>.</p>
+        <p>I like the part of a project where nobody knows the answer yet. I've worked the product side, the ops side and the data side, and most stuck work needs all three.</p>
+        <p>I've built and scaled operational processes and products inside fast-moving companies. Outside client work, I build my own: <a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a> and <a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a>.</p>
       </div>
     </div>
   </section>
 
-  <section class="section page-shell faq-section">
+  <section class="section page-shell faq-section section-follow">
     <h2 class="section-heading">Before we talk</h2>
     <div class="faq-list">
-      <details>
+      <details open>
         <summary>What does working with you look like?</summary>
-        <p class="faq-answer">We start with a short call. I ask questions until we find the real problem. Then I send a scope with a timeline and price. You always know what you're getting before we start.</p>
+        <p class="faq-answer">You get one owner: me. We agree on the scope up front, I send weekly updates, and you end with a finished thing, not a deck.</p>
       </details>
       <details>
         <summary>Who do you work with?</summary>
-        <p class="faq-answer">Founders, small business owners, and teams inside bigger companies. Size matters less than having a real problem to solve.</p>
+        <p class="faq-answer">Founders and small teams with a business that works and a list of things that don't move.</p>
       </details>
       <details>
         <summary>Do you just advise, or do you actually do the work?</summary>
-        <p class="faq-answer">Both. Some problems need a second brain. Some need someone to build the fix. I do whichever the problem calls for.</p>
+        <p class="faq-answer">I do the work. The advice comes with it.</p>
+      </details>
+      <details>
+        <summary>What if I'm the bottleneck?</summary>
+        <p class="faq-answer">That's one of the most common reasons work gets stuck. We find where things route through you, then build the tool, process or handoff that lets them move without you.</p>
       </details>
       <details>
         <summary>What's off the table?</summary>
-        <p class="faq-answer">Anything that needs a full-time hire or a big team built from scratch. I work inside your existing team or take a focused piece end to end. If you're not a fit, I'll tell you on the first call.</p>
+        <p class="faq-answer">Big agency retainers, full rebrands, and anything that needs a team of ten. I keep projects small so they actually ship.</p>
       </details>
       <details>
         <summary>How much does it cost?</summary>
-        <p class="faq-answer">Projects start at $2,500. You'll get a fixed price in writing before we start.</p>
+        <p class="faq-answer">The teardown is $300. Projects are scoped and priced up front, after a free 20-minute call. Projects start at $2,500.</p>
       </details>
       <details>
         <summary>Do I have to get on a call?</summary>
-        <p class="faq-answer">No. Send me the problem and I'll reply with a next step. The call is there if talking it through is faster.</p>
+        <p class="faq-answer">No. Send the problem in writing and I'll reply with next steps.</p>
       </details>
     </div>
   </section>
 
   <section class="contact-section" id="contact">
     <div class="page-shell contact-grid">
-      <h2>Got a problem? Start there.</h2>
+      <h2>Got a stuck list? Start there.</h2>
+      <p class="contact-sub">A few sentences is plenty.</p>
       <div>
         <form id="contact-form" class="booking-form" method="POST">
           <label class="field">
             <span>Name</span>
-            <input type="text" name="Name" autocomplete="name" required />
+            <input type="text" name="Name" autocomplete="name" placeholder="Your name" required />
           </label>
           <label class="field">
             <span>Email</span>
-            <input type="email" name="Email" autocomplete="email" required />
+            <input type="email" name="Email" autocomplete="email" placeholder="you@company.com" required />
           </label>
           <label class="field">
             <span>Company or team</span>
-            <input type="text" name="Company or team" autocomplete="organization" />
+            <input type="text" name="Company or team" autocomplete="organization" placeholder="Where you work" />
           </label>
           <label class="field">
-            <span>What's the problem?</span>
-            <textarea name="What's the problem?" required></textarea>
+            <span>What's stuck?</span>
+            <textarea name="What's stuck?" placeholder="The launch, the tool, the thing that only moves when you push it..." required></textarea>
           </label>
-          <label class="field">
-            <span>What kind of help?</span>
-            <select id="help-kind" name="What kind of help?">
-              <option value="Ship it">Ship it</option>
-              <option value="Figure it out">Figure it out</option>
-              <option value="Build it">Build it</option>
-              <option value="Not sure yet" selected>Not sure yet</option>
-            </select>
-          </label>
+          <fieldset class="field">
+            <legend>What kind of help?</legend>
+            <div class="help-chips">
+              <label class="chip"><input type="radio" name="What kind of help?" value="Ship it"><span>Ship it<small>nobody owns it</small></span></label>
+              <label class="chip"><input type="radio" name="What kind of help?" value="Figure it out"><span>Figure it out<small>nobody knows the fix</small></span></label>
+              <label class="chip"><input type="radio" name="What kind of help?" value="Build it"><span>Build it<small>it all runs through me</small></span></label>
+              <label class="chip"><input type="radio" name="What kind of help?" value="Not sure yet" checked><span>Not sure yet<small>let's figure it out together</small></span></label>
+            </div>
+          </fieldset>
           <button type="submit" class="btn">Send it over</button>
         </form>
         <p class="form-success" data-success role="status" tabindex="-1" hidden>Got it. I'll reply within 2 business days.</p>
@@ -1262,7 +1550,7 @@
 <footer>
   <div class="footer-brand">
     <img class="footer-mark" src="logo.png" alt="" aria-hidden="true" />
-    <p class="footer-tag">Product, strategy, and ops</p>
+    <p class="footer-tag">Where broken systems get rebuilt.</p>
   </div>
   <nav class="footer-links" aria-label="Contact">
     <a data-linkedin-link target="_blank" rel="noopener">LinkedIn</a>
@@ -1287,12 +1575,12 @@
       const secondary = document.createElement("a");
       secondary.className = "btn btn-secondary";
       secondary.href = "#contact";
-      secondary.textContent = "Send me the problem";
+      secondary.textContent = "Send me your stuck list";
       link.insertAdjacentElement("afterend", secondary);
       return;
     }
 
-    link.textContent = "Send me the problem";
+    link.textContent = "Send me your stuck list";
     link.href = "#contact";
     link.removeAttribute("target");
     link.removeAttribute("rel");
@@ -1349,10 +1637,11 @@
   window.addEventListener("resize", syncNavSpace);
   window.addEventListener("scroll", updateNav, { passive: true });
 
-  const helpSelect = document.querySelector("#help-kind");
   document.querySelectorAll("[data-offer]").forEach((link) => {
     link.addEventListener("click", () => {
-      helpSelect.value = link.getAttribute("data-offer");
+      const value = link.getAttribute("data-offer");
+      const radio = document.querySelector(`input[name="What kind of help?"][value="${value}"]`);
+      if (radio) radio.checked = true;
     });
   });
 
@@ -1369,13 +1658,13 @@
 
     const payload = {
       access_key: config.FORM_ACCESS_KEY,
-      subject: "Problem for Now/Here",
+      subject: "Stuck list for Now/Here",
       from_name: "Now/Here Studio",
       name: form.elements.Name.value,
       email: form.elements.Email.value,
       company: form.elements["Company or team"].value,
       help: form.elements["What kind of help?"].value,
-      message: form.elements["What's the problem?"].value,
+      message: form.elements["What's stuck?"].value,
       botcheck: ""
     };
 

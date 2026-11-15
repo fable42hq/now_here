@@ -1,5 +1,5 @@
 // Calendly is embedded in the contact section.
-// Leave SHOW_BOOKING false so the main buttons stay "Send me the problem".
+// Leave SHOW_BOOKING false so the main buttons stay "Send me your stuck list".
 window.SITE_CONFIG = {
   BOOKING_URL: "https://calendly.com/sandra-nowherestudio/20min",
   SHOW_BOOKING: false,
