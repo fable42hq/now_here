@@ -1650,13 +1650,27 @@
   window.addEventListener("resize", syncNavSpace);
   window.addEventListener("scroll", updateNav, { passive: true });
 
+  const trackLead = (formName, helpType) => {
+    if (typeof gtag !== "function") return;
+    gtag("event", "generate_lead", {
+      form_name: formName,
+      help_type: helpType || "not_set"
+    });
+  };
+
   document.querySelectorAll("[data-offer]").forEach((link) => {
     link.addEventListener("click", () => {
       const value = link.getAttribute("data-offer");
       const radio = document.querySelector(`input[name="What kind of help?"][value="${value}"]`);
       if (radio) radio.checked = true;
+      if (value === "Stuck List Teardown") trackLead("teardown", value);
     });
   });
+
+  const calendlyLink = document.querySelector(".step-book");
+  if (calendlyLink) {
+    calendlyLink.addEventListener("click", () => trackLead("calendly", "intro_call"));
+  }
 
   const form = document.querySelector("#contact-form");
   const success = document.querySelector("[data-success]");
@@ -1693,9 +1707,11 @@
       });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error("Form submit failed");
-      const help = payload.help;
       if (typeof gtag === "function") {
-        gtag("event", "generate_lead", { lead_type: help });
+        gtag("event", "generate_lead", {
+          form_name: "stuck_list",
+          help_type: payload.help || "not_set"
+        });
       }
       if (typeof fbq === "function") {
         fbq("track", "Lead", { content_name: help });
