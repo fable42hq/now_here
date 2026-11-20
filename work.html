@@ -6,8 +6,8 @@
 <title>Work | Now/Here Studio</title>
 <meta name="description" content="Products and systems I've shipped. Real links, working things.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="logo.png" type="image/png">
-<link rel="apple-touch-icon" href="logo.png">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2BEX0MJR0"></script>
 <script>
@@ -30,18 +30,21 @@
     fbq('track', 'PageView');
   })();
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --white: #F5F2EC;
-    --black: #0F0F0F;
-    --teal: #2E6B6B;
-    --gold: #998731;
-    --muted: rgba(15,15,15,0.55);
-    --border: rgba(15,15,15,0.12);
-    --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
-    --font-body: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --paper: #FAF8F3;
+    --ink: #141414;
+    --butter: #FFE27A;
+    --pencil: #635F57;
+    --grid: #D8D3C8;
+    --white: var(--paper);
+    --black: var(--ink);
+    --muted: var(--pencil);
+    --border: rgba(20,20,20,0.12);
+    --font-display: "Inter Tight", system-ui, sans-serif;
+    --font-body: "Inter Tight", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; scroll-padding-top: 90px; scroll-behavior: smooth; }
@@ -54,11 +57,11 @@
     -webkit-font-smoothing: antialiased;
   }
   img { max-width: 100%; display: block; }
-  a { color: var(--teal); }
+  a { color: var(--ink); }
   h1, h2, h3, .stat-value {
     font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    font-weight: 500;
+    letter-spacing: -0.045em;
     line-height: 1.08;
   }
   h1 { font-size: clamp(40px, 6vw, 72px); }
@@ -68,28 +71,28 @@
   .shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
 
   a:focus-visible, .btn:focus-visible {
-    outline: 3px solid rgba(46,107,107,0.28);
+    outline: 3px solid rgba(20,20,20,0.28);
     outline-offset: 3px;
   }
 
   .site-nav {
     position: sticky; top: 0; z-index: 30;
-    background: rgba(245,242,236,0.96);
+    background: rgba(250,248,243,0.94);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(12px);
     padding: max(12px, env(safe-area-inset-top)) 0 12px;
   }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-  .nav-logo { height: 34px; width: auto; }
+  .nav-logo { height: 30px; width: auto; }
   .nav-links { display: flex; align-items: center; gap: 26px; }
   .nav-links a { color: var(--black); text-decoration: none; font-size: 15px; font-weight: 500; }
-  .nav-links a:hover, .nav-links a[aria-current] { color: var(--teal); }
+  .nav-links a:hover, .nav-links a[aria-current] { color: var(--ink); }
   .nav-links a.btn, .nav-links a.btn:hover { color: var(--white); }
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
-    font-family: var(--font-body); font-size: 16px; font-weight: 600;
-    color: var(--white); background: var(--gold);
+    font-family: var(--font-body); font-size: 16px; font-weight: 500;
+    color: var(--paper); background: var(--ink);
     padding: 16px 28px; border-radius: 100px; text-decoration: none; line-height: 1;
     transition: opacity 0.2s, transform 0.2s;
   }
@@ -99,8 +102,8 @@
   .mono {
     font-family: var(--font-mono);
     font-size: 12px; font-weight: 500;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--teal);
+    letter-spacing: 0; text-transform: lowercase;
+    color: var(--pencil);
   }
 
   .page-head { padding: 88px 0 56px; }
@@ -113,7 +116,7 @@
     font-size: 14px; font-weight: 500; text-decoration: none; color: var(--black);
     border: 1px solid var(--border); border-radius: 100px; padding: 8px 16px;
   }
-  .jump a:hover { border-color: var(--teal); color: var(--teal); }
+  .jump a:hover { border-color: var(--ink); color: var(--ink); }
 
   .case { padding: 56px 0; border-top: 1px solid var(--border); }
   .case-grid {
@@ -142,27 +145,27 @@
   .case-link:hover { text-decoration: underline; }
 
   .featured {
-    background: var(--teal);
-    color: var(--white);
+    background: var(--ink);
+    color: var(--paper);
     border-radius: 32px;
     padding: 56px 48px;
     margin-bottom: 40px;
   }
-  .featured .mono { color: #E4D7A2; }
-  .featured .field p { color: rgba(245,242,236,0.9); }
+  .featured .mono { color: rgba(250,248,243,0.72); }
+  .featured .field p { color: rgba(250,248,243,0.9); }
   .featured .tools span {
-    border-color: rgba(245,242,236,0.3); background: rgba(245,242,236,0.08); color: var(--white);
+    border-color: rgba(250,248,243,0.3); background: rgba(250,248,243,0.08); color: var(--white);
   }
-  .featured .status { border-top-color: rgba(245,242,236,0.25); color: var(--white); }
+  .featured .status { border-top-color: rgba(250,248,243,0.25); color: var(--white); }
 
-  .agents { border-top: 1px solid rgba(245,242,236,0.25); margin-top: 10px; }
+  .agents { border-top: 1px solid rgba(250,248,243,0.25); margin-top: 10px; }
   .agent {
     display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 16px;
-    padding: 14px 0; border-bottom: 1px solid rgba(245,242,236,0.25);
+    padding: 14px 0; border-bottom: 1px solid rgba(250,248,243,0.25);
     font-size: 15px;
   }
   .agent b { font-weight: 600; color: var(--white); }
-  .agent span { color: rgba(245,242,236,0.82); }
+  .agent span { color: rgba(250,248,243,0.82); }
 
   .facts { border-top: 1px solid var(--border); }
   .fact { padding: 22px 0; border-bottom: 1px solid var(--border); }
@@ -173,7 +176,7 @@
   .twinkles { position: absolute; inset: 0; pointer-events: none; }
   .twinkle {
     position: absolute;
-    fill: none; stroke: var(--gold); stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;
+    fill: none; stroke: var(--ink); stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;
     overflow: visible;
     opacity: 0;
     transform: scale(0.5);
@@ -200,7 +203,7 @@
     overflow: visible;
   }
   .flight-svg { width: 100%; height: 100%; display: block; overflow: visible; }
-  .flight-trail { fill: none; stroke: var(--teal); stroke-width: 2; stroke-dasharray: 2 9; stroke-linecap: round; opacity: 0.45; }
+  .flight-trail { fill: none; stroke: var(--ink); stroke-width: 2; stroke-dasharray: 2 9; stroke-linecap: round; opacity: 0.45; }
   .flight-plane {
     position: absolute;
     width: 36px;
@@ -208,7 +211,7 @@
     margin-left: -18px;
     margin-top: -18px;
     overflow: visible;
-    fill: var(--gold);
+    fill: var(--ink);
   }
 
   .career { padding: 72px 0 88px; border-top: 1px solid var(--border); }
@@ -221,17 +224,22 @@
   }
   .role h3 { font-size: 19px; margin-bottom: 4px; }
   .role .where { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
-  .stat-value { font-size: 34px; color: var(--teal); }
+  .stat-value { font-size: 34px; color: var(--ink); }
   .stat-label { font-size: 14px; margin-top: 4px; }
   .stat + .stat { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
 
-  .cta { background: var(--teal); color: var(--white); padding: 88px 0; }
+  .cta { background: var(--ink); color: var(--paper); padding: 88px 0; }
+  .cta .btn { background: var(--paper); color: var(--ink); }
   .cta-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-  .cta p { color: rgba(245,242,236,0.85); margin-top: 14px; max-width: 480px; }
-  .cta h2 { color: var(--white); }
+  .cta p { color: rgba(250,248,243,0.85); margin-top: 14px; max-width: 480px; }
+  .cta h2 { color: var(--paper); }
 
-  footer { padding: 32px 0 max(32px, env(safe-area-inset-bottom)); font-size: 14px; color: var(--muted); }
-  footer .shell { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer { padding: 32px 0 max(32px, env(safe-area-inset-bottom)); font-size: 14px; color: var(--pencil); border-top: 1px solid var(--border); }
+  footer .shell { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 18px 28px; }
+  .footer-brand { display: flex; align-items: flex-end; gap: 18px; }
+  .footer-logo { width: 260px; height: auto; }
+  .footer-tag { max-width: 240px; color: var(--ink); font-size: 15px; line-height: 1.35; padding-bottom: 8px; }
+  .footer-meta { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
 
   @media (max-width: 860px) {
     .case-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
@@ -239,6 +247,10 @@
     .roles { grid-template-columns: 1fr; }
     .agent { grid-template-columns: 1fr; gap: 2px; }
     .nav-links .hide-sm { display: none; }
+    .footer-brand { flex-direction: column; align-items: flex-start; }
+    .footer-meta { align-items: flex-start; }
+    .footer-logo { width: min(260px, 78vw); }
+    .footer-tag { padding-bottom: 0; }
     .page-head { padding: 56px 0 40px; }
   }
 
@@ -254,7 +266,7 @@
 
 <nav class="site-nav">
   <div class="shell nav-inner">
-    <a href="index.html" aria-label="Now/Here home"><img class="nav-logo" src="logo.png" alt="Now/Here"></a>
+    <a href="index.html" aria-label="Now/Here home"><img class="nav-logo" src="logo-horizontal.svg" alt="Now/Here"></a>
     <div class="nav-links">
       <a class="hide-sm" href="index.html#offers">Offers</a>
       <a class="hide-sm" href="work.html" aria-current="page">Work</a>
@@ -340,11 +352,12 @@
           <span class="mono">Tools</span>
           <div class="tools"><span>Shopify</span><span>Webflow</span><span>Supabase</span><span>Vercel</span><span>Stripe</span><span>Resend</span><span>Beehiiv</span></div>
         </div>
-        <p class="status">Live. Building cross-designer search next.</p>
+        <p class="status">Live, with 10 designers and around 2.5K searchable pieces in Findings.</p>
         <a class="case-link" href="https://fable42.com" target="_blank" rel="noopener">Visit fable42.com</a>
       </div>
       <div class="facts">
-        <div class="fact"><div class="stat-value" data-count="248" data-suffix="+">248+</div><div class="stat-label">independent designers in the directory</div></div>
+        <div class="fact"><div class="stat-value" data-count="10">10</div><div class="stat-label">designers</div></div>
+        <div class="fact"><div class="stat-value">2.5K</div><div class="stat-label">searchable pieces in Findings</div></div>
         <div class="fact"><div class="stat-value" data-count="19" data-suffix="K">19K</div><div class="stat-label">social followers, all organic</div></div>
         <div class="fact"><div class="stat-value" data-count="1" data-suffix=" pivot">1 pivot</div><div class="stat-label">from marketplace to editorial and affiliate, when the data called for it</div></div>
       </div>
@@ -431,8 +444,14 @@
 
 <footer>
   <div class="shell">
-    <span>© 2026 Now/Here Studio</span>
-    <span>Also building: <a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a> and <a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a></span>
+    <div class="footer-brand">
+      <img class="footer-logo" src="logo-primary.svg" alt="Now/Here">
+      <p class="footer-tag">Now/Here is where broken systems get rebuilt.</p>
+    </div>
+    <div class="footer-meta">
+      <span>Also building: <a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a> and <a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a></span>
+      <span>© 2026 Now/Here Studio</span>
+    </div>
   </div>
 </footer>
 

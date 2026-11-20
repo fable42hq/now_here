@@ -39,22 +39,28 @@
   })();
 </script>
 <title>Now/Here Studio | Your stuck list, shipped</title>
-<link rel="icon" href="logo.png" type="image/png" />
-<link rel="apple-touch-icon" href="logo.png" />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <style>
   :root {
-    --white: #F5F2EC;
-    --black: #0F0F0F;
-    --teal: #2E6B6B;
-    --gold: #998731;
-    --muted: rgba(15,15,15,0.55);
-    --border: rgba(15,15,15,0.12);
+    --paper: #FAF8F3;
+    --ink: #141414;
+    --cobalt: #2F54FF;
+    --cobalt-deep: #1D36B8;
+    --butter: #FFE27A;
+    --pencil: #635F57;
+    --grid: #D8D3C8;
+    --white: var(--paper);
+    --black: var(--ink);
+    --muted: var(--pencil);
+    --border: rgba(20, 20, 20, 0.12);
     --nav: 76px;
-    --font-display: 'Bricolage Grotesque', sans-serif;
-    --font-body: 'IBM Plex Sans', sans-serif;
-    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --font-display: "Inter Tight", system-ui, sans-serif;
+    --font-body: "Inter Tight", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --font-hand: "Caveat", cursive;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,9 +86,9 @@
 
   h1, h2, h3, .founder-name, .stat-value, .form-success, .avatar-fallback {
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 500;
     font-synthesis: none;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.045em;
     line-height: 1.08;
   }
 
@@ -92,7 +98,7 @@
 
   h3 { font-size: 26px; }
 
-  a { color: var(--teal); }
+  a { color: var(--ink); }
 
   .page-shell {
     width: min(1120px, calc(100% - 64px));
@@ -117,12 +123,16 @@
   }
 
   .eyebrow {
-    color: var(--teal);
-    font-size: 12px;
+    color: var(--pencil);
+    font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0;
+    text-transform: lowercase;
     margin-bottom: 18px;
+  }
+
+  .hl {
+    background: linear-gradient(transparent 58%, var(--butter) 58%, var(--butter) 92%, transparent 92%);
   }
 
   .btn {
@@ -132,9 +142,9 @@
     gap: 8px;
     font-family: var(--font-body);
     font-size: 16px;
-    font-weight: 600;
-    color: var(--white);
-    background: var(--gold);
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--ink);
     padding: 16px 28px;
     border-radius: 100px;
     text-decoration: none;
@@ -155,8 +165,8 @@
 
   .btn-secondary {
     background: transparent;
-    color: var(--teal);
-    box-shadow: inset 0 0 0 1.5px var(--teal);
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1.5px var(--ink);
   }
 
   .site-nav .btn-secondary {
@@ -172,7 +182,7 @@
   textarea:focus-visible,
   select:focus-visible,
   a:focus-visible {
-    outline: 3px solid rgba(46, 107, 107, 0.28);
+    outline: 3px solid rgba(20, 20, 20, 0.28);
     outline-offset: 3px;
   }
 
@@ -185,14 +195,14 @@
     display: flex;
     align-items: center;
     padding: max(12px, env(safe-area-inset-top)) 0 12px;
-    background: rgba(245, 242, 236, 0.96);
-    border-bottom: 1px solid var(--border);
+    background: transparent;
+    border-bottom: 1px solid transparent;
     backdrop-filter: blur(12px);
     transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
 
   .site-nav.is-solid {
-    background: rgba(245, 242, 236, 0.96);
+    background: rgba(250, 248, 243, 0.94);
     border-bottom-color: var(--border);
     box-shadow: 0 8px 24px rgba(15, 15, 15, 0.04);
     backdrop-filter: blur(12px);
@@ -208,7 +218,7 @@
   }
 
   .nav-logo {
-    height: 36px;
+    height: 30px;
     width: auto;
     display: block;
   }
@@ -228,7 +238,7 @@
     font-weight: 500;
   }
 
-  .nav-links a:hover { color: var(--teal); }
+  .nav-links a:hover { color: var(--ink); }
 
   .nav-cta {
     display: flex;
@@ -237,38 +247,26 @@
   }
 
   .conversion-hero {
-    display: flex;
-    padding: calc(var(--nav) + 12px) 20px 20px;
+    background-color: var(--paper);
+    background-image: radial-gradient(var(--grid) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+    padding: calc(var(--nav) + 48px) 0 72px;
   }
 
-  .hero-panel {
-    width: min(1180px, 100%);
+  .hero-lead {
+    width: min(1120px, calc(100% - 64px));
     margin: 0 auto;
-    background: var(--teal);
-    color: var(--white);
-    border-radius: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 72px 40px;
-    flex: 1;
   }
 
-  .hero-lead { max-width: 780px; }
-
-  .hero-panel .eyebrow { color: #E4D7A2; }
-
-  .hero-panel h1,
-  .hero-panel .hero-copy { color: var(--white); }
+  .hero-lead h1,
+  .hero-copy { max-width: 740px; }
 
   .hero-copy {
     font-size: 18px;
     line-height: 1.65;
     margin-bottom: 16px;
+    color: var(--ink);
   }
-
-  .hero-panel .hero-copy { color: rgba(245, 242, 236, 0.9); }
 
   .hero-note {
     color: var(--muted);
@@ -276,24 +274,63 @@
     margin: 20px 0 0;
   }
 
-  .hero-panel .hero-note { color: rgba(245, 242, 236, 0.72); }
-
   .hero-actions {
     margin-top: 28px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    align-items: flex-start;
+    gap: 18px;
   }
+
+  .hero-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .scribble {
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 50%;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    color: var(--cobalt-deep);
+    font-family: var(--font-hand);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+    white-space: nowrap;
+    transform: translateY(-58%) rotate(-6deg);
+  }
+
+  .scribble-arrow {
+    width: 58px;
+    height: 36px;
+    display: block;
+  }
+
+  .scribble-arrow-down { display: none; }
 
   .hero-secondary {
-    color: #E4D7A2;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
     font-weight: 500;
     text-decoration: none;
-    border-bottom: 1px solid rgba(228, 215, 162, 0.5);
+    border-bottom: 1px solid rgba(20, 20, 20, 0.35);
   }
 
-  .hero-secondary:hover { color: var(--white); }
+  .hero-secondary:hover { color: var(--ink); }
+
+  .doodle-arrow {
+    width: 34px;
+    height: 26px;
+    flex: none;
+  }
 
   .section-center .eyebrow,
   .section-center .section-heading { text-align: center; }
@@ -316,8 +353,9 @@
   .cause-num {
     font-family: var(--font-mono);
     font-size: 12px;
-    color: var(--gold);
-    letter-spacing: 0.06em;
+    font-weight: 500;
+    color: var(--pencil);
+    letter-spacing: 0;
   }
 
   .cause h3 { margin: 12px 0 10px; font-size: 24px; }
@@ -328,9 +366,12 @@
     margin-top: 18px;
     font-family: var(--font-mono);
     font-size: 12px;
-    color: var(--teal);
-    letter-spacing: 0.04em;
+    font-weight: 500;
+    color: var(--pencil);
+    letter-spacing: 0;
   }
+
+  .method .cause-num { color: rgba(250, 248, 243, 0.72); }
 
   .method {
     background: var(--black);
@@ -340,7 +381,7 @@
     padding: 88px 0;
   }
 
-  .method .eyebrow { color: #E4D7A2; }
+  .method .eyebrow { color: rgba(250, 248, 243, 0.72); }
 
   .method-steps {
     display: grid;
@@ -369,7 +410,7 @@
     gap: 32px;
     align-items: center;
     background: rgba(255, 255, 255, 0.7);
-    border: 1.5px solid var(--gold);
+    border: 1.5px solid var(--ink);
     border-radius: 22px;
     padding: 44px;
   }
@@ -377,9 +418,9 @@
   .teardown-price {
     font-family: var(--font-display);
     font-size: 52px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: -0.03em;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.045em;
     line-height: 1;
   }
 
@@ -394,7 +435,7 @@
     content: "→";
     position: absolute;
     left: 0;
-    color: var(--teal);
+    color: var(--ink);
   }
 
   .teardown-right { text-align: center; }
@@ -408,13 +449,14 @@
   .offer-tag {
     align-self: flex-start;
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: lowercase;
     padding: 5px 10px;
     border-radius: 999px;
-    background: rgba(46, 107, 107, 0.1);
-    color: var(--teal);
+    background: rgba(20, 20, 20, 0.06);
+    color: var(--pencil);
     margin-bottom: 14px;
   }
 
@@ -436,71 +478,11 @@
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
 
-  .tier-card:nth-child(2) {
-    background: var(--teal);
-    border-color: var(--teal);
-    color: var(--white);
-  }
-
-  .tier-card:nth-child(3) {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--black);
-  }
-
-  .tier-card:nth-child(2) .tier-problem {
-    color: rgba(245, 242, 236, 0.72);
-  }
-
-  .tier-card:nth-child(2) .tier-body,
-  .tier-card:nth-child(2) .tier-lists li {
-    color: var(--white);
-  }
-
-  .tier-card:nth-child(3) .tier-problem,
-  .tier-card:nth-child(3) .tier-body,
-  .tier-card:nth-child(3) .tier-lists li,
-  .tier-card:nth-child(3) h3 {
-    color: var(--black);
-  }
-
-  .tier-card:nth-child(2) .tier-number,
-  .tier-card:nth-child(2) .mini-label,
-  .tier-card:nth-child(2) .tier-timing,
-  .tier-card:nth-child(2) .card-link {
-    color: var(--white);
-  }
-
-  .tier-card:nth-child(3) .tier-number,
-  .tier-card:nth-child(3) .mini-label,
-  .tier-card:nth-child(3) .tier-timing,
-  .tier-card:nth-child(3) .card-link {
-    color: var(--black);
-  }
-
-  .tier-card:nth-child(2) .offer-tag {
-    background: rgba(245, 242, 236, 0.14);
-    color: #E4D7A2;
-  }
-
-  .tier-card:nth-child(3) .offer-tag {
-    background: rgba(15, 15, 15, 0.1);
-    color: var(--black);
-  }
-
-  .tier-card:nth-child(2) .tier-lists li::before { background: var(--white); }
-
-  .tier-card:nth-child(3) .tier-lists li::before { background: var(--black); }
-
   .tier-card:hover {
     transform: translateY(-6px);
-    border-color: var(--teal);
-    box-shadow: 0 18px 36px rgba(15, 15, 15, 0.08);
+    border-color: var(--ink);
+    box-shadow: 0 18px 36px rgba(20, 20, 20, 0.08);
   }
-
-  .tier-card:nth-child(2):hover { border-color: transparent; }
-
-  .tier-card:nth-child(3):hover { border-color: var(--black); }
 
   .own-work .section-heading {
     margin-bottom: 12px;
@@ -536,15 +518,15 @@
     text-decoration: none;
   }
 
-  .own-card h3 a:hover { color: var(--teal); }
+  .own-card h3 a:hover { color: var(--ink); }
 
   .own-kicker {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--teal);
+    letter-spacing: 0;
+    text-transform: lowercase;
+    color: var(--pencil);
     margin-bottom: 6px;
   }
 
@@ -558,15 +540,15 @@
     font-family: var(--font-mono);
     font-size: 12px;
     font-weight: 500;
-    color: var(--teal);
+    color: var(--pencil);
     margin: 4px 0 0;
   }
 
   .tier-number {
-    color: var(--teal);
+    color: var(--pencil);
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0;
     margin-bottom: 16px;
   }
 
@@ -593,11 +575,11 @@
   }
 
   .mini-label {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--teal);
+    letter-spacing: 0;
+    text-transform: lowercase;
+    color: var(--pencil);
     margin-bottom: 8px;
   }
 
@@ -620,10 +602,24 @@
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: var(--teal);
+    background: var(--ink);
     position: absolute;
     left: 0;
     top: 0.55em;
+  }
+
+  .checks li {
+    padding-left: 26px;
+  }
+
+  .checks li::before {
+    width: 15px;
+    height: 15px;
+    border-radius: 0;
+    top: 0.15em;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='black' fill-rule='evenodd' d='M2.4 3.2c-.4-.2-.2-1 .4-1.1l9.2-.6c.7 0 1.2.6 1.1 1.3l-.7 8.8c-.1.7-.8 1.2-1.5 1.1L3.2 12c-.7-.1-1.1-.8-1-1.5l.5-6.8c0-.2-.1-.4-.3-.5zm.8 1.1.4 6.4 7.6.6.5-7.2-8.5.2zM4.7 7.8l1.6 1.7 3.4-3.6.9.8L6.4 11 3.8 8.6z'/></svg>") center / contain no-repeat;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='black' fill-rule='evenodd' d='M2.4 3.2c-.4-.2-.2-1 .4-1.1l9.2-.6c.7 0 1.2.6 1.1 1.3l-.7 8.8c-.1.7-.8 1.2-1.5 1.1L3.2 12c-.7-.1-1.1-.8-1-1.5l.5-6.8c0-.2-.1-.4-.3-.5zm.8 1.1.4 6.4 7.6.6.5-7.2-8.5.2zM4.7 7.8l1.6 1.7 3.4-3.6.9.8L6.4 11 3.8 8.6z'/></svg>") center / contain no-repeat;
   }
 
   .tier-action {
@@ -632,14 +628,14 @@
   }
 
   .tier-timing {
-    color: var(--teal);
+    color: var(--pencil);
     font-size: 12px;
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .card-link {
-    color: var(--teal);
+    color: var(--ink);
     font-family: var(--font-body);
     font-size: 14px;
     font-weight: 600;
@@ -669,7 +665,7 @@
   }
 
   .stat-box {
-    border: 1px solid var(--teal);
+    border: 1px solid var(--grid);
     background: transparent;
     border-radius: 18px;
     padding: 22px 14px 18px;
@@ -720,7 +716,7 @@
     left: 50%;
     width: calc(100% + 28px);
     height: 3px;
-    background: var(--teal);
+    background: var(--ink);
     z-index: 0;
   }
 
@@ -730,8 +726,8 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--teal);
-    color: var(--white);
+    background: var(--ink);
+    color: var(--paper);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -746,10 +742,10 @@
 
   .steps p {
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 500;
     font-size: 20px;
     line-height: 1.25;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--black);
     margin-top: 18px;
   }
@@ -776,13 +772,13 @@
   .about-photo { object-fit: cover; }
 
   .avatar-fallback {
-    background: var(--teal);
-    color: var(--white);
+    background: var(--ink);
+    color: var(--paper);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 72px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -0.04em;
   }
 
@@ -793,11 +789,11 @@
 
   .founder-role {
     margin-top: 6px;
-    color: var(--teal);
-    font-size: 11px;
+    color: var(--pencil);
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0;
+    text-transform: lowercase;
   }
 
   .about-copy p + p { margin-top: 16px; }
@@ -843,7 +839,7 @@
     position: absolute;
     right: 0;
     top: 18px;
-    color: var(--teal);
+    color: var(--ink);
     font-size: 24px;
     font-weight: 400;
   }
@@ -857,8 +853,8 @@
   }
 
   .contact-section {
-    background: var(--teal);
-    color: var(--white);
+    background: var(--ink);
+    color: var(--paper);
     padding: 96px 0;
     scroll-margin-top: 76px;
   }
@@ -873,7 +869,7 @@
 
   .contact-sub {
     margin-top: 12px;
-    color: #D6E3E0;
+    color: rgba(250, 248, 243, 0.72);
   }
 
   .booking-form { margin-top: 40px; text-align: left; }
@@ -889,7 +885,7 @@
     gap: 10px;
     align-items: flex-start;
     padding: 12px 14px;
-    border: 1px solid rgba(245, 242, 236, 0.25);
+    border: 1px solid rgba(250, 248, 243, 0.28);
     border-radius: 12px;
     cursor: pointer;
     font-size: 15px;
@@ -900,7 +896,7 @@
   .chip input {
     width: auto;
     margin-top: 5px;
-    accent-color: var(--gold);
+    accent-color: var(--paper);
     padding: 0;
     background: transparent;
     border: none;
@@ -908,7 +904,7 @@
 
   .chip small {
     display: block;
-    color: #C7D8D4;
+    color: rgba(250, 248, 243, 0.62);
     font-size: 13px;
     font-weight: 400;
   }
@@ -929,7 +925,7 @@
   .booking-form legend {
     font-size: 14px;
     font-weight: 500;
-    color: rgba(245, 242, 236, 0.82);
+    color: rgba(250, 248, 243, 0.82);
   }
 
   .booking-form fieldset {
@@ -946,22 +942,22 @@
     padding: 0;
     border: none;
     background: transparent;
-    accent-color: var(--gold);
+    accent-color: var(--paper);
   }
 
   .booking-form input::placeholder,
   .booking-form textarea::placeholder {
-    color: rgba(245, 242, 236, 0.5);
+    color: rgba(250, 248, 243, 0.5);
   }
 
   .booking-form input,
   .booking-form textarea,
   .booking-form select {
     width: 100%;
-    border: 1px solid rgba(245, 242, 236, 0.28);
+    border: 1px solid rgba(250, 248, 243, 0.28);
     border-radius: 10px;
     padding: 14px 16px;
-    background: rgba(245, 242, 236, 0.1);
+    background: rgba(250, 248, 243, 0.1);
     color: var(--white);
     font: inherit;
   }
@@ -973,7 +969,7 @@
 
   .booking-form select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%23F5F2EC' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%23FAF8F3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 16px center;
     padding-right: 42px;
@@ -984,7 +980,13 @@
     background: var(--white);
   }
 
-  .booking-form .btn { margin-top: 6px; align-self: center; width: auto; }
+  .booking-form .btn {
+    margin-top: 6px;
+    align-self: center;
+    width: auto;
+    background: var(--paper);
+    color: var(--ink);
+  }
 
   .form-success {
     font-size: clamp(28px, 3vw, 40px);
@@ -1005,7 +1007,7 @@
     margin-top: 16px;
     text-align: center;
     font-size: 14px;
-    color: rgba(245, 242, 236, 0.86);
+    color: rgba(250, 248, 243, 0.86);
   }
 
   .booking-note a {
@@ -1037,20 +1039,22 @@
 
   .footer-brand {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-end;
+    gap: 18px;
   }
 
-  .footer-mark {
-    width: 36px;
+  .footer-logo {
+    width: 260px;
     height: auto;
-    opacity: 0.45;
     display: block;
   }
 
   .footer-tag {
-    font-size: 13px;
-    color: var(--muted);
+    max-width: 240px;
+    font-size: 15px;
+    line-height: 1.35;
+    color: var(--ink);
+    padding-bottom: 8px;
   }
 
   .footer-links {
@@ -1069,7 +1073,7 @@
   }
 
   .footer-links a:hover,
-  .footer-also a:hover { color: var(--teal); }
+  .footer-also a:hover { color: var(--ink); }
 
   .footer-also {
     font-size: 13px;
@@ -1118,7 +1122,7 @@
       top: 48px;
       bottom: 0;
       width: 3px;
-      background: var(--teal);
+      background: var(--ink);
     }
 
     .steps li:last-child::after { display: none; }
@@ -1153,6 +1157,7 @@
 
     .steps { grid-template-columns: 1fr; }
 
+    .hero-lead,
     .page-shell,
     .nav-inner,
     footer { width: min(100% - 40px, 1120px); }
@@ -1161,14 +1166,36 @@
     .contact-section { padding: 64px 0; }
 
     .conversion-hero {
-      min-height: auto;
-      padding: calc(var(--nav) + 16px) 16px 16px;
+      padding: calc(var(--nav) + 32px) 0 48px;
     }
 
-    .hero-panel {
-      border-radius: 22px;
-      padding: 48px 22px;
+    .hero-cta { flex-direction: column; align-items: flex-start; }
+
+    .scribble {
+      position: static;
+      flex-direction: column;
+      align-items: flex-start;
+      transform: rotate(-6deg);
+      margin: 4px 0 0 40px;
     }
+
+    .scribble-arrow-side { display: none; }
+
+    .scribble-arrow-down {
+      display: block;
+      width: 64px;
+      height: 36px;
+    }
+
+    .footer-brand {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-logo { width: min(260px, 78vw); }
+
+    .footer-tag { padding-bottom: 0; }
 
     .founder-card { text-align: center; }
 
@@ -1204,7 +1231,7 @@
 <header class="site-nav">
   <div class="nav-inner">
     <a href="#top" aria-label="Now/Here Studio">
-      <img class="nav-logo" src="logo.png" alt="Now/Here" />
+      <img class="nav-logo" src="logo-horizontal.svg" alt="Now/Here" />
     </a>
     <nav class="nav-links" aria-label="Page">
       <a href="#why">Why it's stuck</a>
@@ -1220,17 +1247,33 @@
 
 <main id="top">
   <section class="conversion-hero">
-    <div class="hero-panel">
     <div class="hero-lead">
       <p class="eyebrow">For founders and small teams</p>
-      <h1>Your stuck list, shipped.</h1>
+      <h1>Your stuck list, <span class="hl">shipped</span>.</h1>
       <p class="hero-copy">Every business has one. The launch that keeps slipping. The tool you keep meaning to build. The work that stalls the second you look away. I take what everyone agrees matters and nobody owns, and I get it done.</p>
       <p class="hero-copy hero-bio">I'm Sandra. I've spent seven years turning messy, cross-team problems into shipped work at leading companies. Not an agency. Just me, doing the work.</p>
       <div class="hero-actions">
-        <a class="btn" data-primary-cta href="#contact">Send me your stuck list</a>
-        <a class="hero-secondary" href="#teardown">Not ready to hire? Start with a Stuck List Teardown →</a>
+        <div class="hero-cta">
+          <p class="scribble">
+            <svg class="scribble-arrow scribble-arrow-side" viewBox="0 0 64 40" aria-hidden="true">
+              <path d="M58 8 C 44 6, 30 14, 16 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M28 20 L 14 30 L 30 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>messy is fine</span>
+            <svg class="scribble-arrow scribble-arrow-down" viewBox="0 0 72 42" aria-hidden="true">
+              <path d="M60 6 C 46 12, 34 16, 20 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M34 22 L 16 34 L 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </p>
+          <a class="btn" data-primary-cta href="#contact">Send me your stuck list</a>
+        </div>
+        <a class="hero-secondary" href="#teardown">Not ready to hire? Start with a Stuck List Teardown
+          <svg class="doodle-arrow" viewBox="0 0 36 28" aria-hidden="true">
+            <path d="M4 6 C 14 5, 20 10, 26 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M18 14 L 27 19 L 18 23" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
-    </div>
     </div>
   </section>
 
@@ -1240,7 +1283,7 @@
     <div class="causes">
       <article class="cause">
         <div class="cause-num">01</div>
-        <h3>Nobody owns it.</h3>
+        <h3>Nobody <span class="hl">owns</span> it.</h3>
         <p>Everyone agrees it matters. It's on every list. It just isn't anyone's job, so it keeps sliding to next month.</p>
         <div class="cause-maps">→ Ship it</div>
       </article>
@@ -1262,7 +1305,7 @@
   <div class="method">
     <div class="page-shell">
       <p class="eyebrow">The method</p>
-      <h2>How I get things unstuck</h2>
+      <h2>How I get things <span class="hl">unstuck</span></h2>
       <div class="method-steps">
         <div class="method-step"><span class="cause-num">01</span><h3>Name it.</h3><p>We list everything that's stalled and why. Not the version on the roadmap. The real one.</p></div>
         <div class="method-step"><span class="cause-num">02</span><h3>Rank it.</h3><p>What's costing you the most, and what's fastest to fix. Most things can wait. A few can't.</p></div>
@@ -1312,7 +1355,7 @@
           </div>
           <div>
             <p class="mini-label">You get</p>
-            <ul>
+            <ul class="checks">
               <li>one owner</li>
               <li>a clear plan</li>
               <li>weekly updates</li>
@@ -1343,7 +1386,7 @@
           </div>
           <div>
             <p class="mini-label">You get</p>
-            <ul>
+            <ul class="checks">
               <li>a diagnosis</li>
               <li>ranked options</li>
               <li>a test plan with the numbers to watch</li>
@@ -1373,7 +1416,7 @@
           </div>
           <div>
             <p class="mini-label">You get</p>
-            <ul>
+            <ul class="checks">
               <li>a working thing in your hands</li>
               <li>a plan for what's next</li>
             </ul>
@@ -1424,7 +1467,7 @@
         <p class="own-body">Independent fine jewelry designers get buried on Etsy and ignored by Google.</p>
         <p class="own-kicker">What I built</p>
         <p class="own-body">A curated discovery platform that sends shoppers straight to designers' own sites. A Shopify app handles affiliate opt-in, product sync, and commission tracking. When designers wouldn't sync full catalogs to a new platform, I rebuilt the model around editorial and affiliate.</p>
-        <p class="own-status">Stage: Live, with a 248+ designer directory and cross-designer search.</p>
+        <p class="own-status">Stage: Live, with 10 designers and around 2.5K searchable pieces in Findings.</p>
       </article>
       <article class="own-card">
         <h3><a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a></h3>
@@ -1439,7 +1482,7 @@
 
   <section class="section page-shell section-follow" id="how">
     <p class="eyebrow">How it works</p>
-    <h2 class="section-heading">From stuck to shipped</h2>
+    <h2 class="section-heading">From stuck to <span class="hl">shipped</span></h2>
     <ol class="steps">
       <li>
         <div class="step-marker">01</div>
@@ -1553,7 +1596,7 @@
     </div>
     <div class="page-shell">
       <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/sandra-nowherestudio/20min?hide_event_type_details=1&background_color=f5f2ec&text_color=0f0f0f&primary_color=2e6b6b" style="height:700px;"></div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/sandra-nowherestudio/20min?hide_event_type_details=1&background_color=faf8f3&text_color=141414&primary_color=141414" style="height:700px;"></div>
       <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       <!-- Calendly inline widget end -->
     </div>
@@ -1562,8 +1605,8 @@
 
 <footer>
   <div class="footer-brand">
-    <img class="footer-mark" src="logo.png" alt="" aria-hidden="true" />
-    <p class="footer-tag">Where broken systems get rebuilt.</p>
+    <img class="footer-logo" src="logo-primary.svg" alt="Now/Here" />
+    <p class="footer-tag">Now/Here is where broken systems get rebuilt.</p>
   </div>
   <nav class="footer-links" aria-label="Contact">
     <a data-linkedin-link target="_blank" rel="noopener">LinkedIn</a>
