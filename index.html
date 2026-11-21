@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Your stuck list, shipped. I take what everyone agrees matters and nobody owns, and I get it done. For founders and small teams.">
-<meta property="og:title" content="Now/Here Studio | Your stuck list, shipped">
-<meta property="og:description" content="Your stuck list, shipped. I take what everyone agrees matters and nobody owns, and I get it done. For founders and small teams.">
+<meta name="description" content="I turn what's in your team's heads into systems that run without them. For agencies and service businesses.">
+<meta property="og:title" content="Now/Here Studio | Systems for small businesses">
+<meta property="og:description" content="I turn what's in your team's heads into systems that run without them. For agencies and service businesses.">
 <meta property="og:image" content="https://nowherestudio.co/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Your stuck list, shipped.">
+<meta property="og:image:alt" content="Now/Here Studio. Systems for small businesses.">
 <meta property="og:url" content="https://nowherestudio.co/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Now/Here Studio | Your stuck list, shipped">
-<meta name="twitter:description" content="Your stuck list, shipped. I take what everyone agrees matters and nobody owns, and I get it done. For founders and small teams.">
+<meta name="twitter:title" content="Now/Here Studio | Systems for small businesses">
+<meta name="twitter:description" content="I turn what's in your team's heads into systems that run without them. For agencies and service businesses.">
 <meta name="twitter:image" content="https://nowherestudio.co/share.png">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2BEX0MJR0"></script>
@@ -38,7 +38,7 @@
     fbq('track', 'PageView');
   })();
 </script>
-<title>Now/Here Studio | Your stuck list, shipped</title>
+<title>Now/Here Studio | Systems for small businesses</title>
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
 <link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512" />
@@ -396,7 +396,7 @@
 
   .method-steps {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-top: 48px;
     border-top: 1px solid #2c2c2c;
   }
@@ -504,6 +504,38 @@
     text-align: center;
     color: var(--muted);
     margin-bottom: 32px;
+  }
+
+  .path-note {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 28px;
+  }
+
+  .proof-lead {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 18px;
+    padding: 28px 28px 24px;
+    margin-bottom: 16px;
+  }
+
+  .proof-lead .own-kicker { color: rgba(250, 248, 243, 0.72); }
+
+  .proof-lead h3 {
+    font-size: 26px;
+    margin: 8px 0 10px;
+  }
+
+  .proof-lead p {
+    color: rgba(250, 248, 243, 0.86);
+    max-width: 62ch;
+  }
+
+  .proof-lead .card-link {
+    color: var(--paper);
+    display: inline-block;
+    margin-top: 16px;
   }
 
   .own-grid {
@@ -661,6 +693,7 @@
 
   #offers .eyebrow,
   #offers .section-heading,
+  #proof .eyebrow,
   #proof .section-heading,
   #about .eyebrow,
   #about .section-heading,
@@ -1263,13 +1296,13 @@
       <img class="nav-logo" src="logo-horizontal.svg" alt="Now/Here" />
     </a>
     <nav class="nav-links" aria-label="Page">
-      <a href="#why">Why it's stuck</a>
+      <a href="#why">The problem</a>
       <a href="#offers">Offers</a>
       <a href="work.html">Work</a>
       <a href="#about">About</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-nav" data-primary-cta href="#contact">Send me your stuck list</a>
+      <a class="btn btn-nav" data-primary-cta href="#contact">Send me your messiest workflow</a>
     </div>
   </div>
 </header>
@@ -1277,10 +1310,10 @@
 <main id="top">
   <section class="conversion-hero">
     <div class="hero-lead">
-      <p class="eyebrow">For founders and small teams</p>
-      <h1>Your stuck list, <span class="hl">shipped</span>.</h1>
-      <p class="hero-copy">Every business has one. The launch that keeps slipping. The tool you keep meaning to build. The work that stalls the second you look away. I take what everyone agrees matters and nobody owns, and I get it done.</p>
-      <p class="hero-copy hero-bio">I'm Sandra. I've spent seven years turning messy, cross-team problems into shipped work at leading companies. Not an agency. Just me, doing the work.</p>
+      <p class="eyebrow">For agencies and service businesses</p>
+      <h1>I build the <span class="hl">systems</span> behind small businesses.</h1>
+      <p class="hero-copy">Your business runs on what's in a few people's heads. I turn that into systems that run without them, on top of the tools you already use.</p>
+      <p class="hero-copy hero-bio">I'm Sandra. I've spent seven years on the product and ops side, building the systems teams run on. Not an agency. Just me, doing the work.</p>
       <div class="hero-actions">
         <div class="hero-cta">
           <p class="scribble">
@@ -1292,38 +1325,34 @@
               <path d="M58 6 C 40 16, 28 28, 18 46 M 33 40 L 18 46 L 16 31" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </p>
-          <a class="btn" data-primary-cta href="#contact">Send me your stuck list</a>
+          <a class="btn" data-primary-cta href="#contact">Send me your messiest workflow</a>
         </div>
-        <a class="hero-secondary" href="#teardown"><span class="hero-secondary-label">Not ready to hire? Start with a Stuck List Teardown</span>
-          <svg class="doodle-arrow" viewBox="0 0 48 24" aria-hidden="true">
-            <path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+        <p class="hero-note">I'll take a free 15-minute look and tell you what I'd build.</p>
       </div>
     </div>
   </section>
 
   <section class="section page-shell section-center" id="why">
-    <p class="eyebrow">Why things get stuck</p>
-    <h2 class="section-heading">It's usually one of three things.</h2>
+    <p class="eyebrow">The problem</p>
+    <h2 class="section-heading">It usually sounds like this.</h2>
     <div class="causes">
       <article class="cause">
         <div class="cause-num">01</div>
-        <h3>Nobody owns it.</h3>
-        <p>Everyone agrees it matters. It's on every list. It just isn't anyone's job, so it keeps sliding to next month.</p>
-        <div class="cause-maps">→ Ship it</div>
+        <h3>It's all in a few people's heads.</h3>
+        <p>The way the work gets done lives with two or three people. When they're out, everyone else is guessing.</p>
+        <div class="cause-maps">→ Document and automate</div>
       </article>
       <article class="cause">
         <div class="cause-num">02</div>
-        <h3>Nobody knows the right fix.</h3>
-        <p>Numbers are dropping or priorities keep shifting, and every decision gets made on gut. You don't need more opinions. You need to know what's actually going on.</p>
-        <div class="cause-maps">→ Figure it out</div>
+        <h3>Everything goes through you.</h3>
+        <p>Every question, approval, and quick fix lands on your desk. Nothing moves while you're out.</p>
+        <div class="cause-maps">→ Most teams start with 01</div>
       </article>
       <article class="cause">
         <div class="cause-num">03</div>
-        <h3>It all runs through you.</h3>
-        <p>The business works, but only when you're watching. Every question, approval and "quick fix" lands on your desk, and nothing moves while you're out.</p>
-        <div class="cause-maps">→ Build it</div>
+        <h3>You're the glue between your tools.</h3>
+        <p>The same update gets typed into three places, and you're the one who catches it when they don't match.</p>
+        <div class="cause-maps">→ Streamline and combine</div>
       </article>
     </div>
   </section>
@@ -1331,161 +1360,117 @@
   <div class="method">
     <div class="page-shell">
       <p class="eyebrow">The method</p>
-      <h2>How I get things <span class="hl">unstuck</span></h2>
+      <h2>How a system gets <span class="hl">built</span></h2>
       <div class="method-steps">
-        <div class="method-step"><span class="cause-num">01</span><h3>Name it.</h3><p>We list everything that's stalled and why. Not the version on the roadmap. The real one.</p></div>
-        <div class="method-step"><span class="cause-num">02</span><h3>Rank it.</h3><p>What's costing you the most, and what's fastest to fix. Most things can wait. A few can't.</p></div>
-        <div class="method-step"><span class="cause-num">03</span><h3>Test it.</h3><p>Small bets before big builds, with the numbers to watch.</p></div>
-        <div class="method-step"><span class="cause-num">04</span><h3>Ship it.</h3><p>One owner, a clear plan, and a finished thing.</p></div>
+        <div class="method-step"><span class="cause-num">01</span><h3>Map it.</h3><p>How the work actually happens, from the people who do it.</p></div>
+        <div class="method-step"><span class="cause-num">02</span><h3>Build it.</h3><p>On top of the tools you already have.</p></div>
+        <div class="method-step"><span class="cause-num">03</span><h3>Run it.</h3><p>I keep it working as you change.</p></div>
       </div>
     </div>
   </div>
 
-  <section class="section page-shell" id="teardown">
-    <div class="teardown">
-      <div>
-        <p class="eyebrow">Start here</p>
-        <h2>Stuck List Teardown</h2>
-        <ul>
-          <li>Send me your list, messy is fine.</li>
-          <li>We talk for 60 minutes.</li>
-          <li>You get a ranked plan you can run with or without me.</li>
-        </ul>
-      </div>
-      <div class="teardown-right">
-        <div class="teardown-price">$300</div>
-        <div style="margin:22px 0 0"><a class="btn" href="#contact" data-offer="Stuck List Teardown">Book a teardown</a></div>
-        <p class="teardown-fine">If we work together after, it comes off your first project.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section page-shell section-center section-follow" id="offers">
+  <section class="section page-shell section-center" id="offers">
     <p class="eyebrow">Offers</p>
-    <h2 class="section-heading">Three ways to work together</h2>
+    <h2 class="section-heading">One path. Three steps.</h2>
     <div class="tiers">
       <article class="tier-card">
-        <span class="offer-tag">When nobody owns it</span>
+        <span class="offer-tag">Start here</span>
         <p class="tier-number">01</p>
-        <h3>Ship it</h3>
-        <p class="tier-problem">There's a project that needs to happen and nobody has time to own it.</p>
-        <p class="tier-body">I take it from messy to done. I scope it, line up the people, keep it moving, and launch it.</p>
+        <h3>Document and automate</h3>
+        <p class="tier-problem">The work lives in a few people's heads.</p>
+        <p class="tier-body">What's in your team's heads becomes processes, a knowledge base they can ask, and automations for the repeat work.</p>
         <div class="tier-lists">
           <div>
             <p class="mini-label">Good for</p>
             <ul>
-              <li>launches that keep slipping</li>
-              <li>cross-team work with no owner</li>
-              <li>process rollouts</li>
+              <li>questions only one person can answer</li>
+              <li>repeat work done by hand</li>
+              <li>a process that leaves when someone is out</li>
             </ul>
           </div>
           <div>
             <p class="mini-label">You get</p>
             <ul class="checks">
-              <li>one owner</li>
-              <li>a clear plan</li>
-              <li>weekly updates</li>
-              <li>a finished project</li>
+              <li>processes someone else can follow</li>
+              <li>a knowledge base the team can ask</li>
+              <li>automations for the repeat work</li>
             </ul>
           </div>
         </div>
         <div class="tier-action">
-          <p class="tier-timing">From $2,500. Usually 4 to 6 weeks.</p>
-          <a class="card-link" href="#contact" data-offer="Ship it">Talk about this one →</a>
+          <a class="card-link" href="#contact" data-offer="Document and automate">Talk about this one →</a>
         </div>
       </article>
 
       <article class="tier-card">
-        <span class="offer-tag">When nobody knows the fix</span>
+        <span class="offer-tag">Then this</span>
         <p class="tier-number">02</p>
-        <h3>Figure it out</h3>
-        <p class="tier-problem">There's a problem and you don't know the answer yet.</p>
-        <p class="tier-body">I dig into your data and workflows, find what's actually going on, and design small tests to see what works.</p>
+        <h3>Streamline and combine</h3>
+        <p class="tier-problem">You're the glue between your tools.</p>
+        <p class="tier-body">Your tools finally talk to each other. No more re-typing or being the glue.</p>
         <div class="tier-lists">
           <div>
             <p class="mini-label">Good for</p>
             <ul>
-              <li>retention or conversion drops</li>
-              <li>unclear priorities</li>
-              <li>decisions you keep making on gut</li>
+              <li>the same details typed into three places</li>
+              <li>handoffs that wait on you</li>
+              <li>tools that don't share</li>
             </ul>
           </div>
           <div>
             <p class="mini-label">You get</p>
             <ul class="checks">
-              <li>a diagnosis</li>
-              <li>ranked options</li>
-              <li>a test plan with the numbers to watch</li>
+              <li>tools that pass the work along</li>
+              <li>you out of the middle</li>
             </ul>
           </div>
         </div>
         <div class="tier-action">
-          <p class="tier-timing">From $2,500. Usually 2 to 4 weeks.</p>
-          <a class="card-link" href="#contact" data-offer="Figure it out">Talk about this one →</a>
+          <a class="card-link" href="#contact" data-offer="Streamline and combine">Talk about this one →</a>
         </div>
       </article>
 
       <article class="tier-card">
-        <span class="offer-tag">When it all runs through you</span>
+        <span class="offer-tag">When you need it</span>
         <p class="tier-number">03</p>
-        <h3>Build it</h3>
-        <p class="tier-problem">You want the problem solved, not just planned.</p>
-        <p class="tier-body">I build the tool, workflow or handoff that takes you out of the middle. Small on purpose. Think an internal tool, an automation, a clear process, or an MVP.</p>
+        <h3>Build new</h3>
+        <p class="tier-problem">The thing you need doesn't exist yet.</p>
+        <p class="tier-body">The product or process that doesn't exist yet, built on top of the tools you already use.</p>
         <div class="tier-lists">
           <div>
             <p class="mini-label">Good for</p>
             <ul>
-              <li>work that stalls without you</li>
-              <li>manual work that should run on its own</li>
-              <li>testing an idea fast</li>
+              <li>a workflow with no tool</li>
+              <li>a product you've been describing</li>
+              <li>a process you can't buy</li>
             </ul>
           </div>
           <div>
             <p class="mini-label">You get</p>
             <ul class="checks">
-              <li>a working thing in your hands</li>
-              <li>a plan for what's next</li>
+              <li>a working thing</li>
+              <li>a plan for what runs next</li>
             </ul>
           </div>
         </div>
         <div class="tier-action">
-          <p class="tier-timing">From $2,500. Scoped per project.</p>
-          <a class="card-link" href="#contact" data-offer="Build it">Talk about this one →</a>
+          <a class="card-link" href="#contact" data-offer="Build new">Talk about this one →</a>
         </div>
       </article>
     </div>
+    <p class="path-note">Most teams start with 01. Build is a fixed-scope project, one price up front. Run is a monthly fee to keep it working and current.</p>
   </section>
 
-  <section class="section page-shell section-center section-follow" id="proof">
+  <section class="section page-shell own-work section-follow" id="proof">
     <p class="eyebrow">Proof</p>
-    <h2 class="section-heading">Where this comes from</h2>
-    <div class="stat-bar">
-      <div class="stat-box">
-        <p class="stat-value">5 weeks</p>
-        <p class="stat-label">faster time to market</p>
-        <p class="stat-note">at a leading marketplace company</p>
-      </div>
-      <div class="stat-box">
-        <p class="stat-value">$300K</p>
-        <p class="stat-label">in incremental GMV</p>
-        <p class="stat-note">at a leading marketplace company</p>
-      </div>
-      <div class="stat-box">
-        <p class="stat-value">300K+</p>
-        <p class="stat-label">members reached through automation</p>
-        <p class="stat-note">at a health insurance company</p>
-      </div>
-      <div class="stat-box">
-        <p class="stat-value">88% to 94%</p>
-        <p class="stat-label">forecasting accuracy</p>
-        <p class="stat-note">at a data software company</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section page-shell own-work section-follow">
-    <h2 class="section-heading">Idea to launch, on my own</h2>
-    <p class="own-sub">No team, no funding round. Just me shipping.</p>
+    <h2 class="section-heading">I run two businesses on the same systems I build for you.</h2>
+    <p class="own-sub">No team. The repeat work runs without me in the middle.</p>
+    <article class="proof-lead">
+      <p class="own-kicker">The system</p>
+      <h3>An AI operating system</h3>
+      <p>Research, newsletters, pins, and outreach run every week. It saves me about 8 hours a week.</p>
+      <a class="card-link" href="work.html#ai-ops">See what it runs →</a>
+    </article>
     <div class="own-grid">
       <article class="own-card">
         <h3><a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a></h3>
@@ -1508,24 +1493,24 @@
 
   <section class="section page-shell section-follow" id="how">
     <p class="eyebrow">How it works</p>
-    <h2 class="section-heading">From <span class="hl">stuck</span> to shipped</h2>
+    <h2 class="section-heading">From a mess to a system that <span class="hl">runs</span></h2>
     <ol class="steps">
       <li>
         <div class="step-marker">01</div>
-        <p>Send me your stuck list. A few sentences is plenty.</p>
+        <p>Send me your messiest workflow. A few sentences is plenty.</p>
       </li>
       <li>
         <div class="step-marker">02</div>
-        <p>We talk for 20 minutes. Free.</p>
-        <a class="card-link step-book" href="https://calendly.com/sandra-nowherestudio/20min" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sandra-nowherestudio/20min'});return false;">Skip ahead and book it →</a>
+        <p>I'll take a free 15-minute look and tell you what I'd build.</p>
+        <a class="card-link step-book" href="https://calendly.com/sandra-nowherestudio/20min" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sandra-nowherestudio/20min'});return false;">Or book the look →</a>
       </li>
       <li>
         <div class="step-marker">03</div>
-        <p>I send a one-page scope with timeline and price.</p>
+        <p>Build. A fixed-scope project, one price up front.</p>
       </li>
       <li>
         <div class="step-marker">04</div>
-        <p>We start.</p>
+        <p>Run. A monthly fee to keep it working and current, with a weekly plain-English summary of what changed.</p>
       </li>
     </ol>
   </section>
@@ -1548,8 +1533,8 @@
         <p class="founder-role">Founder, Now/Here Studio</p>
       </div>
       <div class="about-copy">
-        <p>I like the part of a project where nobody knows the answer yet. I've worked the product side, the ops side and the data side, and most stuck work needs all three.</p>
-        <p>I've built and scaled operational processes and products inside fast-moving companies. Outside client work, I build my own: <a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a> and <a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a>.</p>
+        <p>I've spent seven years on the product and ops side, building the systems teams run on.</p>
+        <p>Outside client work, I run two businesses on those same systems: <a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a> and <a href="https://goalongside.co" target="_blank" rel="noopener">Alongside</a>.</p>
       </div>
     </div>
   </section>
@@ -1559,11 +1544,11 @@
     <div class="faq-list">
       <details open>
         <summary>What does working with you look like?</summary>
-        <p class="faq-answer">You get one owner: me. We agree on the scope up front, I send weekly updates, and you end with a finished thing, not a deck.</p>
+        <p class="faq-answer">You get one person: me. We scope the build up front. Then I keep it running, and you get a weekly plain-English summary of what changed.</p>
       </details>
       <details>
         <summary>Who do you work with?</summary>
-        <p class="faq-answer">Founders and small teams with a business that works and a list of things that don't move.</p>
+        <p class="faq-answer">Agencies and service businesses. The work is real. It just lives in a few people's heads, and it doesn't run without them.</p>
       </details>
       <details>
         <summary>Do you just advise, or do you actually do the work?</summary>
@@ -1571,27 +1556,39 @@
       </details>
       <details>
         <summary>What if I'm the bottleneck?</summary>
-        <p class="faq-answer">That's one of the most common reasons work gets stuck. We find where things route through you, then build the tool, process or handoff that lets them move without you.</p>
+        <p class="faq-answer">That's the usual starting point. We find where the work routes through you, then build the system that lets it move while you're out.</p>
+      </details>
+      <details>
+        <summary>Why not just write it all down?</summary>
+        <p class="faq-answer">Docs go stale and nobody reads them. A system your team can ask stays in use.</p>
+      </details>
+      <details>
+        <summary>Can't we do this with Zapier?</summary>
+        <p class="faq-answer">You could, if someone had time to design, build, and keep it running. That's the part I do.</p>
+      </details>
+      <details>
+        <summary>Will my team feel replaced?</summary>
+        <p class="faq-answer">No. It stops your best people from being interrupted all day.</p>
       </details>
       <details>
         <summary>What's off the table?</summary>
-        <p class="faq-answer">Big agency retainers, full rebrands, and anything that needs a team of ten. I keep projects small so they actually ship.</p>
+        <p class="faq-answer">Marketing, ad campaigns, and anything that needs a team of ten. I build the systems the work runs on.</p>
       </details>
       <details>
         <summary>How much does it cost?</summary>
-        <p class="faq-answer">The teardown is $300. Projects are scoped and priced up front, after a free 20-minute call. Projects start at $2,500.</p>
+        <p class="faq-answer">Build is a fixed-scope project, one price up front. Run is a monthly fee to keep it working and current, with a weekly plain-English summary of what changed. I'll price it after I see the workflow. The first look is free.</p>
       </details>
       <details>
         <summary>Do I have to get on a call?</summary>
-        <p class="faq-answer">No. Send the problem in writing and I'll reply with next steps.</p>
+        <p class="faq-answer">No. Send the workflow in writing and I'll reply with next steps.</p>
       </details>
     </div>
   </section>
 
   <section class="contact-section" id="contact">
     <div class="page-shell contact-grid">
-      <h2>Got a stuck list? Start there.</h2>
-      <p class="contact-sub">A few sentences is plenty.</p>
+      <h2>Send me your messiest workflow.</h2>
+      <p class="contact-sub">I'll take a free 15-minute look and tell you what I'd build.</p>
       <div>
         <form id="contact-form" class="booking-form" method="POST">
           <label class="field">
@@ -1607,17 +1604,16 @@
             <input type="text" name="Company or team" autocomplete="organization" placeholder="Where you work" />
           </label>
           <label class="field">
-            <span>What's stuck?</span>
-            <textarea name="What's stuck?" placeholder="The launch, the tool, the thing that only moves when you push it..." required></textarea>
+            <span>Your messiest workflow</span>
+            <textarea name="Messiest workflow" placeholder="The thing only one person knows how to do, or the part where you're the glue..." required></textarea>
           </label>
           <fieldset class="field">
             <legend>What kind of help?</legend>
             <div class="help-chips">
-              <label class="chip"><input type="radio" name="What kind of help?" value="Stuck List Teardown"><span>Stuck List Teardown<small>$300, 60 minutes</small></span></label>
-              <label class="chip"><input type="radio" name="What kind of help?" value="Ship it"><span>Ship it<small>nobody owns it</small></span></label>
-              <label class="chip"><input type="radio" name="What kind of help?" value="Figure it out"><span>Figure it out<small>nobody knows the fix</small></span></label>
-              <label class="chip"><input type="radio" name="What kind of help?" value="Build it"><span>Build it<small>it all runs through me</small></span></label>
-              <label class="chip"><input type="radio" name="What kind of help?" value="Not sure yet" checked><span>Not sure yet<small>let's figure it out together</small></span></label>
+              <label class="chip"><input type="radio" name="What kind of help?" value="Document and automate"><span>Document and automate<small>what's in people's heads</small></span></label>
+              <label class="chip"><input type="radio" name="What kind of help?" value="Streamline and combine"><span>Streamline and combine<small>your tools don't talk</small></span></label>
+              <label class="chip"><input type="radio" name="What kind of help?" value="Build new"><span>Build new<small>it doesn't exist yet</small></span></label>
+              <label class="chip"><input type="radio" name="What kind of help?" value="Not sure yet" checked><span>Not sure yet<small>most teams start with 01</small></span></label>
             </div>
           </fieldset>
           <button type="submit" class="btn">Send it over</button>
@@ -1660,12 +1656,12 @@
       const secondary = document.createElement("a");
       secondary.className = "btn btn-secondary";
       secondary.href = "#contact";
-      secondary.textContent = "Send me your stuck list";
+      secondary.textContent = "Send me your messiest workflow";
       link.insertAdjacentElement("afterend", secondary);
       return;
     }
 
-    link.textContent = "Send me your stuck list";
+    link.textContent = "Send me your messiest workflow";
     link.href = "#contact";
     link.removeAttribute("target");
     link.removeAttribute("rel");
@@ -1739,7 +1735,6 @@
       const value = link.getAttribute("data-offer");
       const radio = document.querySelector(`input[name="What kind of help?"][value="${value}"]`);
       if (radio) radio.checked = true;
-      if (value === "Stuck List Teardown") trackLead("teardown", value);
     });
   });
 
@@ -1762,13 +1757,13 @@
     const helpChoice = form.elements["What kind of help?"].value;
     const payload = {
       access_key: config.FORM_ACCESS_KEY,
-      subject: helpChoice === "Stuck List Teardown" ? "Stuck List Teardown for Now/Here" : "Stuck list for Now/Here",
+      subject: "Workflow for Now/Here",
       from_name: "Now/Here Studio",
       name: form.elements.Name.value,
       email: form.elements.Email.value,
       company: form.elements["Company or team"].value,
       help: helpChoice,
-      message: form.elements["What's stuck?"].value,
+      message: form.elements["Messiest workflow"].value,
       botcheck: ""
     };
 
@@ -1785,12 +1780,12 @@
       if (!response.ok || result.success !== true) throw new Error("Form submit failed");
       if (typeof gtag === "function") {
         gtag("event", "generate_lead", {
-          form_name: "stuck_list",
+          form_name: "workflow",
           help_type: payload.help || "not_set"
         });
       }
       if (typeof fbq === "function") {
-        fbq("track", "Lead", { content_name: help });
+        fbq("track", "Lead", { content_name: helpChoice });
       }
       form.hidden = true;
       success.hidden = false;
