@@ -1569,100 +1569,71 @@
 
   .run-foot .card-link { color: var(--paper); }
 
-  /* Offer picker */
-  .picker-sub {
-    text-align: center;
-    color: var(--muted);
-    margin: -20px 0 22px;
+
+  .doodle-inline {
+    width: 1.9em;
+    height: 0.95em;
+    vertical-align: -0.2em;
+    margin-left: 2px;
   }
 
-  .picker-note {
-    text-align: center;
-    margin-bottom: 14px;
+  .doodle-flip { transform: scaleX(-1); margin: 0 2px 0 0; }
+
+  .cause-maps .doodle-inline { margin: 0 2px 0 0; }
+
+  .ix-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
 
-  .picker {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 28px;
+  .ix-note-side {
+    width: 40px;
+    height: 20px;
+    overflow: visible;
   }
 
-  .pick {
-    min-height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 22px;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    background: #fff;
-    color: var(--ink);
-    font-family: var(--font-body);
-    text-align: left;
-    cursor: pointer;
-    transition: transform 0.2s, border-color 0.2s;
+  .ix-note-arrow {
+    width: 34px;
+    height: 28px;
+    overflow: visible;
+    transform: translateY(8px);
   }
 
-  .pick:hover { border-color: var(--ink); transform: translateY(-3px); }
-
-  .pick[aria-pressed="true"] {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: var(--paper);
+  .run-nav button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
   }
 
-  .pick-quote {
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-  }
+  @media (max-width: 900px) {
+    .run-steps {
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      margin: 0 -2px;
+      padding: 2px 2px 6px;
+    }
 
-  .pick-tag {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    opacity: 0.75;
-  }
+    .run-steps::-webkit-scrollbar { display: none; }
 
-  .picker-why {
-    max-width: 640px;
-    margin: 0 auto 18px;
-    text-align: center;
-    font-size: 17px;
-    line-height: 1.5;
-  }
+    .run-steps li { flex: none; scroll-snap-align: start; }
 
-  .tiers.is-picked {
-    grid-template-columns: minmax(0, 640px);
-    justify-content: center;
-  }
-
-  .tiers.is-picked .tier-card { border-color: var(--ink); }
-
-  .picker-reset {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 16px;
-    min-height: 44px;
-    border: none;
-    background: none;
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    cursor: pointer;
+    .run-steps button {
+      width: auto;
+      min-height: 44px;
+      gap: 8px;
+      padding: 0 14px;
+      border-radius: 100px;
+      font-size: 15px;
+      white-space: nowrap;
+    }
   }
 
   .ix-toggle button:focus-visible,
   .run-steps button:focus-visible,
   .run-nav button:focus-visible,
-  .pick:focus-visible,
-  .picker-reset:focus-visible,
   .calc-row input:focus-visible {
     outline: 2px solid var(--cobalt);
     outline-offset: 3px;
@@ -1670,17 +1641,14 @@
 
   @media (max-width: 900px) {
     .ba-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .picker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .calc,
     .run { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 720px) {
     .ba-steps,
-    .ix-stats,
-    .picker { grid-template-columns: 1fr; }
+    .ix-stats { grid-template-columns: 1fr; }
     .ix-toggle-wrap .ix-note { display: none; }
-    .pick { min-height: 0; }
     .run-panel,
     .calc-inputs,
     .calc-result { padding: 24px 20px; }
@@ -1885,19 +1853,19 @@
         <div class="cause-num">01</div>
         <h3>It's all in a few people's heads.</h3>
         <p>The way the work gets done lives with two or three people. When they're out, everyone else is guessing.</p>
-        <div class="cause-maps">→ Document and automate</div>
+        <div class="cause-maps"><svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Document and automate</div>
       </article>
       <article class="cause">
         <div class="cause-num">02</div>
         <h3>Everything goes through you.</h3>
         <p>Every question, approval, and quick fix lands on your desk. Nothing moves while you're out.</p>
-        <div class="cause-maps">→ Most teams start with 01</div>
+        <div class="cause-maps"><svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Most teams start with 01</div>
       </article>
       <article class="cause">
         <div class="cause-num">03</div>
         <h3>You're the glue between your tools.</h3>
         <p>The same update gets typed into three places, and you're the one who catches it when they don't match.</p>
-        <div class="cause-maps">→ Streamline and combine</div>
+        <div class="cause-maps"><svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Streamline and combine</div>
       </article>
     </div>
   </section>
@@ -1910,7 +1878,7 @@
         <p class="ix-sub">This is what "it's all in a few people's heads" actually costs. Flip it and watch who gets pulled in.</p>
       </div>
       <div class="ix-toggle-wrap">
-        <span class="ix-note" aria-hidden="true">flip it →</span>
+        <span class="ix-note" aria-hidden="true">flip it <svg class="doodle-arrow ix-note-side" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="ix-toggle" role="group" aria-label="Show before or after">
           <button type="button" data-ba="before" aria-pressed="true">Before</button>
           <button type="button" data-ba="after" aria-pressed="false"><span class="ix-dot" aria-hidden="true"></span>After</button>
@@ -1947,7 +1915,7 @@
       </dl>
     </div>
 
-    <a class="card-link ix-after-link" href="#offers">This is 01, Document and automate →</a>
+    <a class="card-link ix-after-link" href="#offers">This is 01, Document and automate <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </section>
 
   <div class="method">
@@ -1963,20 +1931,10 @@
   </div>
 
   <section class="section page-shell section-center" id="offers">
-
     <p class="eyebrow">Offers</p>
-    <h2 class="section-heading">Which one sounds like <span class="hl">you?</span></h2>
-    <p class="picker-sub">Pick the one that stings most. I'll show you where to start.</p>
-    <p class="picker-note"><span class="ix-note" aria-hidden="true">pick one ↓</span></p>
-    <div class="picker" role="group" aria-label="Pick the one that sounds like you">
-      <button type="button" class="pick" aria-pressed="false" data-pick="01" data-why="What lives in a few people's heads becomes something the whole team can use. This is where most teams start."><span class="pick-quote">“Only two people really know how we do things.”</span><span class="pick-tag">it's all in our heads</span></button>
-      <button type="button" class="pick" aria-pressed="false" data-pick="01" data-why="Everything comes to you because the answers only live with you. Get them out of your head first, then you can step away."><span class="pick-quote">“Everything comes to me. I can't take a day off.”</span><span class="pick-tag">it all runs through me</span></button>
-      <button type="button" class="pick" aria-pressed="false" data-pick="02" data-why="Your tools finally talk to each other. No more re-typing, and no more being the one who catches what doesn't match."><span class="pick-quote">“I type the same update into three tools.”</span><span class="pick-tag">i'm the glue</span></button>
-      <button type="button" class="pick" aria-pressed="false" data-pick="03" data-why="The product or process you keep describing, built on top of the tools you already use."><span class="pick-quote">“The thing we need doesn't exist.”</span><span class="pick-tag">nothing fits</span></button>
-    </div>
-    <p class="picker-why" data-picker-why aria-live="polite" hidden></p>
-    <div class="tiers" data-tiers>
-      <article class="tier-card" data-tier="01">
+    <h2 class="section-heading">One path. Three steps.</h2>
+    <div class="tiers">
+      <article class="tier-card">
         <span class="offer-tag">Start here</span>
         <p class="tier-number">01</p>
         <h3>Document and automate</h3>
@@ -2001,11 +1959,11 @@
           </div>
         </div>
         <div class="tier-action">
-          <a class="card-link" href="#contact" data-offer="Document and automate">Talk about this one →</a>
+          <a class="card-link" href="#contact" data-offer="Document and automate">Talk about this one <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
-      <article class="tier-card" data-tier="02">
+      <article class="tier-card">
         <span class="offer-tag">Then this</span>
         <p class="tier-number">02</p>
         <h3>Streamline and combine</h3>
@@ -2029,11 +1987,11 @@
           </div>
         </div>
         <div class="tier-action">
-          <a class="card-link" href="#contact" data-offer="Streamline and combine">Talk about this one →</a>
+          <a class="card-link" href="#contact" data-offer="Streamline and combine">Talk about this one <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
-      <article class="tier-card" data-tier="03">
+      <article class="tier-card">
         <span class="offer-tag">When you need it</span>
         <p class="tier-number">03</p>
         <h3>Build new</h3>
@@ -2057,11 +2015,10 @@
           </div>
         </div>
         <div class="tier-action">
-          <a class="card-link" href="#contact" data-offer="Build new">Talk about this one →</a>
+          <a class="card-link" href="#contact" data-offer="Build new">Talk about this one <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
     </div>
-    <button type="button" class="picker-reset" data-picker-reset hidden>Show all three</button>
     <p class="path-note">Most teams start with 01. Build is a fixed-scope project, one price up front. Run is a monthly fee to keep it working and current.</p>
   </section>
 
@@ -2093,14 +2050,14 @@
         </ul>
         <span class="ix-note" data-run-note aria-hidden="true" hidden>the only part that's me</span>
         <div class="run-nav">
-          <button type="button" data-run-back disabled>← Back</button>
-          <button type="button" data-run-next>Next step →</button>
+          <button type="button" data-run-back disabled><svg class="doodle-arrow doodle-inline doodle-flip" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+          <button type="button" data-run-next>Next step <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
     </div>
     <div class="run-foot">
       <p>Every week my system finds jewelry designers for FABLE+42, writes to them and follows up. I spend a few minutes on it. Research, newsletters and pins run the same way, and it saves me about 8 hours a week.</p>
-      <a class="card-link" href="work.html#ai-ops">See what it runs →</a>
+      <a class="card-link" href="work.html#ai-ops">See what it runs <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="own-grid">
       <article class="own-card">
@@ -2132,7 +2089,7 @@
     </div>
     <div class="calc" data-calc>
       <div class="calc-inputs">
-        <span class="ix-note" aria-hidden="true">drag me ↓</span>
+        <span class="ix-note" aria-hidden="true">drag me <svg class="ix-note-arrow" viewBox="0 0 72 58" aria-hidden="true"><path d="M58 6 C 40 16, 28 28, 18 46 M 33 40 L 18 46 L 16 31" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="calc-row">
           <div class="calc-row-top">
             <label for="calc-asks">Questions and quick asks that come to you, per day</label>
@@ -2181,7 +2138,7 @@
       <li>
         <div class="step-marker">02</div>
         <p>I'll take a free 15-minute look and tell you what I'd build.</p>
-        <a class="card-link step-book" href="https://calendly.com/sandra-nowherestudio/20min" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sandra-nowherestudio/20min'});return false;">Or book the look →</a>
+        <a class="card-link step-book" href="https://calendly.com/sandra-nowherestudio/20min" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sandra-nowherestudio/20min'});return false;">Or book the look <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </li>
       <li>
         <div class="step-marker">03</div>
@@ -2496,6 +2453,12 @@
         return li;
       }));
       run.querySelector("[data-run-note]").hidden = step.who !== "me";
+      const list = run.querySelector(".run-steps");
+      const active = stepButtons[index].parentElement;
+      if (list.scrollWidth > list.clientWidth) {
+        const left = active.getBoundingClientRect().left - list.getBoundingClientRect().left + list.scrollLeft - 16;
+        list.scrollTo({ left: left, behavior: "smooth" });
+      }
       back.disabled = index === 0;
       next.disabled = index === runData.length - 1;
       if (index === runData.length - 1) ixTrack("ix_walkthrough_finished");
@@ -2505,35 +2468,6 @@
     next.addEventListener("click", () => showStep(Math.min(runData.length - 1, current + 1)));
   }
 
-  // Offer picker
-  const picks = document.querySelectorAll("[data-pick]");
-  const tiers = document.querySelector("[data-tiers]");
-  const why = document.querySelector("[data-picker-why]");
-  const reset = document.querySelector("[data-picker-reset]");
-  if (picks.length && tiers) {
-    const showAll = () => {
-      picks.forEach((p) => p.setAttribute("aria-pressed", "false"));
-      tiers.classList.remove("is-picked");
-      tiers.querySelectorAll("[data-tier]").forEach((card) => { card.hidden = false; });
-      why.hidden = true;
-      reset.hidden = true;
-    };
-    picks.forEach((pick) => {
-      pick.addEventListener("click", () => {
-        const tier = pick.getAttribute("data-pick");
-        picks.forEach((p) => p.setAttribute("aria-pressed", String(p === pick)));
-        tiers.classList.add("is-picked");
-        tiers.querySelectorAll("[data-tier]").forEach((card) => {
-          card.hidden = card.getAttribute("data-tier") !== tier;
-        });
-        why.textContent = pick.getAttribute("data-why");
-        why.hidden = false;
-        reset.hidden = false;
-        ixTrack("ix_offer_pick", { offer: tier, pain: pick.querySelector(".pick-tag").textContent });
-      });
-    });
-    reset.addEventListener("click", showAll);
-  }
 
   const calendlyLink = document.querySelector(".step-book");
   if (calendlyLink) {
