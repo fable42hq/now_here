@@ -1631,100 +1631,9 @@
     }
   }
 
-  /* Offer picker */
-  .picker-sub {
-    text-align: center;
-    color: var(--muted);
-    margin: -20px 0 22px;
-  }
-
-  .picker-note {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-
-  .picker {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-
-  .pick {
-    min-height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 22px;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    background: #fff;
-    color: var(--ink);
-    font-family: var(--font-body);
-    text-align: left;
-    cursor: pointer;
-    transition: transform 0.2s, border-color 0.2s;
-  }
-
-  .pick:hover { border-color: var(--ink); transform: translateY(-3px); }
-
-  .pick[aria-pressed="true"] {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: var(--paper);
-  }
-
-  .pick-quote {
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-  }
-
-  .pick-tag {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    opacity: 0.75;
-  }
-
-  .picker-why {
-    max-width: 640px;
-    margin: 0 auto 18px;
-    text-align: center;
-    font-size: 17px;
-    line-height: 1.5;
-  }
-
-  .tiers.is-picked {
-    grid-template-columns: minmax(0, 640px);
-    justify-content: center;
-  }
-
-  .tiers.is-picked .tier-card { border-color: var(--ink); }
-
-  .picker-reset {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 16px;
-    min-height: 44px;
-    border: none;
-    background: none;
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    cursor: pointer;
-  }
-
   .ix-toggle button:focus-visible,
   .run-steps button:focus-visible,
   .run-nav button:focus-visible,
-  .pick:focus-visible,
-  .picker-reset:focus-visible,
   .calc-row input:focus-visible {
     outline: 2px solid var(--cobalt);
     outline-offset: 3px;
@@ -1732,17 +1641,14 @@
 
   @media (max-width: 900px) {
     .ba-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .picker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .calc,
     .run { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 720px) {
     .ba-steps,
-    .ix-stats,
-    .picker { grid-template-columns: 1fr; }
+    .ix-stats { grid-template-columns: 1fr; }
     .ix-toggle-wrap .ix-note { display: none; }
-    .pick { min-height: 0; }
     .run-panel,
     .calc-inputs,
     .calc-result { padding: 24px 20px; }
@@ -2025,20 +1931,10 @@
   </div>
 
   <section class="section page-shell section-center" id="offers">
-
     <p class="eyebrow">Offers</p>
-    <h2 class="section-heading">Which one sounds like <span class="hl">you?</span></h2>
-    <p class="picker-sub">Pick the one that stings most. I'll show you where to start.</p>
-    <p class="picker-note"><span class="ix-note" aria-hidden="true">pick one <svg class="ix-note-arrow" viewBox="0 0 72 58" aria-hidden="true"><path d="M58 6 C 40 16, 28 28, 18 46 M 33 40 L 18 46 L 16 31" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></p>
-    <div class="picker" role="group" aria-label="Pick the one that sounds like you">
-      <button type="button" class="pick" aria-pressed="false" data-pick="01" data-why="What lives in a few people's heads becomes something the whole team can use. This is where most teams start."><span class="pick-quote">“Only two people really know how we do things.”</span><span class="pick-tag">it's all in our heads</span></button>
-      <button type="button" class="pick" aria-pressed="false" data-pick="01" data-why="Everything comes to you because the answers only live with you. Get them out of your head first, then you can step away."><span class="pick-quote">“Everything comes to me. I can't take a day off.”</span><span class="pick-tag">it all runs through me</span></button>
-      <button type="button" class="pick" aria-pressed="false" data-pick="02" data-why="Your tools finally talk to each other. No more re-typing, and no more being the one who catches what doesn't match."><span class="pick-quote">“I type the same update into three tools.”</span><span class="pick-tag">i'm the glue</span></button>
-      <button type="button" class="pick" aria-pressed="false" data-pick="03" data-why="The product or process you keep describing, built on top of the tools you already use."><span class="pick-quote">“The thing we need doesn't exist.”</span><span class="pick-tag">nothing fits</span></button>
-    </div>
-    <p class="picker-why" data-picker-why aria-live="polite" hidden></p>
-    <div class="tiers" data-tiers>
-      <article class="tier-card" data-tier="01">
+    <h2 class="section-heading">One path. Three steps.</h2>
+    <div class="tiers">
+      <article class="tier-card">
         <span class="offer-tag">Start here</span>
         <p class="tier-number">01</p>
         <h3>Document and automate</h3>
@@ -2067,7 +1963,7 @@
         </div>
       </article>
 
-      <article class="tier-card" data-tier="02">
+      <article class="tier-card">
         <span class="offer-tag">Then this</span>
         <p class="tier-number">02</p>
         <h3>Streamline and combine</h3>
@@ -2095,7 +1991,7 @@
         </div>
       </article>
 
-      <article class="tier-card" data-tier="03">
+      <article class="tier-card">
         <span class="offer-tag">When you need it</span>
         <p class="tier-number">03</p>
         <h3>Build new</h3>
@@ -2123,7 +2019,6 @@
         </div>
       </article>
     </div>
-    <button type="button" class="picker-reset" data-picker-reset hidden>Show all three</button>
     <p class="path-note">Most teams start with 01. Build is a fixed-scope project, one price up front. Run is a monthly fee to keep it working and current.</p>
   </section>
 
@@ -2573,35 +2468,6 @@
     next.addEventListener("click", () => showStep(Math.min(runData.length - 1, current + 1)));
   }
 
-  // Offer picker
-  const picks = document.querySelectorAll("[data-pick]");
-  const tiers = document.querySelector("[data-tiers]");
-  const why = document.querySelector("[data-picker-why]");
-  const reset = document.querySelector("[data-picker-reset]");
-  if (picks.length && tiers) {
-    const showAll = () => {
-      picks.forEach((p) => p.setAttribute("aria-pressed", "false"));
-      tiers.classList.remove("is-picked");
-      tiers.querySelectorAll("[data-tier]").forEach((card) => { card.hidden = false; });
-      why.hidden = true;
-      reset.hidden = true;
-    };
-    picks.forEach((pick) => {
-      pick.addEventListener("click", () => {
-        const tier = pick.getAttribute("data-pick");
-        picks.forEach((p) => p.setAttribute("aria-pressed", String(p === pick)));
-        tiers.classList.add("is-picked");
-        tiers.querySelectorAll("[data-tier]").forEach((card) => {
-          card.hidden = card.getAttribute("data-tier") !== tier;
-        });
-        why.textContent = pick.getAttribute("data-why");
-        why.hidden = false;
-        reset.hidden = false;
-        ixTrack("ix_offer_pick", { offer: tier, pain: pick.querySelector(".pick-tag").textContent });
-      });
-    });
-    reset.addEventListener("click", showAll);
-  }
 
   const calendlyLink = document.querySelector(".step-book");
   if (calendlyLink) {
