@@ -1141,6 +1141,551 @@
 
   .footer-links a:hover { text-decoration: underline; }
 
+
+  /* Interactive sections */
+  .ix-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px 40px;
+    margin-bottom: 32px;
+  }
+
+  .ix-head .section-heading { margin-bottom: 14px; }
+
+  .ix-sub {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.5;
+    max-width: 58ch;
+  }
+
+  .ix-note {
+    font-family: var(--font-hand);
+    font-size: 26px;
+    line-height: 1;
+    color: var(--cobalt-deep);
+    transform: rotate(-4deg);
+    display: inline-block;
+  }
+
+  .ix-toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .ix-toggle {
+    display: flex;
+    gap: 4px;
+    padding: 5px;
+    border: 1px solid var(--ink);
+    border-radius: 100px;
+    background: #fff;
+  }
+
+  .ix-toggle button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 100px;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .ix-toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .ix-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--cobalt);
+    display: none;
+  }
+
+  .ix-toggle button[aria-pressed="true"] .ix-dot { display: inline-block; }
+
+  .ix-question {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .ba-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    list-style: none;
+  }
+
+  .ba-step {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px 22px 24px;
+  }
+
+  .ba-step.is-waiting { border: 1.5px dashed var(--pencil); }
+
+  .ba-time {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--pencil);
+  }
+
+  .ba-step h3 {
+    font-size: 20px;
+    margin: 10px 0 8px;
+  }
+
+  .ba-step p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .ix-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+    padding: 26px 28px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 18px;
+  }
+
+  .ix-stats dt {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: rgba(250, 248, 243, 0.72);
+  }
+
+  .ix-stats dd {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-top: 4px;
+  }
+
+  .ix-after-link {
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 15px;
+  }
+
+  /* Calculator */
+  .calc {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .calc-inputs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 30px 28px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+  }
+
+  .calc-inputs .ix-note {
+    position: absolute;
+    top: -28px;
+    right: 26px;
+  }
+
+  .calc-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+
+  .calc-row label {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .calc-row output {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .calc-row input[type="range"] {
+    width: 100%;
+    height: 44px;
+    accent-color: var(--ink);
+    cursor: pointer;
+  }
+
+  .calc-result {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 30px 28px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 18px;
+  }
+
+  .calc-result .mini-label { color: rgba(250, 248, 243, 0.72); }
+
+  .calc-big {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .calc-big strong {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 8vw, 92px);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+  }
+
+  .calc-big span { font-size: 20px; font-weight: 500; }
+
+  .calc-result p {
+    color: rgba(250, 248, 243, 0.86);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .calc-result .calc-tail { color: var(--paper); margin-bottom: 16px; }
+
+  .btn-light {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .calc-fine {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+
+  /* Outreach walkthrough */
+  .run-heading {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  .run {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+    gap: 16px;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .run-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .run-steps button {
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 18px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .run-steps button:hover { border-color: var(--ink); }
+
+  .run-steps button[aria-current="step"] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .run-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.75;
+  }
+
+  .run-label { flex: 1 1 auto; }
+
+  .run-me {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: var(--butter);
+    color: var(--ink);
+  }
+
+  .run-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+  }
+
+  .run-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--pencil);
+  }
+
+  .run-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .run-count::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--cobalt);
+  }
+
+  .run-who {
+    padding: 4px 10px;
+    border: 1px solid var(--ink);
+    border-radius: 8px;
+    color: var(--ink);
+  }
+
+  .run-who.is-me { background: var(--butter); }
+
+  .run-panel h3 { font-size: 30px; }
+
+  .run-panel > p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 56ch;
+  }
+
+  .run-log {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 12px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .run-log li::before { content: "> "; }
+
+  .run-panel .ix-note { align-self: flex-start; font-size: 28px; }
+
+  .run-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: auto;
+  }
+
+  .run-nav button {
+    min-height: 44px;
+    padding: 0 20px;
+    border: 1px solid var(--ink);
+    border-radius: 100px;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .run-nav button[data-run-next] { background: var(--ink); color: var(--paper); }
+
+  .run-nav button:disabled { opacity: 0.35; cursor: default; }
+
+  .run-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px 24px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 18px;
+    text-align: left;
+  }
+
+  .run-foot p { max-width: 62ch; color: rgba(250, 248, 243, 0.86); }
+
+  .run-foot .card-link { color: var(--paper); }
+
+  /* Offer picker */
+  .picker-sub {
+    text-align: center;
+    color: var(--muted);
+    margin: -20px 0 22px;
+  }
+
+  .picker-note {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .picker {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .pick {
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #fff;
+    color: var(--ink);
+    font-family: var(--font-body);
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .pick:hover { border-color: var(--ink); transform: translateY(-3px); }
+
+  .pick[aria-pressed="true"] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .pick-quote {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .pick-tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.75;
+  }
+
+  .picker-why {
+    max-width: 640px;
+    margin: 0 auto 18px;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .tiers.is-picked {
+    grid-template-columns: minmax(0, 640px);
+    justify-content: center;
+  }
+
+  .tiers.is-picked .tier-card { border-color: var(--ink); }
+
+  .picker-reset {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 16px;
+    min-height: 44px;
+    border: none;
+    background: none;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+
+  .ix-toggle button:focus-visible,
+  .run-steps button:focus-visible,
+  .run-nav button:focus-visible,
+  .pick:focus-visible,
+  .picker-reset:focus-visible,
+  .calc-row input:focus-visible {
+    outline: 2px solid var(--cobalt);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .ba-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .picker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .calc,
+    .run { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 720px) {
+    .ba-steps,
+    .ix-stats,
+    .picker { grid-template-columns: 1fr; }
+    .ix-toggle-wrap .ix-note { display: none; }
+    .pick { min-height: 0; }
+    .run-panel,
+    .calc-inputs,
+    .calc-result { padding: 24px 20px; }
+  }
+
   @media (max-width: 900px) {
     .tiers,
     .causes,
@@ -1357,6 +1902,54 @@
     </div>
   </section>
 
+  <section class="section page-shell section-follow" id="difference">
+    <div class="ix-head">
+      <div>
+        <p class="eyebrow">See the difference</p>
+        <h2 class="section-heading">Same question. Two very different <span class="hl">afternoons.</span></h2>
+        <p class="ix-sub">This is what "it's all in a few people's heads" actually costs. Flip it and watch who gets pulled in.</p>
+      </div>
+      <div class="ix-toggle-wrap">
+        <span class="ix-note" aria-hidden="true">flip it →</span>
+        <div class="ix-toggle" role="group" aria-label="Show before or after">
+          <button type="button" data-ba="before" aria-pressed="true">Before</button>
+          <button type="button" data-ba="after" aria-pressed="false"><span class="ix-dot" aria-hidden="true"></span>After</button>
+        </div>
+      </div>
+    </div>
+    <p class="ix-question">the question: "What do we charge a repeat client for a rush job?"</p>
+
+    <div data-ba-panel="before" aria-live="polite">
+      <ol class="ba-steps">
+        <li class="ba-step"><span class="ba-time">2:15 pm</span><h3>Jess asks in Slack</h3><p>Only you know the answer. It's not written down anywhere.</p></li>
+        <li class="ba-step is-waiting"><span class="ba-time">2:16 pm</span><h3>It waits on you</h3><p>You're on a client call. Jess stops and waits.</p></li>
+        <li class="ba-step"><span class="ba-time">4:30 pm</span><h3>You finally answer</h3><p>Jess lost the afternoon. You lost your focus.</p></li>
+        <li class="ba-step is-waiting"><span class="ba-time">tomorrow</span><h3>Same thing again</h3><p>Same question, different person. Back to you.</p></li>
+      </ol>
+      <dl class="ix-stats">
+        <div><dt>time to answer</dt><dd>Half a day</dd></div>
+        <div><dt>people pulled in</dt><dd>2, including you</dd></div>
+        <div><dt>written down</dt><dd>Nowhere</dd></div>
+      </dl>
+    </div>
+
+    <div data-ba-panel="after" aria-live="polite" hidden>
+      <ol class="ba-steps">
+        <li class="ba-step"><span class="ba-time">2:15 pm</span><h3>Jess asks the team assistant</h3><p>Same question, asked where the answers live now.</p></li>
+        <li class="ba-step"><span class="ba-time">2:15 pm</span><h3>It checks your rules</h3><p>Pulls the rush fee you wrote down once, in your words.</p></li>
+        <li class="ba-step"><span class="ba-time">2:15 pm</span><h3>Answer in seconds</h3><p>With a link to the source, so she trusts it.</p></li>
+        <li class="ba-step"><span class="ba-time">2:15 pm</span><h3>You never hear about it</h3><p>You stay on your call. Jess keeps moving.</p></li>
+      </ol>
+      <dl class="ix-stats">
+        <div><dt>time to answer</dt><dd>Seconds</dd></div>
+        <div><dt>people pulled in</dt><dd>Just Jess</dd></div>
+        <div><dt>written down</dt><dd>Once, and kept current</dd></div>
+      </dl>
+    </div>
+
+    <a class="card-link ix-after-link" href="#offers">This is 01, Document and automate →</a>
+  </section>
+
   <div class="method">
     <div class="page-shell">
       <p class="eyebrow">The method</p>
@@ -1370,10 +1963,20 @@
   </div>
 
   <section class="section page-shell section-center" id="offers">
+
     <p class="eyebrow">Offers</p>
-    <h2 class="section-heading">One path. Three steps.</h2>
-    <div class="tiers">
-      <article class="tier-card">
+    <h2 class="section-heading">Which one sounds like <span class="hl">you?</span></h2>
+    <p class="picker-sub">Pick the one that stings most. I'll show you where to start.</p>
+    <p class="picker-note"><span class="ix-note" aria-hidden="true">pick one ↓</span></p>
+    <div class="picker" role="group" aria-label="Pick the one that sounds like you">
+      <button type="button" class="pick" aria-pressed="false" data-pick="01" data-why="What lives in a few people's heads becomes something the whole team can use. This is where most teams start."><span class="pick-quote">“Only two people really know how we do things.”</span><span class="pick-tag">it's all in our heads</span></button>
+      <button type="button" class="pick" aria-pressed="false" data-pick="01" data-why="Everything comes to you because the answers only live with you. Get them out of your head first, then you can step away."><span class="pick-quote">“Everything comes to me. I can't take a day off.”</span><span class="pick-tag">it all runs through me</span></button>
+      <button type="button" class="pick" aria-pressed="false" data-pick="02" data-why="Your tools finally talk to each other. No more re-typing, and no more being the one who catches what doesn't match."><span class="pick-quote">“I type the same update into three tools.”</span><span class="pick-tag">i'm the glue</span></button>
+      <button type="button" class="pick" aria-pressed="false" data-pick="03" data-why="The product or process you keep describing, built on top of the tools you already use."><span class="pick-quote">“The thing we need doesn't exist.”</span><span class="pick-tag">nothing fits</span></button>
+    </div>
+    <p class="picker-why" data-picker-why aria-live="polite" hidden></p>
+    <div class="tiers" data-tiers>
+      <article class="tier-card" data-tier="01">
         <span class="offer-tag">Start here</span>
         <p class="tier-number">01</p>
         <h3>Document and automate</h3>
@@ -1402,7 +2005,7 @@
         </div>
       </article>
 
-      <article class="tier-card">
+      <article class="tier-card" data-tier="02">
         <span class="offer-tag">Then this</span>
         <p class="tier-number">02</p>
         <h3>Streamline and combine</h3>
@@ -1430,7 +2033,7 @@
         </div>
       </article>
 
-      <article class="tier-card">
+      <article class="tier-card" data-tier="03">
         <span class="offer-tag">When you need it</span>
         <p class="tier-number">03</p>
         <h3>Build new</h3>
@@ -1458,6 +2061,7 @@
         </div>
       </article>
     </div>
+    <button type="button" class="picker-reset" data-picker-reset hidden>Show all three</button>
     <p class="path-note">Most teams start with 01. Build is a fixed-scope project, one price up front. Run is a monthly fee to keep it working and current.</p>
   </section>
 
@@ -1465,12 +2069,39 @@
     <p class="eyebrow">Proof</p>
     <h2 class="section-heading">I run two businesses on the same systems I build for you.</h2>
     <p class="own-sub">No team. The repeat work runs without me in the middle.</p>
-    <article class="proof-lead">
-      <p class="own-kicker">The system</p>
-      <h3>An AI operating system</h3>
-      <p>Research, newsletters, pins, and outreach run every week. It saves me about 8 hours a week.</p>
+    <h3 class="run-heading">Watch one outreach batch <span class="hl">run.</span></h3>
+    <div class="run" data-run>
+      <ol class="run-steps" aria-label="Steps in one outreach batch">
+        <li><button type="button" data-run-step="0" aria-current="step"><span class="run-num">01</span><span class="run-label">Find</span></button></li>
+        <li><button type="button" data-run-step="1"><span class="run-num">02</span><span class="run-label">Enrich</span></button></li>
+        <li><button type="button" data-run-step="2"><span class="run-num">03</span><span class="run-label">Pick the copy</span></button></li>
+        <li><button type="button" data-run-step="3"><span class="run-num">04</span><span class="run-label">Queue</span></button></li>
+        <li><button type="button" data-run-step="4"><span class="run-num">05</span><span class="run-label">Approve</span><span class="run-me">me</span></button></li>
+        <li><button type="button" data-run-step="5"><span class="run-num">06</span><span class="run-label">Send and follow up</span></button></li>
+      </ol>
+      <div class="run-panel" aria-live="polite">
+        <div class="run-meta">
+          <span class="run-count">step <span data-run-count>1</span> of 6</span>
+          <span class="run-who" data-run-who>who's doing it: the system</span>
+        </div>
+        <h3 data-run-title>Find</h3>
+        <p data-run-body>Pulls independent fine jewelry designers on Shopify who fit the FABLE+42 brief.</p>
+        <ul class="run-log" data-run-log>
+          <li>source: shopify stores, fine jewelry</li>
+          <li>filter: independent, own site, fits the brief</li>
+          <li>about 10 designers picked for this batch</li>
+        </ul>
+        <span class="ix-note" data-run-note aria-hidden="true" hidden>the only part that's me</span>
+        <div class="run-nav">
+          <button type="button" data-run-back disabled>← Back</button>
+          <button type="button" data-run-next>Next step →</button>
+        </div>
+      </div>
+    </div>
+    <div class="run-foot">
+      <p>Every week my system finds jewelry designers for FABLE+42, writes to them and follows up. I spend a few minutes on it. Research, newsletters and pins run the same way, and it saves me about 8 hours a week.</p>
       <a class="card-link" href="work.html#ai-ops">See what it runs →</a>
-    </article>
+    </div>
     <div class="own-grid">
       <article class="own-card">
         <h3><a href="https://fable42.com" target="_blank" rel="noopener">FABLE+42</a></h3>
@@ -1489,6 +2120,54 @@
         <p class="own-status">Stage: Live, with 50+ trips from 80+ operators.</p>
       </article>
     </div>
+  </section>
+
+  <section class="section page-shell section-follow" id="glue">
+    <div class="ix-head">
+      <div>
+        <p class="eyebrow">The glue tax</p>
+        <h2 class="section-heading">How much of your week goes to being the <span class="hl">glue?</span></h2>
+        <p class="ix-sub">Move the sliders. Be honest. Nobody's watching.</p>
+      </div>
+    </div>
+    <div class="calc" data-calc>
+      <div class="calc-inputs">
+        <span class="ix-note" aria-hidden="true">drag me ↓</span>
+        <div class="calc-row">
+          <div class="calc-row-top">
+            <label for="calc-asks">Questions and quick asks that come to you, per day</label>
+            <output for="calc-asks" data-calc-out="asks">12</output>
+          </div>
+          <input id="calc-asks" type="range" min="0" max="40" step="1" value="12" data-calc-in="asks">
+        </div>
+        <div class="calc-row">
+          <div class="calc-row-top">
+            <label for="calc-mins">Minutes each, counting getting back to what you were doing</label>
+            <output for="calc-mins" data-calc-out="mins">8 min</output>
+          </div>
+          <input id="calc-mins" type="range" min="1" max="30" step="1" value="8" data-calc-in="mins">
+        </div>
+        <div class="calc-row">
+          <div class="calc-row-top">
+            <label for="calc-retype">Hours a week typing the same thing into different tools</label>
+            <output for="calc-retype" data-calc-out="retype">3 hrs</output>
+          </div>
+          <input id="calc-retype" type="range" min="0" max="15" step="1" value="3" data-calc-in="retype">
+        </div>
+      </div>
+      <div class="calc-result" aria-live="polite">
+        <div>
+          <p class="mini-label">you spend about</p>
+          <p class="calc-big"><strong data-calc-monthly>48</strong><span>hours a month</span></p>
+          <p>being the person everything goes through. That's about <span data-calc-days>72</span> workdays a year.</p>
+        </div>
+        <div>
+          <p class="calc-tail">Most of that is what 01 and 02 take off your plate.</p>
+          <a class="btn btn-light" href="#contact">Send me your messiest workflow</a>
+        </div>
+      </div>
+    </div>
+    <p class="calc-fine">An estimate from your inputs, not a promise. It assumes a five-day week. Your real number depends on your team and your tools.</p>
   </section>
 
   <section class="section page-shell section-follow" id="how">
@@ -1737,6 +2416,124 @@
       if (radio) radio.checked = true;
     });
   });
+
+  const ixTrack = (name, params) => {
+    if (typeof gtag === "function") gtag("event", name, params || {});
+  };
+
+  // Before and after toggle
+  const baButtons = document.querySelectorAll("[data-ba]");
+  baButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const mode = button.getAttribute("data-ba");
+      baButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      document.querySelectorAll("[data-ba-panel]").forEach((panel) => {
+        panel.hidden = panel.getAttribute("data-ba-panel") !== mode;
+      });
+      ixTrack("ix_before_after", { view: mode });
+    });
+  });
+
+  // Glue tax calculator
+  const calc = document.querySelector("[data-calc]");
+  if (calc) {
+    let calcTracked = false;
+    const readCalc = (key) => Number(calc.querySelector(`[data-calc-in="${key}"]`).value);
+    const updateCalc = () => {
+      const asks = readCalc("asks");
+      const mins = readCalc("mins");
+      const retype = readCalc("retype");
+      const weekly = (asks * mins * 5) / 60 + retype;
+      calc.querySelector('[data-calc-out="asks"]').textContent = asks;
+      calc.querySelector('[data-calc-out="mins"]').textContent = mins + " min";
+      calc.querySelector('[data-calc-out="retype"]').textContent = retype + " hrs";
+      calc.querySelector("[data-calc-monthly]").textContent = Math.round((weekly * 52) / 12);
+      calc.querySelector("[data-calc-days]").textContent = Math.round((weekly * 52) / 8);
+    };
+    calc.querySelectorAll("[data-calc-in]").forEach((input) => {
+      input.addEventListener("input", updateCalc);
+      input.addEventListener("change", () => {
+        if (calcTracked) return;
+        calcTracked = true;
+        ixTrack("ix_calculator_used");
+      });
+    });
+    updateCalc();
+  }
+
+  // Outreach batch walkthrough
+  const run = document.querySelector("[data-run]");
+  if (run) {
+    const runData = [
+      { title: "Find", who: "the system", body: "Pulls independent fine jewelry designers on Shopify who fit the FABLE+42 brief.", log: ["source: shopify stores, fine jewelry", "filter: independent, own site, fits the brief", "about 10 designers picked for this batch"] },
+      { title: "Enrich", who: "the system", body: "Finds each designer's email and checks it's real before anything gets sent.", log: ["finding emails", "verifying each address", "bad addresses dropped"] },
+      { title: "Pick the copy", who: "the system", body: "Reads last week's replies and picks the email sequence that's working.", log: ["reading last week's results", "best sequence assigned to each designer", "stale copy flagged for review"] },
+      { title: "Queue", who: "the system", body: "Drops the whole batch into Notion, drafted and ready to go.", log: ["notion: batch created", "drafts attached", "status: waiting on sandra"] },
+      { title: "Approve", who: "me", body: "I read the batch and hit approve. This is the only step that needs me.", log: ["sandra: reviewed", "sandra: approved"] },
+      { title: "Send and follow up", who: "the system", body: "Sends, follows up on day 3, 5 and 7, and logs every reply back to Notion.", log: ["sent", "follow ups: day 3, 5, 7", "replies logged to notion"] }
+    ];
+    const stepButtons = run.querySelectorAll("[data-run-step]");
+    const back = run.querySelector("[data-run-back]");
+    const next = run.querySelector("[data-run-next]");
+    const who = run.querySelector("[data-run-who]");
+    const log = run.querySelector("[data-run-log]");
+    let current = 0;
+    const showStep = (index) => {
+      current = index;
+      const step = runData[index];
+      stepButtons.forEach((b, i) => {
+        if (i === index) b.setAttribute("aria-current", "step");
+        else b.removeAttribute("aria-current");
+      });
+      run.querySelector("[data-run-count]").textContent = index + 1;
+      run.querySelector("[data-run-title]").textContent = step.title;
+      run.querySelector("[data-run-body]").textContent = step.body;
+      who.textContent = "who's doing it: " + step.who;
+      who.classList.toggle("is-me", step.who === "me");
+      log.replaceChildren(...step.log.map((line) => {
+        const li = document.createElement("li");
+        li.textContent = line;
+        return li;
+      }));
+      run.querySelector("[data-run-note]").hidden = step.who !== "me";
+      back.disabled = index === 0;
+      next.disabled = index === runData.length - 1;
+      if (index === runData.length - 1) ixTrack("ix_walkthrough_finished");
+    };
+    stepButtons.forEach((b) => b.addEventListener("click", () => showStep(Number(b.getAttribute("data-run-step")))));
+    back.addEventListener("click", () => showStep(Math.max(0, current - 1)));
+    next.addEventListener("click", () => showStep(Math.min(runData.length - 1, current + 1)));
+  }
+
+  // Offer picker
+  const picks = document.querySelectorAll("[data-pick]");
+  const tiers = document.querySelector("[data-tiers]");
+  const why = document.querySelector("[data-picker-why]");
+  const reset = document.querySelector("[data-picker-reset]");
+  if (picks.length && tiers) {
+    const showAll = () => {
+      picks.forEach((p) => p.setAttribute("aria-pressed", "false"));
+      tiers.classList.remove("is-picked");
+      tiers.querySelectorAll("[data-tier]").forEach((card) => { card.hidden = false; });
+      why.hidden = true;
+      reset.hidden = true;
+    };
+    picks.forEach((pick) => {
+      pick.addEventListener("click", () => {
+        const tier = pick.getAttribute("data-pick");
+        picks.forEach((p) => p.setAttribute("aria-pressed", String(p === pick)));
+        tiers.classList.add("is-picked");
+        tiers.querySelectorAll("[data-tier]").forEach((card) => {
+          card.hidden = card.getAttribute("data-tier") !== tier;
+        });
+        why.textContent = pick.getAttribute("data-why");
+        why.hidden = false;
+        reset.hidden = false;
+        ixTrack("ix_offer_pick", { offer: tier, pain: pick.querySelector(".pick-tag").textContent });
+      });
+    });
+    reset.addEventListener("click", showAll);
+  }
 
   const calendlyLink = document.querySelector(".step-book");
   if (calendlyLink) {
