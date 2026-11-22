@@ -1569,6 +1569,68 @@
 
   .run-foot .card-link { color: var(--paper); }
 
+
+  .doodle-inline {
+    width: 1.9em;
+    height: 0.95em;
+    vertical-align: -0.2em;
+    margin-left: 2px;
+  }
+
+  .doodle-flip { transform: scaleX(-1); margin: 0 2px 0 0; }
+
+  .cause-maps .doodle-inline { margin: 0 2px 0 0; }
+
+  .ix-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .ix-note-side {
+    width: 40px;
+    height: 20px;
+    overflow: visible;
+  }
+
+  .ix-note-arrow {
+    width: 34px;
+    height: 28px;
+    overflow: visible;
+    transform: translateY(8px);
+  }
+
+  .run-nav button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .run-steps {
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      margin: 0 -2px;
+      padding: 2px 2px 6px;
+    }
+
+    .run-steps::-webkit-scrollbar { display: none; }
+
+    .run-steps li { flex: none; scroll-snap-align: start; }
+
+    .run-steps button {
+      width: auto;
+      min-height: 44px;
+      gap: 8px;
+      padding: 0 14px;
+      border-radius: 100px;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+  }
+
   /* Offer picker */
   .picker-sub {
     text-align: center;
@@ -1885,19 +1947,19 @@
         <div class="cause-num">01</div>
         <h3>It's all in a few people's heads.</h3>
         <p>The way the work gets done lives with two or three people. When they're out, everyone else is guessing.</p>
-        <div class="cause-maps">→ Document and automate</div>
+        <div class="cause-maps"><svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Document and automate</div>
       </article>
       <article class="cause">
         <div class="cause-num">02</div>
         <h3>Everything goes through you.</h3>
         <p>Every question, approval, and quick fix lands on your desk. Nothing moves while you're out.</p>
-        <div class="cause-maps">→ Most teams start with 01</div>
+        <div class="cause-maps"><svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Most teams start with 01</div>
       </article>
       <article class="cause">
         <div class="cause-num">03</div>
         <h3>You're the glue between your tools.</h3>
         <p>The same update gets typed into three places, and you're the one who catches it when they don't match.</p>
-        <div class="cause-maps">→ Streamline and combine</div>
+        <div class="cause-maps"><svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Streamline and combine</div>
       </article>
     </div>
   </section>
@@ -1910,7 +1972,7 @@
         <p class="ix-sub">This is what "it's all in a few people's heads" actually costs. Flip it and watch who gets pulled in.</p>
       </div>
       <div class="ix-toggle-wrap">
-        <span class="ix-note" aria-hidden="true">flip it →</span>
+        <span class="ix-note" aria-hidden="true">flip it <svg class="doodle-arrow ix-note-side" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="ix-toggle" role="group" aria-label="Show before or after">
           <button type="button" data-ba="before" aria-pressed="true">Before</button>
           <button type="button" data-ba="after" aria-pressed="false"><span class="ix-dot" aria-hidden="true"></span>After</button>
@@ -1947,7 +2009,7 @@
       </dl>
     </div>
 
-    <a class="card-link ix-after-link" href="#offers">This is 01, Document and automate →</a>
+    <a class="card-link ix-after-link" href="#offers">This is 01, Document and automate <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </section>
 
   <div class="method">
@@ -1967,7 +2029,7 @@
     <p class="eyebrow">Offers</p>
     <h2 class="section-heading">Which one sounds like <span class="hl">you?</span></h2>
     <p class="picker-sub">Pick the one that stings most. I'll show you where to start.</p>
-    <p class="picker-note"><span class="ix-note" aria-hidden="true">pick one ↓</span></p>
+    <p class="picker-note"><span class="ix-note" aria-hidden="true">pick one <svg class="ix-note-arrow" viewBox="0 0 72 58" aria-hidden="true"><path d="M58 6 C 40 16, 28 28, 18 46 M 33 40 L 18 46 L 16 31" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></p>
     <div class="picker" role="group" aria-label="Pick the one that sounds like you">
       <button type="button" class="pick" aria-pressed="false" data-pick="01" data-why="What lives in a few people's heads becomes something the whole team can use. This is where most teams start."><span class="pick-quote">“Only two people really know how we do things.”</span><span class="pick-tag">it's all in our heads</span></button>
       <button type="button" class="pick" aria-pressed="false" data-pick="01" data-why="Everything comes to you because the answers only live with you. Get them out of your head first, then you can step away."><span class="pick-quote">“Everything comes to me. I can't take a day off.”</span><span class="pick-tag">it all runs through me</span></button>
@@ -2001,7 +2063,7 @@
           </div>
         </div>
         <div class="tier-action">
-          <a class="card-link" href="#contact" data-offer="Document and automate">Talk about this one →</a>
+          <a class="card-link" href="#contact" data-offer="Document and automate">Talk about this one <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
@@ -2029,7 +2091,7 @@
           </div>
         </div>
         <div class="tier-action">
-          <a class="card-link" href="#contact" data-offer="Streamline and combine">Talk about this one →</a>
+          <a class="card-link" href="#contact" data-offer="Streamline and combine">Talk about this one <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
@@ -2057,7 +2119,7 @@
           </div>
         </div>
         <div class="tier-action">
-          <a class="card-link" href="#contact" data-offer="Build new">Talk about this one →</a>
+          <a class="card-link" href="#contact" data-offer="Build new">Talk about this one <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
     </div>
@@ -2093,14 +2155,14 @@
         </ul>
         <span class="ix-note" data-run-note aria-hidden="true" hidden>the only part that's me</span>
         <div class="run-nav">
-          <button type="button" data-run-back disabled>← Back</button>
-          <button type="button" data-run-next>Next step →</button>
+          <button type="button" data-run-back disabled><svg class="doodle-arrow doodle-inline doodle-flip" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+          <button type="button" data-run-next>Next step <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
     </div>
     <div class="run-foot">
       <p>Every week my system finds jewelry designers for FABLE+42, writes to them and follows up. I spend a few minutes on it. Research, newsletters and pins run the same way, and it saves me about 8 hours a week.</p>
-      <a class="card-link" href="work.html#ai-ops">See what it runs →</a>
+      <a class="card-link" href="work.html#ai-ops">See what it runs <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="own-grid">
       <article class="own-card">
@@ -2132,7 +2194,7 @@
     </div>
     <div class="calc" data-calc>
       <div class="calc-inputs">
-        <span class="ix-note" aria-hidden="true">drag me ↓</span>
+        <span class="ix-note" aria-hidden="true">drag me <svg class="ix-note-arrow" viewBox="0 0 72 58" aria-hidden="true"><path d="M58 6 C 40 16, 28 28, 18 46 M 33 40 L 18 46 L 16 31" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="calc-row">
           <div class="calc-row-top">
             <label for="calc-asks">Questions and quick asks that come to you, per day</label>
@@ -2181,7 +2243,7 @@
       <li>
         <div class="step-marker">02</div>
         <p>I'll take a free 15-minute look and tell you what I'd build.</p>
-        <a class="card-link step-book" href="https://calendly.com/sandra-nowherestudio/20min" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sandra-nowherestudio/20min'});return false;">Or book the look →</a>
+        <a class="card-link step-book" href="https://calendly.com/sandra-nowherestudio/20min" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sandra-nowherestudio/20min'});return false;">Or book the look <svg class="doodle-arrow doodle-inline" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 13 C 16 11, 28 12, 44 15 M 31 21 L 44 15 L 34 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </li>
       <li>
         <div class="step-marker">03</div>
@@ -2496,6 +2558,12 @@
         return li;
       }));
       run.querySelector("[data-run-note]").hidden = step.who !== "me";
+      const list = run.querySelector(".run-steps");
+      const active = stepButtons[index].parentElement;
+      if (list.scrollWidth > list.clientWidth) {
+        const left = active.getBoundingClientRect().left - list.getBoundingClientRect().left + list.scrollLeft - 16;
+        list.scrollTo({ left: left, behavior: "smooth" });
+      }
       back.disabled = index === 0;
       next.disabled = index === runData.length - 1;
       if (index === runData.length - 1) ixTrack("ix_walkthrough_finished");
